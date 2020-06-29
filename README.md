@@ -20,9 +20,13 @@ coming soon
 
 > Coming soon
 
+## Changelog
+
+[Changelog](./CHANGELOG.md)
+
 ## Contribute
 
-
+[Contributing](./CONTRIBUTING.md)
 
 ## License
 
