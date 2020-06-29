@@ -1,0 +1,20 @@
+# ide
+.idea
+*.iml
+.project
+.vscode
+
+# os
+.DS_Store
+
+# pyenv and venv
+.python-version
+.venv
+.test-venv
+
+# python artifacts
+__pycache__/
+*.egg-info/
+*.py[cod]
+build/
+dist/
