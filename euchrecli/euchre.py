@@ -1,9 +1,10 @@
 import click
 
+from euchrecli.game import setup
 
 @click.command()
 def cli():
-    print('soon to be euchre game.')
+    setup()
 
 
 if __name__ == "__main__":

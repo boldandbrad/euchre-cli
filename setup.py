@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # parse version number from euchre-cli/__init__.py:
 with open('euchrecli/__init__.py') as f:
@@ -16,7 +16,8 @@ setup_info = dict(
     description='Play euchre in your terminal.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    packages=['euchrecli'],
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'click>=7'
     ],
