@@ -1,6 +1,6 @@
 
-from euchrecli.card_util import Card, Suit
-from euchrecli.player_util import Player, Team
+from euchrecli.util.card_util import Card, Suit
+from euchrecli.util.player_util import Player, Team
 
 
 def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],

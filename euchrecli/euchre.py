@@ -1,6 +1,6 @@
 import click
 
-from euchrecli.game import setup
+from euchrecli.commands.play import play
 
 
 @click.group()
@@ -9,9 +9,7 @@ def cli():
     pass
 
 
-@cli.command(help='Start a new euchre game.')
-def play():
-    setup()
+cli.add_command(play, 'play')
 
 
 if __name__ == "__main__":

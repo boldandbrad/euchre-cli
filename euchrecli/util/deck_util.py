@@ -1,7 +1,7 @@
 
 from random import shuffle
-from euchrecli.card_util import Suit, Face, Card
-from euchrecli.player_util import Player
+from euchrecli.util.card_util import Suit, Face, Card
+from euchrecli.util.player_util import Player
 
 
 def create_deck() -> [Card]:

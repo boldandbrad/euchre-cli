@@ -1,7 +1,7 @@
 
 from random import choice
 
-from euchrecli.card_util import Card, Suit
+from euchrecli.util.card_util import Card, Suit
 
 
 class Team():

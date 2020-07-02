@@ -1,7 +1,15 @@
-from euchrecli.card_util import Card, Suit
-from euchrecli.deck_util import create_deck, deal_hand
-from euchrecli.player_util import Team, Player
-from euchrecli.rule_util import valid_play, trick_winner, hand_winner
+
+import click
+
+from euchrecli.util.card_util import Card, Suit
+from euchrecli.util.deck_util import create_deck, deal_hand
+from euchrecli.util.player_util import Team, Player
+from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner
+
+
+@click.command(help='Start a new euchre game.')
+def play():
+    setup()
 
 
 def setup():
