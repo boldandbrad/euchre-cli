@@ -1,4 +1,4 @@
-# euchre-cli
+# euchre-cli :spades:
 
 Play euchre in your terminal.
 
