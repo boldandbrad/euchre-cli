@@ -44,13 +44,12 @@ class Card():
             return self.suit
 
     def weighted_value(self, trump_suit: Suit, lead_suit: Suit) -> int:
-        """
-        determine card weight relative to trump and/or lead suit cards
-        lead == trump
+        """Determine card weights relative to trump and/or lead suit cards.
+        When lead == trump:
             trump:      9(21), 10(22), Q(23), K(24), A(25), Left(26), Right(27)
             else:       9(9), 10(10), J(11), Q(12), K(13), A(14)
 
-        lead != trump
+        When lead != trump:
             trump:      9(21), 10(22), Q(23), K(24), A(25), Left(26), Right(27)
             lead:       9(15), 10(16), J(17), Q(18), K(19), A(20)
             else:       9(9), 10(10), J(11), Q(12), K(13), A(14)

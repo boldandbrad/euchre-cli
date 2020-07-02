@@ -14,9 +14,11 @@ class Team():
         self.trick_score = 0
 
     def won_hand(self, points: int):
+        """Increment game_score for winning hand."""
         self.game_score += points
 
     def won_trick(self):
+        """Increment trick_score for winning trick."""
         self.trick_score += 1
 
     def __repr__(self) -> str:
@@ -55,7 +57,6 @@ class Player():
         return card_to_play
 
     def remove_card(self, card: Card):
-        # TODO: implement
         self.hand.pop(self.hand.index(card))
 
     def __repr__(self) -> str:

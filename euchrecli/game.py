@@ -5,9 +5,7 @@ from euchrecli.rule_util import valid_play, trick_winner, hand_winner
 
 
 def setup():
-    """
-    game setup
-    """
+    """Setup players."""
     # TODO: implement setup from user input
 
     # TODO: implement random team assignment and order
@@ -23,13 +21,12 @@ def setup():
     ]
     players[3].is_dealer = True
 
+    # start game
     game(players, teams)
 
 
 def game(players: [Player], teams: [Team]):
-    """
-    start game and manage team scores
-    """
+    """Start game and manage team scores."""
     # play hands until the game is won
     game_won = False
     hand_number = 1
@@ -56,9 +53,7 @@ def game(players: [Player], teams: [Team]):
 
 
 def hand(number: int, players: [Player]) -> None:
-    """
-    deal and play a hand
-    """
+    """Deal and play a hand."""
     print(f'\nPlay Hand {number}\n')
     trump_suit = None
 
@@ -90,9 +85,7 @@ def hand(number: int, players: [Player]) -> None:
 
 
 def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
-    """
-    set trump suit for the current hand
-    """
+    """Set trump suit for the current hand."""
     print('Set trump suit')
     # dealer flips card
     face_up_card = deck[0]
@@ -136,6 +129,7 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
 
 
 def trick(players: [Player], trump_suit: Suit) -> [Card]:
+    """Players take turns playing cards in a trick."""
     print('\nPlay Trick\n')
     played_cards = []
     for player in players:

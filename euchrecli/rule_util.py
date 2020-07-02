@@ -5,9 +5,7 @@ from euchrecli.player_util import Player, Team
 
 def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                trump_suit: Suit) -> bool:
-    """Return whether a card is a valid play.
-
-    """
+    """Return whether a card is a valid play."""
     valid = False
     if len(played_cards) == 0 or len(player_hand) == 1:
         valid = True
@@ -38,11 +36,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
 
 def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
         -> Player:
-    """Return winning player of the last trick. Increment their team's trick
-    score.
-
-    Determine winner of trick by trump and lead weighted card values
-    """
+    """Return winning player of trick. Increment their team's trick score."""
     lead_suit = played_cards[0].suit
 
     high_value = 0
@@ -60,10 +54,7 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
 
 
 def hand_winner(teams: [Team]) -> Team:
-    """Return winning team of the last hand. Increment their team's game_score.
-
-    """
-
+    """Return winning team of the last hand. Increment team game_score."""
     winning_team = None
     for team in teams:
         if team.trick_score >= 3:
