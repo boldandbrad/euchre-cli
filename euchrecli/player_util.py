@@ -9,6 +9,8 @@ class Team():
     def __init__(self, name: str):
         self.name = name
         self.game_score = 0
+
+        self.called_trump = False
         self.trick_score = 0
 
     def won_hand(self, points: int):
@@ -16,6 +18,12 @@ class Team():
 
     def won_trick(self):
         self.trick_score += 1
+
+    def __repr__(self) -> str:
+        return f"Team({self.name})"
+
+    def __str__(self) -> str:
+        return f"{self.name}"
 
 
 class Player():
@@ -44,7 +52,6 @@ class Player():
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
         # TODO: implement
         card_to_play = choice(self.hand)
-        print(f'{card_to_play} {card_to_play.is_left_bower(trump_suit)}')
         return card_to_play
 
     def remove_card(self, card: Card):

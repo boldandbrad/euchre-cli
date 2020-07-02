@@ -1,19 +1,26 @@
 
 from euchrecli.card_util import Card, Suit
-from euchrecli.player_util import Player
+from euchrecli.player_util import Player, Team
 
 
 def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                trump_suit: Suit) -> bool:
+    """Return whether a card is a valid play.
+
+    """
     valid = False
     if len(played_cards) == 0 or len(player_hand) == 1:
         valid = True
-        print(f'valid (1) {valid}')
+        print(f'{card_to_play}, ' +
+              f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
+              f'valid (1): {valid}')
     else:
         lead_suit = played_cards[0].adjusted_suit(trump_suit)
         if card_to_play.adjusted_suit(trump_suit) == lead_suit:
             valid = True
-            print(f'valid (2) {valid}')
+            print(f'{card_to_play}, ' +
+                  f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
+                  f'valid (2): {valid}')
         else:
             lead_matches = 0
             for card in player_hand:
@@ -22,14 +29,19 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                     lead_matches += 1
 
             valid = lead_matches == 0
-            print(f'valid (3) {lead_matches == 0}')
+            print(f'{card_to_play}, ' +
+                  f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
+                  f'valid (3): {valid}')
 
     return valid
 
 
-def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
-    """
-    determine winner of trick by trump and lead weighted card values
+def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
+        -> Player:
+    """Return winning player of the last trick. Increment their team's trick
+    score.
+
+    Determine winner of trick by trump and lead weighted card values
     """
     lead_suit = played_cards[0].suit
 
@@ -41,9 +53,33 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
             high_value = weighted_value
             winning_player = players[idx]
 
+    # increment team tricks won
+    winning_player.team.won_trick()
+
     return winning_player
 
 
-def score_hand(team_called: int):
-    # TODO: implement
-    pass
+def hand_winner(teams: [Team]) -> Team:
+    """Return winning team of the last hand. Increment their team's game_score.
+
+    """
+
+    winning_team = None
+    for team in teams:
+        if team.trick_score >= 3:
+            winning_team = team
+            # called trump and took 3 or 4 tricks
+            if team.called_trump and team.trick_score in [3, 4]:
+                team.won_hand(1)
+            # called trump and took all 5 tricks
+            elif team.called_trump and team.trick_score == 5:
+                team.won_hand(2)
+            # did not call trump but still took 3 or more tricks
+            else:
+                team.won_hand(2)
+
+        # reset called_trump and trick_score
+        team.called_trump = False
+        team.trick_score = 0
+
+    return winning_team
