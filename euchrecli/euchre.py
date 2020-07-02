@@ -4,6 +4,7 @@ from euchrecli.game import setup
 
 
 @click.group()
+@click.version_option()
 def cli():
     pass
 
