@@ -21,7 +21,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                         lead_suit:
                     lead_matches += 1
 
-            valid = lead_matches == 0  # TODO: change this to 'lead_matches == 0'
+            valid = lead_matches == 0
             print(f'valid (3) {lead_matches == 0}')
 
     return valid

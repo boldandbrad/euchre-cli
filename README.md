@@ -4,25 +4,19 @@ Play euchre in your terminal.
 
 ## Installation
 
-### macOS
-
 ```zsh
-coming soon
-```
-
-### Windows
-
-```cmd
-coming soon
+pip install euchrecli
 ```
 
 ## Usage
 
-> Coming soon
+```zsh
+euchre play
+```
 
 ## Planned Features
 
-### Release 1ish
+### Release 1.x
 
 * Ability to enter username
 * Ability to play through a complete game of euchre with 3 cpus
@@ -31,9 +25,10 @@ coming soon
 * Game debug logs
 * Euchre rules overview
 * Output euchre-cli version
+* Usage documentation
 * Published to pypi
 
-### Release 2ish
+### Release 2.x
 
 * Ability to save user configs
 * Ability to revert to default configs
@@ -46,7 +41,6 @@ coming soon
 * Ability to adjust speed of cpu decision making
 * Shell output coloring and emojis
 * Choose trump suit from suits in hand only mode
-* Install with homebrew on mac and linux
 
 ### Future
 
@@ -59,15 +53,28 @@ coming soon
 * 'Nines and tens' mode
 * 'Ace no face' mode
 * Three handed euchre mode
-* Install with Chocolatey on windows
+* Install with homebrew on mac and linux ?
+* Install with Chocolatey on windows ?
 
 ## Changelog
 
 [Changelog](./CHANGELOG.md)
 
-## Contribute
+## Development
 
 [Contributing](./CONTRIBUTING.md)
+
+```zsh
+git clone https://github.com/bradleycwojcik/euchre-cli
+```
+
+```zsh
+pip install .
+```
+
+```zsh
+euchre --help
+```
 
 ## License
 

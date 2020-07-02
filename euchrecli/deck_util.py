@@ -5,6 +5,9 @@ from euchrecli.player_util import Player
 
 
 def create_deck() -> [Card]:
+    """Return a shuffled standard euchre deck.
+    9, 10, J, Q, K, A of each suit
+    """
     suits = [
         Suit('Spade', 'Black'),
         Suit('Club', 'Black'),
@@ -28,6 +31,7 @@ def create_deck() -> [Card]:
 
     shuffle(deck)
     return deck
+
 
 def deal_hand(players: [Player], deck: [Card]) -> None:
     index = 0
