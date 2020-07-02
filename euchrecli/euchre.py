@@ -9,7 +9,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command(help='Start a new euchre game.')
 def play():
     setup()
 
