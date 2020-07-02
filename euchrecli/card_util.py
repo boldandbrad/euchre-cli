@@ -1,5 +1,6 @@
 
 class Suit():
+
     def __init__(self, name: str, color: str):
         self.name = name
         self.color = color
@@ -11,6 +12,7 @@ class Suit():
         return f"{self.name}"
 
 class Face():
+
     def __init__(self, name: str, value: int):
         self.name = name
         self.value = value
@@ -22,6 +24,7 @@ class Face():
         return f"{self.name}"
 
 class Card():
+
     def __init__(self, suit: Suit, face: Face):
         self.suit = suit
         self.face = face
