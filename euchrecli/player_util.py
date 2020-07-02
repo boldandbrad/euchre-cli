@@ -1,5 +1,8 @@
 
+from random import choice
+
 from euchrecli.card_util import Card, Suit
+
 
 class Team():
 
@@ -14,8 +17,9 @@ class Team():
     def won_trick(self):
         self.trick_score += 1
 
+
 class Player():
-    
+
     def __init__(self, name: str, team: Team):
         self.name = name
         self.team = team
@@ -28,17 +32,20 @@ class Player():
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
         # TODO: implement
-        return list(filter(lambda card: card.suit != unsuitable , self.hand))[0].suit
+        return list(filter(lambda card: card.suit != unsuitable,
+                    self.hand))[0].suit
 
     def pick_up_card(self, card: Card) -> Card:
         # TODO: implement
         replaced_card = self.hand[0]
         self.hand[0] = card
         return replaced_card
-    
+
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
         # TODO: implement
-        return self.hand[0]
+        card_to_play = choice(self.hand)
+        print(f'{card_to_play} {card_to_play.is_left_bower(trump_suit)}')
+        return card_to_play
 
     def remove_card(self, card: Card):
         # TODO: implement
@@ -46,7 +53,6 @@ class Player():
 
     def __repr__(self) -> str:
         return f"Player({self.name}, {self.team}, {self.is_dealer})"
-    
+
     def __str__(self) -> str:
         return f"{self.name}"
-
