@@ -2,8 +2,14 @@ import click
 
 from euchrecli.game import setup
 
-@click.command()
+
+@click.group()
 def cli():
+    pass
+
+
+@cli.command()
+def play():
     setup()
 
 
