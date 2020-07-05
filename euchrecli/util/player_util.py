@@ -63,4 +63,7 @@ class Player():
         return f"Player({self.name}, {self.team}, {self.is_dealer})"
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        if self.is_dealer:
+            return f"{self.name}, dealer"
+        else:
+            return f"{self.name}"

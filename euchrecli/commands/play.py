@@ -27,7 +27,7 @@ def setup():
         Player('Bradley', teams[0]),
         Player('Morgan', teams[1])
     ]
-    players[3].is_dealer = True
+    players[-1].is_dealer = True
 
     # start game
     game(players, teams)
@@ -56,8 +56,19 @@ def game(players: [Player], teams: [Team]):
         hand_number += 1
 
         # TODO: implement dealer rotation
+        players = rotate_dealer(players)
+        print(f'New Dealer: {players}')
 
     # TODO: implement play again logic
+
+
+def rotate_dealer(players: [Player]) -> [Player]:
+    # rotate actual list for hands. use copy for tricks? find a way to manage
+    # player scores and winners using copy
+    players[-1].is_dealer = False
+    players = players[1:] + players[:1]
+    players[-1].is_dealer = True
+    return players
 
 
 def hand(number: int, players: [Player]) -> None:
