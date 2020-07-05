@@ -54,22 +54,22 @@ class Card():
             lead:       9(15), 10(16), J(17), Q(18), K(19), A(20)
             else:       9(9), 10(10), J(11), Q(12), K(13), A(14)
         """
-        weighted_value = self.face.value  # 9, 10, 11, 12, 13, 14
+        weighted_val = self.face.value  # 9, 10, 11, 12, 13, 14
 
-        if self.is_left_bower:
-            weighted_value += 15  # 26
+        if self.is_left_bower(trump_suit):
+            weighted_val += 15  # 26
         elif self.suit.name == trump_suit.name:
             if self.face.name in ['Nine', 'Ten']:
-                weighted_value += 12  # 21, 22
+                weighted_val += 12  # 21, 22
             elif self.face.name in ['Queen', 'King', 'Ace']:
-                weighted_value += 11  # 23, 24, 25
+                weighted_val += 11  # 23, 24, 25
             elif self.face.name == 'Jack':
-                weighted_value += 16  # 27 (right_bower)
+                weighted_val += 16  # 27 (right_bower)
         elif trump_suit.name != lead_suit.name and \
                 self.suit.name == lead_suit.name:
-            weighted_value += 6  # 15, 16, 17, 18, 19, 20
+            weighted_val += 6  # 15, 16, 17, 18, 19, 20
 
-        return weighted_value
+        return weighted_val
 
     def __repr__(self) -> str:
         return f"Card({self.face.name}, {self.suit.name})"
