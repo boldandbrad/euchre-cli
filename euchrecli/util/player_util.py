@@ -10,6 +10,7 @@ class Team():
         self.name = name
         self.game_score = 0
 
+        # reset every hand
         self.called_trump = False
         self.trick_score = 0
 
@@ -17,7 +18,7 @@ class Team():
         """Increment game_score for winning hand."""
         self.game_score += points
 
-    def won_trick(self):
+    def won_trick(self) -> None:
         """Increment trick_score for winning trick."""
         self.trick_score += 1
 
@@ -33,8 +34,13 @@ class Player():
     def __init__(self, name: str, team: Team):
         self.name = name
         self.team = team
+
+        # reset every hand
         self.is_dealer = False
         self.hand = []
+
+        # reset every trick
+        self.trick_winner = False
 
     def call_pick_up(self, face_up_card: Card) -> bool:
         # TODO: implement
@@ -56,8 +62,12 @@ class Player():
         card_to_play = choice(self.hand)
         return card_to_play
 
-    def remove_card(self, card: Card):
+    def remove_card(self, card: Card) -> None:
         self.hand.pop(self.hand.index(card))
+
+    def won_trick(self) -> None:
+        self.trick_winner = True
+        self.team.won_trick()
 
     def __repr__(self) -> str:
         return f"Player({self.name}, {self.team}, {self.is_dealer})"
@@ -67,3 +77,26 @@ class Player():
             return f"{self.name}, dealer"
         else:
             return f"{self.name}"
+
+
+def rotate_dealer(players: [Player]) -> None:
+    # rotate dealer to the left and reset player order
+    for idx, player in enumerate(players):
+        if player.is_dealer:
+            # rotate players based on index of current dealer
+            for _ in range(idx):
+                players.append(players.pop(0))
+            player.is_dealer = False
+
+    # set new dealer
+    players[-1].is_dealer = True
+
+
+def rotate_trick_order(players: [Player]) -> None:
+    # adjust play order based on winner of previous trick
+    for idx, player in enumerate(players):
+        if player.trick_winner:
+            # rotate players based on index of trick winner
+            for _ in range(idx):
+                players.append(players.pop(0))
+            player.trick_winner = False

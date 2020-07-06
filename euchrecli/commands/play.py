@@ -3,7 +3,8 @@ import click
 
 from euchrecli.util.card_util import Card, Suit
 from euchrecli.util.deck_util import create_deck, deal_hand
-from euchrecli.util.player_util import Team, Player
+from euchrecli.util.player_util import Team, Player, rotate_dealer, \
+    rotate_trick_order
 from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner
 
 
@@ -28,6 +29,8 @@ def setup():
         Player('Morgan', teams[1])
     ]
     players[-1].is_dealer = True
+    print(players)
+    print(f'{players[-1].name} is dealer')
 
     # start game
     game(players, teams)
@@ -38,7 +41,7 @@ def game(players: [Player], teams: [Team]):
     # play hands until the game is won
     game_won = False
     hand_number = 1
-    while(not game_won):
+    while not game_won:
         # deal and play hand
         hand(hand_number, players)
 
@@ -53,22 +56,14 @@ def game(players: [Player], teams: [Team]):
             game_won = True
             print(f'{winning_team} wins!')
 
+        # increment hand number
         hand_number += 1
 
-        # TODO: implement dealer rotation
-        players = rotate_dealer(players)
+        # rotate dealer to the left
+        rotate_dealer(players)
         print(f'New Dealer: {players}')
 
     # TODO: implement play again logic
-
-
-def rotate_dealer(players: [Player]) -> [Player]:
-    # rotate actual list for hands. use copy for tricks? find a way to manage
-    # player scores and winners using copy
-    players[-1].is_dealer = False
-    players = players[1:] + players[:1]
-    players[-1].is_dealer = True
-    return players
 
 
 def hand(number: int, players: [Player]) -> None:
@@ -76,31 +71,38 @@ def hand(number: int, players: [Player]) -> None:
     print(f'\nPlay Hand {number}\n')
     trump_suit = None
 
+    # set trump suit
     while not trump_suit:
+        # create and shuffle deck then deal new hand
         deck = create_deck()
         deal_hand(players, deck)
 
+        # TODO: remove next three lines
         for player in players:
             print(f'{player.name}\'s hand: {player.hand}')
         print(f'Deck: {deck}')
 
         trump_suit = set_trump_suit(players, deck)
 
+        # TODO: remove next three lines
         for player in players:
             print(f'{player.name} hand {player.hand}')
         print(f'Deck: {deck}')
 
     print(f'Trump suit is {trump_suit}')
 
+    # play 5 tricks
     for _ in range(5):
+        # play trick and determine winner
         played_cards = trick(players, trump_suit)
-        winning_player = trick_winner(players, played_cards, trump_suit)
-        print(f'Trick winner {winning_player.name}, {winning_player.team}')
+        trick_winner(players, played_cards, trump_suit)
 
+        # TODO: remove next two lines
         for player in players:
             print(f'{player.name}\'s hand: {player.hand}')
 
-        # TODO: adjust play order based on winner of previous trick
+        # adjust play order based on winner of previous trick
+        rotate_trick_order(players)
 
 
 def set_trump_suit(players: [Player], deck: [Card]) -> Suit:

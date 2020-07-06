@@ -34,8 +34,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
     return valid
 
 
-def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
-        -> Player:
+def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
     """Return winning player of trick. Increment their team's trick score."""
     lead_suit = played_cards[0].suit
 
@@ -48,9 +47,8 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
             winning_player = players[idx]
 
     # increment team tricks won
-    winning_player.team.won_trick()
-
-    return winning_player
+    winning_player.won_trick()
+    print(f'Trick winner {winning_player.name}, {winning_player.team}')
 
 
 def hand_winner(teams: [Team]) -> Team:
