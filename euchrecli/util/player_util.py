@@ -44,7 +44,7 @@ class Player():
 
     def call_pick_up(self, face_up_card: Card) -> bool:
         # TODO: implement
-        return False
+        return choice([True, False, False, False])
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
         # TODO: implement
