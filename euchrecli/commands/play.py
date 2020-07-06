@@ -55,13 +55,13 @@ def game(players: [Player], teams: [Team]):
         if winning_team.game_score >= 10:
             game_won = True
             print(f'{winning_team} wins!')
+        else:
+            # increment hand number
+            hand_number += 1
 
-        # increment hand number
-        hand_number += 1
-
-        # rotate dealer to the left
-        rotate_dealer(players)
-        print(f'New Dealer: {players}')
+            # rotate dealer to the left
+            rotate_dealer(players)
+            print(f'New Dealer: {players[-1].name}')
 
     # TODO: implement play again logic
 
@@ -77,16 +77,12 @@ def hand(number: int, players: [Player]) -> None:
         deck = create_deck()
         deal_hand(players, deck)
 
-        # TODO: remove next three lines
-        for player in players:
-            print(f'{player.name}\'s hand: {player.hand}')
-        print(f'Deck: {deck}')
-
+        # set trump suit
         trump_suit = set_trump_suit(players, deck)
 
         # TODO: remove next three lines
         for player in players:
-            print(f'{player.name} hand {player.hand}')
+            print(f'{player.name}\'s hand: {player.hand}')
         print(f'Deck: {deck}')
 
     print(f'Trump suit is {trump_suit}')
@@ -154,7 +150,7 @@ def trick(players: [Player], trump_suit: Suit) -> [Card]:
     print('\nPlay Trick\n')
     played_cards = []
     for player in players:
-        print(f'{player.name}')
+        print(f'{player.name}\'s play')
         card_to_play = player.play_card(played_cards, trump_suit)
         while not valid_play(card_to_play, player.hand, played_cards,
                              trump_suit):
