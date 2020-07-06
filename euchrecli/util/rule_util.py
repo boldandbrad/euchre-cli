@@ -7,18 +7,15 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                trump_suit: Suit) -> bool:
     """Return whether a card is a valid play."""
     valid = False
+    reason = 0
     if len(played_cards) == 0 or len(player_hand) == 1:
         valid = True
-        print(f'{card_to_play}, ' +
-              f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
-              f'valid (1): {valid}')
+        reason = 1
     else:
         lead_suit = played_cards[0].adjusted_suit(trump_suit)
         if card_to_play.adjusted_suit(trump_suit) == lead_suit:
             valid = True
-            print(f'{card_to_play}, ' +
-                  f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
-                  f'valid (2): {valid}')
+            reason = 2
         else:
             lead_matches = 0
             for card in player_hand:
@@ -27,15 +24,13 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                     lead_matches += 1
 
             valid = lead_matches == 0
-            print(f'{card_to_play}, ' +
-                  f'left: {card_to_play.is_left_bower(trump_suit)}, ' +
-                  f'valid (3): {valid}')
+            reason = 3
 
+    print(f'\t{card_to_play}, valid ({reason}): {valid}')
     return valid
 
 
-def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
-        -> Player:
+def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
     """Return winning player of trick. Increment their team's trick score."""
     lead_suit = played_cards[0].suit
 
@@ -48,9 +43,8 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
             winning_player = players[idx]
 
     # increment team tricks won
-    winning_player.team.won_trick()
-
-    return winning_player
+    winning_player.won_trick()
+    print(f'Trick winner {winning_player.name}, {winning_player.team}')
 
 
 def hand_winner(teams: [Team]) -> Team:
