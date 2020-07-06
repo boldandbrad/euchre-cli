@@ -3,6 +3,7 @@
 *.iml
 .project
 .vscode
+.markdownlint.yaml
 
 # os
 .DS_Store

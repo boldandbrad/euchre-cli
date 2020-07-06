@@ -1,10 +1,15 @@
 import click
 
-from euchrecli.game import setup
+from euchrecli.commands.play import play
 
-@click.command()
+
+@click.group()
+@click.version_option()
 def cli():
-    setup()
+    pass
+
+
+cli.add_command(play, 'play')
 
 
 if __name__ == "__main__":
