@@ -1,5 +1,5 @@
 
-from random import choice
+from random import choice, choices
 
 from euchrecli.util.card_util import Card, Suit
 
@@ -14,7 +14,7 @@ class Team():
         self.called_trump = False
         self.trick_score = 0
 
-    def won_hand(self, points: int):
+    def won_hand(self, points: int) -> None:
         """Increment game_score for winning hand."""
         self.game_score += points
 
@@ -42,9 +42,30 @@ class Player():
         # reset every trick
         self.trick_winner = False
 
-    def call_pick_up(self, face_up_card: Card) -> bool:
-        # TODO: implement
-        return choice([True, False, False, False])
+    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
+            -> bool:
+        """Decide whether or not to call pick up of face up card.
+
+        Returns:
+            bool: whether or not to call pick up
+        """
+        # determine which cards in hand match face up card suit
+        suit = face_up_card.suit
+        cards_of_suit = [
+            card for card in self.hand if card.adjusted_suit(suit) == suit
+        ]
+
+        # TODO: consider if player is 2, 3, or 4 suited
+
+        if partner_is_dealer and len(cards_of_suit) >= 2:
+            return True
+        elif self.is_dealer and len(cards_of_suit) >= 3:
+            return True
+        elif len(cards_of_suit) >= 3 and face_up_card.face.name != 'Jack':
+            return True
+        else:
+            # only occasionally call on 'accident'
+            return choices([True, False], weights=[1, 10])[0]
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
         # TODO: implement
@@ -79,9 +100,13 @@ class Player():
             return f"{self.name}"
 
 
-def set_dealer(players: [Player], deck: [Card]):
-    """Deal a card for each player. First Black Jack is dealer."""
+def set_dealer(players: [Player], deck: [Card]) -> None:
+    """Set dealer by first dealt Black Jack.
 
+    Args:
+        players ([Player]): active game player list
+        deck ([Card]): active deck of cards
+    """
     print('First black jack deals!')
     dealer_set = False
     while not dealer_set:
@@ -106,10 +131,14 @@ def set_dealer(players: [Player], deck: [Card]):
 
 
 def rotate_dealer(players: [Player]) -> None:
-    # rotate dealer to the left and reset player order
+    """Rotate the dealer to the left and update play order.
+
+    Args:
+        players ([Player]): active game player list
+    """
     for idx, player in enumerate(players):
         if player.is_dealer:
-            # rotate players based on index of current dealer
+            # rotate players based on index of previous dealer
             for _ in range(idx):
                 players.append(players.pop(0))
             player.is_dealer = False
@@ -119,10 +148,14 @@ def rotate_dealer(players: [Player]) -> None:
 
 
 def rotate_trick_order(players: [Player]) -> None:
-    # adjust play order based on winner of previous trick
+    """Rotate play order based on trick winner.
+
+    Args:
+        players ([Player]): active game player list
+    """
     for idx, player in enumerate(players):
         if player.trick_winner:
-            # rotate players based on index of trick winner
+            # rotate players based on index of previous trick winner
             for _ in range(idx):
                 players.append(players.pop(0))
             player.trick_winner = False

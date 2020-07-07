@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `euchre play`
   - Flip cards for each player. First dealt black jack is dealer to start game.
   - CPU player names are now randomized instead of hardcoded.
+  - CPU players now make a more informed decision on whether to call pick up.
 
 ## [0.1.0] - 2020-07-06
 

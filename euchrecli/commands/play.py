@@ -115,9 +115,11 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
     trump_suit = None
 
     # pickup round
-    for player in players:
+    for idx, player in enumerate(players):
         if not trump_suit:
-            if player.call_pick_up(face_up_card):
+            # if player is second in list then their partner is the dealer
+            partner_is_dealer = idx == 1
+            if player.call_pick_up(face_up_card, partner_is_dealer):
                 print(f'{player.name} says pick it up')
                 # capture trump suit and team that called for it
                 trump_suit = face_up_card.suit
