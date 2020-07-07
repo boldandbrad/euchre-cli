@@ -74,9 +74,35 @@ class Player():
 
     def __str__(self) -> str:
         if self.is_dealer:
-            return f"{self.name}, dealer"
+            return f"{self.name} - dealer"
         else:
             return f"{self.name}"
+
+
+def set_dealer(players: [Player], deck: [Card]):
+    """Deal a card for each player. First Black Jack is dealer."""
+
+    print('First black jack deals!')
+    dealer_set = False
+    while not dealer_set:
+        for player in players:
+            card = deck.pop(0)
+            print(f'\t{player.name}, {card}')
+            if card.face.name == 'Jack' and card.suit.color == 'Black':
+                player.is_dealer = True
+                dealer_set = True
+                print(f'{player.name} is dealer.')
+                break
+
+    # find dealer and rotate players so dealer is at the end of the list
+    for idx, player in enumerate(players):
+        if player.is_dealer:
+            for _ in range(idx + 1):
+                players.append(players.pop(0))
+
+    print('Player Order:')
+    for player in players:
+        print(f'\t{str(player)}, {player.team.name}')
 
 
 def rotate_dealer(players: [Player]) -> None:
