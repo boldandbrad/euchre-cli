@@ -11,7 +11,6 @@
 # pyenv and venv
 .python-version
 .venv
-.test-venv
 
 # python artifacts
 __pycache__/
