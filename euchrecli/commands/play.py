@@ -1,10 +1,11 @@
 
 import click
+import names
 
 from euchrecli.util.card_util import Card, Suit
 from euchrecli.util.deck_util import create_deck, deal_hand
-from euchrecli.util.player_util import Team, Player, rotate_dealer, \
-    rotate_trick_order
+from euchrecli.util.player_util import Team, Player, set_dealer, \
+    rotate_dealer, rotate_trick_order
 from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner
 
 
@@ -14,23 +15,22 @@ def play():
 
 
 def setup():
-    """Setup players."""
+    """Setup players and teams."""
     # TODO: implement setup from user input
 
-    # TODO: implement random team assignment and order
     teams = [
         Team('Team 1'),
         Team('Team 2')
     ]
     players = [
-        Player('Mitch', teams[0]),
-        Player('Lena', teams[1]),
-        Player('Bradley', teams[0]),
-        Player('Morgan', teams[1])
+        Player(names.get_first_name(), teams[0]),
+        Player(names.get_first_name(), teams[1]),
+        Player(names.get_first_name(), teams[0]),
+        Player(names.get_first_name(), teams[1])
     ]
-    players[-1].is_dealer = True
-    print(players)
-    print(f'{players[-1].name} is dealer')
+
+    deck = create_deck()
+    set_dealer(players, deck)
 
     # start game
     game(players, teams)
