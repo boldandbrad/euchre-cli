@@ -72,19 +72,36 @@ class Player():
         return list(filter(lambda card: card.suit != unsuitable,
                     self.hand))[0].suit
 
-    def pick_up_card(self, card: Card) -> Card:
-        # TODO: implement
-        replaced_card = self.hand[0]
-        self.hand[0] = card
-        return replaced_card
+    def pick_up_card(self, pick_up: Card) -> Card:
+        """Choose whether or not to replace card in hand with picked up one.
+
+        Args:
+            pick_up (Card): Card to pick up.
+
+        Returns:
+            Card: Card to be discarded.
+        """
+        # add picked up card to hand
+        self.hand.insert(0, pick_up)
+
+        trump = lead = pick_up.suit
+
+        # find lowest valued card in hand
+        low_index = 0
+        for idx, card in enumerate(self.hand):
+            # TODO: consider if player is 2, 3, or 4 suited
+            card_val = card.weighted_value(trump, lead)
+            low_val = self.hand[low_index].weighted_value(trump, lead)
+            if card_val < low_val:
+                low_index = idx
+
+        # return lowest valued card from hand
+        return self.hand.pop(low_index)
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
         # TODO: implement
         card_to_play = choice(self.hand)
         return card_to_play
-
-    def remove_card(self, card: Card) -> None:
-        self.hand.pop(self.hand.index(card))
 
     def won_trick(self) -> None:
         self.trick_winner = True

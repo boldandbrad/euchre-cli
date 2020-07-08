@@ -39,5 +39,4 @@ def deal_hand(players: [Player], deck: [Card]) -> None:
     index = 0
     for player in players:
         for _ in range(5):
-            player.hand.append(deck[index])
-            deck.pop(index)
+            player.hand.append(deck.pop(index))
