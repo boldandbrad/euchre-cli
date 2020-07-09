@@ -53,7 +53,7 @@ def game(players: [Player], teams: [Team]):
             print(f'\t{team.name}: {team.game_score}')
 
         # check if winning team has won the game
-        if winning_team.game_score >= 1:
+        if winning_team.game_score >= 10:
             game_won = True
             print(f'{winning_team} wins!')
         else:
