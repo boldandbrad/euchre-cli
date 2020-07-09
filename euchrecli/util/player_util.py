@@ -6,7 +6,7 @@ from euchrecli.util.card_util import Card, Suit
 
 class Team():
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
         self.game_score = 0
 
@@ -31,7 +31,7 @@ class Team():
 
 class Player():
 
-    def __init__(self, name: str, team: Team):
+    def __init__(self, name: str, team: Team) -> None:
         self.name = name
         self.team = team
 
@@ -44,7 +44,7 @@ class Player():
 
     def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
             -> bool:
-        """Decide whether or not to call pick up of face up card.
+        """Decide whether to call pick up of face up card or to pass.
 
         Returns:
             bool: whether or not to call pick up
@@ -68,9 +68,41 @@ class Player():
             return choices([True, False], weights=[1, 10])[0]
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
-        # TODO: implement
-        return list(filter(lambda card: card.suit != unsuitable,
-                    self.hand))[0].suit
+        """Decide whether to call desired trump suit or to pass.
+
+        Args:
+            unsuitable (Suit): Trump suit cannot be this suit
+
+        Returns:
+            Suit: Called trump suit or unsuitable to pass
+        """
+        # TODO: simplify method logic
+        # find suitable suits in hand
+        suits_in_hand = set()
+        for c in self.hand:
+            if c.suit != unsuitable:
+                suits_in_hand.add(c.suit)
+
+        # find how many of each potential trump suit in hand
+        suit_counts = []
+        for suit in suits_in_hand:
+            count = len(list(filter(
+                lambda card: card.adjusted_suit(suit) == suit, self.hand
+            )))
+            suit_counts.append({'suit': suit, 'count': count})
+
+        # sort suits by highest count
+        suit_counts = sorted(suit_counts, key=lambda k: k['count'],
+                             reverse=True)
+
+        # call trump suit if player would have 3 or more trump cards
+        # TODO: take into account card weights
+        # TODO: take into account the passed on face_up_card
+        # TODO: consider if player is 2, 3, or 4 suited
+        if suit_counts[0]['count'] >= 3:
+            return suit_counts[0]['suit']
+        else:
+            return unsuitable
 
     def pick_up_card(self, pick_up: Card) -> Card:
         """Choose whether or not to replace card in hand with picked up one.

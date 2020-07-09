@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - CPU player names are now randomized instead of hardcoded.
   - CPU players now make a more informed decision on whether to call pick up.
   - CPU players now discard their lowest value card after picking up.
+  - CPU players now call trump if they have 3 or more cards of a suit in their hand.
   - Updated game print out formatting.
 
 ### Fixed

@@ -1,7 +1,9 @@
 
 class Suit():
+    """Representation of a standard playing card suit.
+    """
 
-    def __init__(self, name: str, color: str):
+    def __init__(self, name: str, color: str) -> None:
         self.name = name
         self.color = color
 
@@ -13,8 +15,10 @@ class Suit():
 
 
 class Face():
+    """Representation of a standard playing card face.
+    """
 
-    def __init__(self, name: str, value: int):
+    def __init__(self, name: str, value: int) -> None:
         self.name = name
         self.value = value
 
@@ -26,8 +30,10 @@ class Face():
 
 
 class Card():
+    """Representation of a standard playing card.
+    """
 
-    def __init__(self, suit: Suit, face: Face):
+    def __init__(self, suit: Suit, face: Face) -> None:
         self.suit = suit
         self.face = face
 

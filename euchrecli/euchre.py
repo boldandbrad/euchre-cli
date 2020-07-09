@@ -1,3 +1,4 @@
+
 import click
 
 from euchrecli.commands.play import play
