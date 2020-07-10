@@ -40,13 +40,16 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
 
 
 def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
-        -> None:
+        -> Player:
     """Determine and award winning player and team of trick.
 
     Args:
         players ([Player]): List of players.
         played_cards ([type]): List of cards played in the trick.
         trump_suit (Suit): Active trump suit.
+
+    Returns:
+        Player: Player that won the trick.
     """
     lead_suit = played_cards[0].suit
 
@@ -60,7 +63,7 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
 
     # increment team tricks won
     winning_player.won_trick()
-    print(f'Trick winner: {winning_player.name}, {winning_player.team}')
+    return winning_player
 
 
 def hand_winner(teams: [Team]) -> Team:

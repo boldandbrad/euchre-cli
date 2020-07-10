@@ -100,6 +100,15 @@ class Computer(Player):
         return self.hand.pop(low_index)
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
-        # TODO: implement
+        """Choose which card to play from hand.
+
+        Args:
+            played_cards ([type]): List of already played cards.
+            trump_suit (Suit): Active trump suit.
+
+        Returns:
+            Card: Card to play.
+        """
+        # TODO: implement better decision making
         card_to_play = choice(self.hand)
         return card_to_play

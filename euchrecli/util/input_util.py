@@ -1,4 +1,7 @@
 
+from . import output
+
+
 def bool_input(prompt: str) -> bool:
     """Prompt user for yes/no boolean input.
 
@@ -38,8 +41,8 @@ def int_input(prompt: str, input_range: int) -> int:
                 raise ValueError(f'{response} is not in range ' +
                                  f'0-{input_range - 1}.')
         except ValueError:
-            print(f'\tInvalid input. Enter an integer from ' +
-                  f'0-{input_range - 1}.')
+            output(f'\tInvalid input. Enter an integer from ' +
+                   f'0-{input_range - 1}.', 0.5)
 
     return response
 

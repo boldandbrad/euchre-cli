@@ -12,11 +12,16 @@ class Team():
         self.trick_score = 0
 
     def won_hand(self, points: int) -> None:
-        """Increment game_score for winning hand."""
+        """Increment game_score for winning hand.
+
+        Args:
+            points (int): Number of points to add to score.
+        """
         self.game_score += points
 
     def won_trick(self) -> None:
-        """Increment trick_score for winning trick."""
+        """Increment trick_score for winning trick.
+        """
         self.trick_score += 1
 
     def __repr__(self) -> str:
