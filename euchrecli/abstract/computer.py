@@ -1,11 +1,12 @@
 
 from random import choice, choices
 
-from . import Team, Player
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Player, Card, Suit
 
 
 class Computer(Player):
+    """Representation of a cpu player. Extends Player class.
+    """
 
     def __init__(self, name: str, team: Team):
         super().__init__(name, team)
@@ -99,6 +100,15 @@ class Computer(Player):
         return self.hand.pop(low_index)
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
-        # TODO: implement
+        """Choose which card to play from hand.
+
+        Args:
+            played_cards ([type]): List of already played cards.
+            trump_suit (Suit): Active trump suit.
+
+        Returns:
+            Card: Card to play.
+        """
+        # TODO: implement better decision making
         card_to_play = choice(self.hand)
         return card_to_play

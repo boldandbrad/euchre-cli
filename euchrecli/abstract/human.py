@@ -1,10 +1,12 @@
 
-from . import Team, Player
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Player, Card, Suit
+from euchrecli.util import output
 from euchrecli.util.input_util import bool_input, int_input, str_input
 
 
 class Human(Player):
+    """Representation of a human player. Extends Player class.
+    """
 
     def __init__(self, team: Team):
         name = str_input('What is your name?')
@@ -44,12 +46,12 @@ class Human(Player):
         suits_in_hand = list(suits_in_hand)
         suits_in_hand.append(unsuitable)
 
-        print(f'Possible options:')
+        output(f'Possible options:')
         for idx, suit in enumerate(suits_in_hand):
             if suit != unsuitable:
-                print(f'\t{idx} - {str(suit)}')
+                output(f'\t{idx} - {str(suit)}', 0.75)
             else:
-                print(f'\t{idx} - Pass')
+                output(f'\t{idx} - Pass', 0.75)
 
         choice = int_input(f'Would you like to call a trump suit?',
                            len(suits_in_hand))
@@ -67,26 +69,40 @@ class Human(Player):
         """
         # add picked up card to hand
         self.hand.insert(0, pick_up)
-        print(f'You picked up the {str(pick_up)}.')
 
-        self._print_hand(indexes=True)
-        print(f'Trump suit will be {pick_up.suit}s.')
+        self._print_hand(indicies=True)
+        output(f'Trump suit will be {pick_up.suit}s.')
         choice = int_input(f'Which card would you like to discard?',
                            len(self.hand))
         discard = self.hand.pop(choice)
-        print(f'You discarded the {str(discard)} to the deck.')
+        output(f'You discarded the {str(discard)} to the deck.', 0.75)
         return discard
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
-        self._print_hand(indexes=True)
+        """Choose which card to play from hand.
+
+        Args:
+            played_cards ([type]): List of already played cards.
+            trump_suit (Suit): Active trump suit.
+
+        Returns:
+            Card: Card to play.
+        """
+        self._print_hand(indicies=True)
         choice = int_input(f'Which card would you like to play?',
                            len(self.hand))
         return self.hand[choice]
 
-    def _print_hand(self, indexes: bool = False):
-        print(f'Your hand:')
+    def _print_hand(self, indicies: bool = False):
+        """Print out the player's hand.
+
+        Args:
+            indicies (bool, optional): Whether or not to include indicies.
+                Defaults to False.
+        """
+        output('Your hand:')
         for idx, card in enumerate(self.hand):
-            if indexes:
-                print(f'\t{idx} - {str(card)}')
+            if indicies:
+                output(f'\t{idx} - {str(card)}', 0.75)
             else:
-                print(f'\t{str(card)}')
+                output(f'\t{str(card)}', 0.75)

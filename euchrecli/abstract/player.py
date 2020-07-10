@@ -1,11 +1,10 @@
 
-from random import choice, choices
-
-from . import Team
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Card, Suit
 
 
 class Player():
+    """Representation of a player. Parent class of Computer and Human.
+    """
 
     def __init__(self, name: str, team: Team) -> None:
         self.name = name
@@ -50,9 +49,20 @@ class Player():
         pass
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
+        """Choose which card to play from hand.
+
+        Args:
+            played_cards ([type]): List of already played cards.
+            trump_suit (Suit): Active trump suit.
+
+        Returns:
+            Card: Card to play.
+        """
         pass
 
     def won_trick(self) -> None:
+        """Set trick_winner and team won trick.
+        """
         self.trick_winner = True
         self.team.won_trick()
 

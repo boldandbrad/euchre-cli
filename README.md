@@ -28,19 +28,27 @@ euchre play --watch
 
 * [x] Ability to enter user's name
 * [x] Ability to play through a complete game of euchre with 3 cpus
+* [x] First black jack dealt is dealer for hand 1
 * [x] Choose trump suit from suits in hand only mode
 * [x] Current dealer redeals if no trump is selected
+* [x] Rotate dealer to the left each hand
+* [x] Validate card plays, reprompt if player attempts to not follow suit
+* [x] Trick winner leads next trick
 * [x] Watch CPU mode
-* [ ] Play again prompt at end of game
-* [ ] Auto play again mode
-* [ ] Game debug logs
 * [ ] Euchre rules overview
 * [x] Output euchre-cli version
-* [ ] Usage documentation
+* [x] Regulated game output pace
+* [ ] Game debug logs
+* [ ] Github pages hosted docs
+* [ ] Unit tests
+* [ ] Travis CI integration
 * [ ] Published to pypi
 
 ### Release 2.x
 
+* Play again prompt at end of game
+* Auto play again mode
+* --quick mode
 * Ability to save user configs
 * Ability to revert to default configs
 * Adjust cpu play level

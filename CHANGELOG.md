@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `euchre play`
   - Human player (User) can now play a game of euchre with computers by default!
+  - Regulate game output pace by default so that games are easier to follow!
   - Removed debug logs from game output.
 
 ### Fixed
