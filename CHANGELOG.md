@@ -10,8 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `euchre play`
-  - Flip cards for each player. First dealt black jack is dealer to start game.
+  - Choose first dealer by first dealt Black Jack.
   - CPU player names are now randomized instead of hardcoded.
+  - CPU players now make a more informed decision on whether to call pick up.
+  - CPU players now discard their lowest value card after picking up.
+  - CPU players now call trump if they have 3 or more cards of a suit in their hand.
+  - Updated game print out formatting.
+
+### Fixed
+
+- `euchre play` - Discarded card is now added back to the deck after a player
+    picks up.
 
 ## [0.1.0] - 2020-07-06
 

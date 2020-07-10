@@ -48,8 +48,9 @@ def game(players: [Player], teams: [Team]):
         # determine hand winner
         winning_team = hand_winner(teams)
 
+        print('Game Score')
         for team in teams:
-            print(f'{team.name}: {team.game_score}')
+            print(f'\t{team.name}: {team.game_score}')
 
         # check if winning team has won the game
         if winning_team.game_score >= 10:
@@ -82,10 +83,11 @@ def hand(number: int, players: [Player]) -> None:
 
         # TODO: remove next three lines
         for player in players:
-            print(f'{player.name}\'s hand: {player.hand}')
-        print(f'Deck: {deck}')
+            print(f'[DEBUG] ' +
+                  f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
+        print(f'[DEBUG] Deck: {deck}')
 
-    print(f'Trump suit is {trump_suit}')
+    print(f'Trump suit is {trump_suit}s')
 
     # play 5 tricks
     for _ in range(5):
@@ -95,7 +97,8 @@ def hand(number: int, players: [Player]) -> None:
 
         # TODO: remove next two lines
         for player in players:
-            print(f'{player.name}\'s hand: {player.hand}')
+            print(f'[DEBUG] ' +
+                  f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
 
         # adjust play order based on winner of previous trick
         rotate_trick_order(players)
@@ -103,22 +106,20 @@ def hand(number: int, players: [Player]) -> None:
 
 def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
     """Set trump suit for the current hand."""
-    print('Set trump suit')
-    # dealer flips card
-    face_up_card = deck[0]
-    deck.pop(0)
-
+    # dealer flips card from top of deck
+    face_up_card = deck.pop(0)
     face_up_suit = face_up_card.suit
-
     print(f'Face up card is {face_up_card}')
 
     trump_suit = None
 
     # pickup round
-    for player in players:
+    for idx, player in enumerate(players):
         if not trump_suit:
-            if player.call_pick_up(face_up_card):
-                print(f'{player.name} says pick it up')
+            # if player is second in list then their partner is the dealer
+            partner_is_dealer = idx == 1
+            if player.call_pick_up(face_up_card, partner_is_dealer):
+                print(f'{player.name} says pick it up!')
                 # capture trump suit and team that called for it
                 trump_suit = face_up_card.suit
                 player.team.called_trump = True
@@ -131,11 +132,14 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
 
     # call round
     if not trump_suit:
-        print(f'Trump suit cannot be {face_up_suit}')
+        # add face up card back to the deck
+        deck.append(face_up_card)
+        face_up_card = None
+        print(f'Trump suit cannot be {face_up_suit}s')
         for player in players:
             if not trump_suit:
                 candidate_suit = player.call_trump_suit(face_up_suit)
-                print(f'{player.name} proposes {candidate_suit}')
+                print(f'{player.name} proposes {candidate_suit}s')
                 if candidate_suit != face_up_suit:
                     trump_suit = candidate_suit
                     player.team.called_trump = True
@@ -151,13 +155,15 @@ def trick(players: [Player], trump_suit: Suit) -> [Card]:
     played_cards = []
     for player in players:
         print(f'{player.name}\'s play')
-        card_to_play = player.play_card(played_cards, trump_suit)
-        while not valid_play(card_to_play, player.hand, played_cards,
-                             trump_suit):
+        # player picks a card until it is valid
+        while True:
             card_to_play = player.play_card(played_cards, trump_suit)
+            if valid_play(card_to_play, player.hand, played_cards, trump_suit):
+                break
 
-        played_cards.append(card_to_play)
-        player.remove_card(card_to_play)
+        # play proposed card from player hand
+        print(f'\t{str(card_to_play)}')
+        played_cards.append(player.hand.pop(player.hand.index(card_to_play)))
 
     print(f'Played cards: {played_cards}')
     return(played_cards)
