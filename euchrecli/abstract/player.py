@@ -1,6 +1,4 @@
 
-from random import choice, choices
-
 from . import Team, Card, Suit
 
 
