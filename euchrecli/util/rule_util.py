@@ -7,15 +7,15 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                trump_suit: Suit) -> bool:
     """Return whether a card is a valid play."""
     valid = False
-    reason = 0
+    # reason = 0
     if len(played_cards) == 0 or len(player_hand) == 1:
         valid = True
-        reason = 1
+        # reason = 1
     else:
         lead_suit = played_cards[0].adjusted_suit(trump_suit)
         if card_to_play.adjusted_suit(trump_suit) == lead_suit:
             valid = True
-            reason = 2
+            # reason = 2
         else:
             lead_matches = 0
             for card in player_hand:
@@ -24,7 +24,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                     lead_matches += 1
 
             valid = lead_matches == 0
-            reason = 3
+            # reason = 3
 
     # print(f'\t[DEBUG] {card_to_play}, valid ({reason}): {valid}')
     return valid
