@@ -10,21 +10,34 @@ from euchrecli.util.player_util import set_dealer, rotate_dealer, \
 from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner
 
 
-@click.command(help='Start a new euchre game.')
-def play():
-    setup()
+@click.command(
+    help='Start a new euchre game.'
+)
+@click.option(
+    '--watch',
+    default=False,
+    is_flag=True,
+    help='Watch computers play a game of euchre amongst themselves.'
+)
+def play(watch):
+    setup(watch)
 
 
-def setup():
+def setup(watch_mode: bool):
     """Setup players and teams."""
-    # TODO: implement setup from user input
-
+    print(f'Welcome to euchre!')
     teams = [
         Team('Team 1'),
         Team('Team 2')
     ]
+
+    if watch_mode:
+        player = Computer(names.get_first_name(), teams[0])
+    else:
+        player = Human(teams[0])
+
     players = [
-        Human(teams[0]),
+        player,
         Computer(names.get_first_name(), teams[1]),
         Computer(names.get_first_name(), teams[0]),
         Computer(names.get_first_name(), teams[1])

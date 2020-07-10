@@ -10,23 +10,34 @@ pip install euchrecli
 
 ## Usage
 
+Play a game of euchre.
+
 ```zsh
 euchre play
+```
+
+Or watch one.
+
+```zsh
+euchre play --watch
 ```
 
 ## Planned Features
 
 ### Release 1.x
 
-* Ability to enter username
-* Ability to play through a complete game of euchre with 3 cpus
-* Ability to call any trump suit regardless of hand contents
-* Current dealer redeals if no trump is selected
-* Game debug logs
-* Euchre rules overview
-* Output euchre-cli version
-* Usage documentation
-* Published to pypi
+* [x] Ability to enter user's name
+* [x] Ability to play through a complete game of euchre with 3 cpus
+* [x] Choose trump suit from suits in hand only mode
+* [x] Current dealer redeals if no trump is selected
+* [x] Watch CPU mode
+* [ ] Play again prompt at end of game
+* [ ] Auto play again mode
+* [ ] Game debug logs
+* [ ] Euchre rules overview
+* [x] Output euchre-cli version
+* [ ] Usage documentation
+* [ ] Published to pypi
 
 ### Release 2.x
 
@@ -40,7 +51,6 @@ euchre play
 * 'Stick the dealer' mode
 * Ability to adjust speed of cpu decision making
 * Shell output coloring and emojis
-* Choose trump suit from suits in hand only mode
 
 ### Future
 
