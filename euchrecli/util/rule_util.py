@@ -1,6 +1,6 @@
 
 from euchrecli.util.card_util import Card, Suit
-from euchrecli.util.player_util import Player, Team
+from euchrecli.abstract import Player, Team
 
 
 def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
@@ -26,7 +26,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
             valid = lead_matches == 0
             reason = 3
 
-    print(f'\t[DEBUG] {card_to_play}, valid ({reason}): {valid}')
+    # print(f'\t[DEBUG] {card_to_play}, valid ({reason}): {valid}')
     return valid
 
 

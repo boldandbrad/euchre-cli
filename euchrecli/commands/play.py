@@ -2,10 +2,11 @@
 import click
 import names
 
+from euchrecli.abstract import Team, Player, Computer, Human
 from euchrecli.util.card_util import Card, Suit
 from euchrecli.util.deck_util import create_deck, deal_hand
-from euchrecli.util.player_util import Team, Player, set_dealer, \
-    rotate_dealer, rotate_trick_order
+from euchrecli.util.player_util import set_dealer, rotate_dealer, \
+    rotate_trick_order
 from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner
 
 
@@ -23,10 +24,10 @@ def setup():
         Team('Team 2')
     ]
     players = [
-        Player(names.get_first_name(), teams[0]),
-        Player(names.get_first_name(), teams[1]),
-        Player(names.get_first_name(), teams[0]),
-        Player(names.get_first_name(), teams[1])
+        Human(teams[0]),
+        Computer(names.get_first_name(), teams[1]),
+        Computer(names.get_first_name(), teams[0]),
+        Computer(names.get_first_name(), teams[1])
     ]
 
     deck = create_deck()
@@ -82,10 +83,10 @@ def hand(number: int, players: [Player]) -> None:
         trump_suit = set_trump_suit(players, deck)
 
         # TODO: remove next three lines
-        for player in players:
-            print(f'[DEBUG] ' +
-                  f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
-        print(f'[DEBUG] Deck: {deck}')
+        # for player in players:
+        #     print(f'[DEBUG] ' +
+        #           f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
+        # print(f'[DEBUG] Deck: {deck}')
 
     print(f'Trump suit is {trump_suit}s')
 
@@ -96,9 +97,9 @@ def hand(number: int, players: [Player]) -> None:
         trick_winner(players, played_cards, trump_suit)
 
         # TODO: remove next two lines
-        for player in players:
-            print(f'[DEBUG] ' +
-                  f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
+        # for player in players:
+        #     print(f'[DEBUG] ' +
+        #           f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
 
         # adjust play order based on winner of previous trick
         rotate_trick_order(players)
@@ -139,8 +140,8 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
         for player in players:
             if not trump_suit:
                 candidate_suit = player.call_trump_suit(face_up_suit)
-                print(f'{player.name} proposes {candidate_suit}s')
                 if candidate_suit != face_up_suit:
+                    print(f'{player.name} proposes {candidate_suit}s')
                     trump_suit = candidate_suit
                     player.team.called_trump = True
                 else:
@@ -160,10 +161,13 @@ def trick(players: [Player], trump_suit: Suit) -> [Card]:
             card_to_play = player.play_card(played_cards, trump_suit)
             if valid_play(card_to_play, player.hand, played_cards, trump_suit):
                 break
+            if isinstance(player, Human):
+                print(f'\tInvalid play ({str(card_to_play)}). You must ' +
+                      f'follow the lead suit ' +
+                      f'({played_cards[0].adjusted_suit(trump_suit)}s).')
 
         # play proposed card from player hand
         print(f'\t{str(card_to_play)}')
         played_cards.append(player.hand.pop(player.hand.index(card_to_play)))
 
-    print(f'Played cards: {played_cards}')
     return(played_cards)
