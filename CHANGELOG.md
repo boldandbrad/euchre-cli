@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2020-07-10
+
+### Added
+
+- `euchre play --watch` - Watch computers play a game of euchre amongst themselves.
+
+### Changed
+
+- `euchre play`
+  - Human player (User) can now play a game of euchre with computers by default!
+  - Regulate game output pace by default so that games are easier to follow!
+  - Removed debug logs from game output.
+
+### Fixed
+
+- `euchre play` - No longer print that a user has proposed a trump suit when
+    they have in fact passed.
+
 ## [0.2.0] - 2020-07-09
 
 ### Changed

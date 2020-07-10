@@ -7,6 +7,8 @@ from euchrecli.commands.play import play
 @click.group()
 @click.version_option()
 def cli():
+    """euchre cli main command group.
+    """
     pass
 
 
