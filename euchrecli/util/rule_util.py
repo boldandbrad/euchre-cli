@@ -26,7 +26,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
             valid = lead_matches == 0
             reason = 3
 
-    print(f'\t{card_to_play}, valid ({reason}): {valid}')
+    print(f'\t[DEBUG] {card_to_play}, valid ({reason}): {valid}')
     return valid
 
 
@@ -44,7 +44,7 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
 
     # increment team tricks won
     winning_player.won_trick()
-    print(f'Trick winner {winning_player.name}, {winning_player.team}')
+    print(f'Trick winner: {winning_player.name}, {winning_player.team}')
 
 
 def hand_winner(teams: [Team]) -> Team:

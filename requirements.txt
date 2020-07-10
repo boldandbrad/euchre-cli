@@ -5,3 +5,4 @@
 #    pip-compile
 #
 click==7.1.2              # via euchre-cli (setup.py)
+names==0.3.0              # via euchre-cli (setup.py)

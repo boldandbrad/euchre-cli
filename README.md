@@ -69,7 +69,7 @@ git clone https://github.com/bradleycwojcik/euchre-cli
 ```
 
 ```zsh
-pip install .
+pip install -e .
 ```
 
 ```zsh
