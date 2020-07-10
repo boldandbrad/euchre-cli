@@ -1,8 +1,7 @@
 
 from random import choice, choices
 
-from euchrecli.abstract import Team, Player
-from euchrecli.util.card_util import Card
+from euchrecli.abstract import Team, Player, Card
 
 
 def set_dealer(players: [Player], deck: [Card]) -> None:

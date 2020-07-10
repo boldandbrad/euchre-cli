@@ -1,11 +1,20 @@
 
-from euchrecli.util.card_util import Card, Suit
-from euchrecli.abstract import Player, Team
+from euchrecli.abstract import Player, Team, Card, Suit
 
 
 def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
                trump_suit: Suit) -> bool:
-    """Return whether a card is a valid play."""
+    """Return whether a card is a valid play.
+
+    Args:
+        card_to_play (Card): Proposed card to play.
+        player_hand ([Card]): List of cards in player's hand.
+        played_cards ([Card]): Cards already played this trick.
+        trump_suit (Suit): Active trump suit.
+
+    Returns:
+        bool: Whether or not the card is a valid play.
+    """
     valid = False
     # reason = 0
     if len(played_cards) == 0 or len(player_hand) == 1:
@@ -30,8 +39,15 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
     return valid
 
 
-def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
-    """Return winning player of trick. Increment their team's trick score."""
+def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
+        -> None:
+    """Determine and award winning player and team of trick.
+
+    Args:
+        players ([Player]): List of players.
+        played_cards ([type]): List of cards played in the trick.
+        trump_suit (Suit): Active trump suit.
+    """
     lead_suit = played_cards[0].suit
 
     high_value = 0
@@ -48,7 +64,14 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit):
 
 
 def hand_winner(teams: [Team]) -> Team:
-    """Return winning team of the last hand. Increment team game_score."""
+    """Return winning team of the last hand. Increment team game_score.
+
+    Args:
+        teams ([Team]): List of teams in the game.
+
+    Returns:
+        Team: Team that won the hand.
+    """
     winning_team = None
     for team in teams:
         if team.trick_score >= 3:

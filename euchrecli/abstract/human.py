@@ -1,10 +1,11 @@
 
-from . import Team, Player
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Player, Card, Suit
 from euchrecli.util.input_util import bool_input, int_input, str_input
 
 
 class Human(Player):
+    """Representation of a human player. Extends Player class.
+    """
 
     def __init__(self, team: Team):
         name = str_input('What is your name?')

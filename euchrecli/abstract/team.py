@@ -1,5 +1,7 @@
 
 class Team():
+    """Representation of a team of players.
+    """
 
     def __init__(self, name: str) -> None:
         self.name = name

@@ -2,9 +2,8 @@
 import click
 import names
 
-from euchrecli.abstract import Team, Player, Computer, Human
-from euchrecli.util.card_util import Card, Suit
-from euchrecli.util.deck_util import create_deck, deal_hand
+from euchrecli.abstract import Suit, Card, Team, Player, Computer, Human
+from euchrecli.util.card_util import create_deck, deal_hand
 from euchrecli.util.player_util import set_dealer, rotate_dealer, \
     rotate_trick_order
 from euchrecli.util.rule_util import valid_play, trick_winner, hand_winner

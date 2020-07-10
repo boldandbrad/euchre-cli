@@ -1,10 +1,32 @@
 
 def bool_input(prompt: str) -> bool:
+    """Prompt user for yes/no boolean input.
+
+    Returns True if user response is 'y'/'Y'/'yes'/'YES'. Otherwise, False.
+
+    Args:
+        prompt (str): Prompt to display.
+
+    Returns:
+        bool: User boolean response.
+    """
     response = input(f'{prompt} (y/N) ')
     return response.lower() in ['y', 'yes']
 
 
 def int_input(prompt: str, input_range: int) -> int:
+    """Prompt user for an integer value.
+
+    Args:
+        prompt (str): Prompt to display.
+        input_range (int): Acceptable range of integers.
+
+    Raises:
+        ValueError: Reprompt on invalid user input.
+
+    Returns:
+        int: Validated user integer response.
+    """
     response = -1
     valid = False
     while not valid:
@@ -23,4 +45,12 @@ def int_input(prompt: str, input_range: int) -> int:
 
 
 def str_input(prompt: str) -> str:
+    """Prompt user for string value.
+
+    Args:
+        prompt (str): Prompt to display.
+
+    Returns:
+        str: User string response.
+    """
     return input(f'{prompt} ')

@@ -1,11 +1,12 @@
 
 from random import choice, choices
 
-from . import Team
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Card, Suit
 
 
 class Player():
+    """Representation of a player. Parent class of Computer and Human.
+    """
 
     def __init__(self, name: str, team: Team) -> None:
         self.name = name

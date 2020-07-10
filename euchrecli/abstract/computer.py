@@ -1,11 +1,12 @@
 
 from random import choice, choices
 
-from . import Team, Player
-from euchrecli.util.card_util import Card, Suit
+from . import Team, Player, Card, Suit
 
 
 class Computer(Player):
+    """Representation of a cpu player. Extends Player class.
+    """
 
     def __init__(self, name: str, team: Team):
         super().__init__(name, team)
