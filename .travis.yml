@@ -12,6 +12,9 @@ install:
 script:
   - pytest
 
+after_success:
+  - codecov
+
 deploy:
   # deploy develop branch to test pypi
   - provider: pypi

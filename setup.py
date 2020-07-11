@@ -24,6 +24,11 @@ setup_info = dict(
         'click>=7',
         'names==0.3.0'
     ],
+    tests_require=[
+        'pytest',
+        'coverage',
+        'codecov'
+    ],
     python_requires='>=3.7',
     classifiers=[
         'Programming Language :: Python :: 3',
