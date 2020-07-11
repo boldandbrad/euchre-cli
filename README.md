@@ -76,7 +76,7 @@ euchre play --watch
 
 ## Changelog
 
-[Changelog](./CHANGELOG.md)
+[Changelog](./docs/CHANGELOG.md)
 
 ## Development
 
@@ -92,6 +92,21 @@ pip install -e .
 
 ```zsh
 euchre --help
+```
+
+### Docs
+
+euchre-cli uses [docsify](https://docsify.js.org/) for documentation. First,
+install the docsify cli.
+
+```zsh
+npm install docsify-cli -g
+```
+
+Then, serve the docs on `localhost:3000`.
+
+```zsh
+docsify serve docs
 ```
 
 ## License
