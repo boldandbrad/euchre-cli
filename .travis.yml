@@ -11,8 +11,8 @@ script:
 deploy:
   # deploy develop branch to test pypi
   - provider: pypi
-    server: https://test.pypi.org/legacy/
-    username: "__token__"
+    server: https://test.pypi.org/simple/
+    username: __token__
     password: $PYPI_TEST_TOKEN
     on:
       branch: develop
@@ -26,7 +26,7 @@ deploy:
       tags: true
   # deploy tag to pypi
   - provider: pypi
-    username: "__token__"
+    username: __token__
     password: $PYPI_TOKEN
     on:
       tags: true
