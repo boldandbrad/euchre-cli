@@ -11,9 +11,10 @@ script:
 deploy:
   # deploy develop branch to test pypi
   - provider: pypi
-    server: https://test.pypi.org/simple/
+    server: https://test.pypi.org/legacy/
     username: __token__
     password: $PYPI_TEST_TOKEN
+    distributions: sdist bdist_wheel
     on:
       branch: develop
   # deploy tag docs to github pages
