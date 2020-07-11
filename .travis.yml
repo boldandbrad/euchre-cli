@@ -18,17 +18,19 @@ deploy:
     distributions: sdist bdist_wheel
     on:
       branch: develop
+  # deploy tag to pypi
+  - provider: pypi
+    username: __token__
+    password: $PYPI_TOKEN
+    skip_cleanup: true
+    distributions: sdist bdist_wheel
+    on:
+      tags: true
   # deploy tag docs to github pages
   - provider: pages
     local_dir: docs
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     keep_history: true
-    on:
-      tags: true
-  # deploy tag to pypi
-  - provider: pypi
-    username: __token__
-    password: $PYPI_TOKEN
     on:
       tags: true
