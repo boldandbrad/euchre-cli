@@ -8,8 +8,9 @@
 # os
 .DS_Store
 
-# pyenv and venv
+# pyenv/nodenv and venv
 .python-version
+.node-version
 .venv
 
 # python artifacts

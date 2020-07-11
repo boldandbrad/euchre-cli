@@ -1,5 +1,7 @@
 # euchre-cli :spades:
 
+[![Build Status](https://travis-ci.org/bradleycwojcik/euchre-cli.svg?branch=main)](https://travis-ci.org/bradleycwojcik/euchre-cli)
+
 Play euchre in your terminal.
 
 ## Installation
@@ -76,7 +78,7 @@ euchre play --watch
 
 ## Changelog
 
-[Changelog](./CHANGELOG.md)
+[Changelog](./docs/CHANGELOG.md)
 
 ## Development
 
@@ -92,6 +94,21 @@ pip install -e .
 
 ```zsh
 euchre --help
+```
+
+### Docs
+
+euchre-cli uses [docsify](https://docsify.js.org/) for documentation. First,
+install the docsify cli.
+
+```zsh
+npm install docsify-cli -g
+```
+
+Then, serve the docs on `localhost:3000`.
+
+```zsh
+docsify serve docs
 ```
 
 ## License

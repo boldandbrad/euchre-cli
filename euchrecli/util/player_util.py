@@ -13,7 +13,7 @@ def rotate_dealer(players: [Player]) -> None:
     for idx, player in enumerate(players):
         if player.is_dealer:
             # rotate players based on index of previous dealer
-            for _ in range(idx):
+            for _ in range(idx + 2):
                 players.append(players.pop(0))
             player.is_dealer = False
 
