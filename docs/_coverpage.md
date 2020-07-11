@@ -1,5 +1,5 @@
 
-# **euchre-cli** :spades: **<small>0.3.0</small>**
+# **euchre-cli** :spades: **<small>0.3.1</small>**
 
 > Play euchre in your terminal.
 
