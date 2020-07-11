@@ -7,7 +7,7 @@ Play euchre in your terminal.
 ## Installation
 
 ```zsh
-pip install euchrecli
+pip install euchre-cli
 ```
 
 ## Usage
@@ -41,9 +41,9 @@ euchre play --watch
 * [x] Output euchre-cli version
 * [x] Regulated game output pace
 * [ ] Game debug logs
-* [ ] Github pages hosted docs
+* [x] Github pages hosted docs
 * [ ] Unit tests
-* [ ] Travis CI integration
+* [x] Travis CI integration
 * [ ] Published to pypi
 
 ### Release 2.x

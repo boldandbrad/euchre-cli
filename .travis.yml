@@ -9,10 +9,24 @@ script:
   - pytest
 
 deploy:
-  provider: pages
-  local_dir: docs
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: main
+  # deploy develop branch to test pypi
+  - provider: pypi
+    server: https://test.pypi.org/pypi
+    username: "__token__"
+    password: $PYPI_TEST_TOKEN
+    on:
+      branch: develop
+  # deploy tag docs to github pages
+  - provider: pages
+    local_dir: docs
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+      tags: true
+  # deploy tag to pypi
+  - provider: pypi
+    username: "__token__"
+    password: $PYPI_TOKEN
+    on:
+      tags: true
