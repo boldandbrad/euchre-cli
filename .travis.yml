@@ -14,6 +14,7 @@ deploy:
     server: https://test.pypi.org/legacy/
     username: __token__
     password: $PYPI_TEST_TOKEN
+    skip_cleanup: true
     distributions: sdist bdist_wheel
     on:
       branch: develop
