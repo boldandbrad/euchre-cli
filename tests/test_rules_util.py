@@ -1,7 +1,6 @@
 
-
 from euchrecli.abstract import Face, Suit, Card, Team, Computer
-from euchrecli.util import valid_play, hand_winner, trick_winner
+from euchrecli.util.rule_util import valid_play, hand_winner, trick_winner
 
 
 def test_valid_play():
@@ -17,14 +16,24 @@ def test_valid_play():
         Card(diamonds, Face('Nine', 9))
     ]
 
+    # no cards yet played
+    played_cards = []
+
+    card_to_play = player_hand[0]
+    assert valid_play(card_to_play, player_hand, played_cards, trump_suit) \
+        is True
+
+    # lead card played
     played_cards = [
         Card(diamonds, Face('Ten', 10))
     ]
 
+    # did not follow suit
     card_to_play = player_hand[0]  # Jack of Spades
     assert valid_play(card_to_play, player_hand, played_cards, trump_suit) \
         is False
 
+    # followed suit
     card_to_play = player_hand[1]  # Nine of Diamonds
     assert valid_play(card_to_play, player_hand, played_cards, trump_suit) \
         is True
