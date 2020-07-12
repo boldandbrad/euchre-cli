@@ -1,5 +1,5 @@
 
-from euchrecli.abstract import Computer, Team
+from euchrecli.abstract import Computer
 from euchrecli.util import create_deck, deal_hand
 
 
