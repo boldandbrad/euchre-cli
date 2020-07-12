@@ -1,6 +1,7 @@
 # euchre-cli :spades:
 
 [![Build Status](https://travis-ci.org/bradleycwojcik/euchre-cli.svg?branch=main)](https://travis-ci.org/bradleycwojcik/euchre-cli)
+[![codecov](https://codecov.io/gh/bradleycwojcik/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/bradleycwojcik/euchre-cli)
 
 Play euchre in your terminal.
 
