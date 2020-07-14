@@ -3,10 +3,17 @@ python:
   - "3.7"
 
 install:
+  - pip install --upgrade pip
+  - pip install pip-tools
+  - pip-compile
   - pip install -r requirements.txt
+  - pip install .
 
 script:
-  - pytest
+  - pytest --cov-report=xml --cov=./euchrecli/
+
+after_success:
+  - codecov
 
 deploy:
   # deploy develop branch to test pypi

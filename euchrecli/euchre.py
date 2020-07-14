@@ -1,7 +1,7 @@
 
 import click
 
-from euchrecli.commands.play import play
+from euchrecli.command.play import play
 
 
 @click.group()

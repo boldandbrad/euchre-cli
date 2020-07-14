@@ -67,7 +67,7 @@ class Player():
         self.team.won_trick()
 
     def __repr__(self) -> str:
-        return f"Player({self.name}, {self.team}, {self.is_dealer})"
+        return f"Player({self.name}, {self.team.name}, {self.is_dealer})"
 
     def __str__(self) -> str:
         if self.is_dealer:
