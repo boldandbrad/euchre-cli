@@ -126,6 +126,9 @@ def hand(number: int, players: [Player]) -> None:
         # set trump suit
         trump_suit = set_trump_suit(players, deck)
 
+        if not trump_suit:
+            output(f'Everyone has passed. The hand will now be re-dealt.')
+
         # TODO: remove next three lines
         # for player in players:
         #     print(f'[DEBUG] ' +

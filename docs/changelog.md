@@ -17,6 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `euchre play` - Show proper integer choice range when only one option
     available (0).
 
+## Fixed
+
+- `euchre play` - Players no longer keep their hands from the previous deal when
+    the hand is re-dealt.
+
 ## [0.3.1] - 2020-07-11
 
 ### Added
