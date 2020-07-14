@@ -43,7 +43,7 @@ euchre play --watch
 * [x] Regulated game output pace
 * [ ] Game debug logs
 * [x] Github pages hosted docs
-* [ ] Unit tests
+* [x] Unit tests
 * [x] Travis CI integration
 * [ ] Published to pypi
 
@@ -110,6 +110,12 @@ Then, serve the docs on `localhost:3000`.
 
 ```zsh
 docsify serve docs
+```
+
+## Tests
+
+```zsh
+pytest
 ```
 
 ## License

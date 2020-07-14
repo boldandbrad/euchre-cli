@@ -33,16 +33,15 @@ def int_input(prompt: str, input_range: int) -> int:
     response = -1
     valid = False
     while not valid:
+        range_str = f'(0-{input_range - 1})' if input_range > 1 else f'(0)'
         try:
-            response = int(input(f'{prompt} (0-{input_range - 1}): '))
+            response = int(input(f'{prompt} {range_str}: '))
             if response in range(input_range):
                 valid = True
             else:
-                raise ValueError(f'{response} is not in range ' +
-                                 f'0-{input_range - 1}.')
+                raise ValueError(f'{response} is not in range {range_str}.')
         except ValueError:
-            output(f'\tInvalid input. Enter an integer from ' +
-                   f'0-{input_range - 1}.', 0.5)
+            output(f'\tInvalid input. Enter an integer from {range_str}.', 0.5)
 
     return response
 
