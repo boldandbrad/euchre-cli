@@ -6,8 +6,8 @@ install:
   - pip install --upgrade pip
   - pip install pip-tools
   - pip-compile
-  # - pip install -r requirements.txt
-  - pip install .
+  - pip install -r requirements.txt
+  # - pip install .
 
 script:
   - pytest --cov-report=xml --cov=./euchrecli/
