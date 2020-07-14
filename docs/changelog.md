@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Package is now partially unit tested.
-- Travis CI integration with automated deployments.
+- [tech] - Package is now partially unit tested.
+- [tech] - Travis CI integration with automated deployments.
 
 ## Changed
 
