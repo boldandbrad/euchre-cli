@@ -79,7 +79,7 @@ euchre play --watch
 
 ## Changelog
 
-[Changelog](./docs/CHANGELOG.md)
+[Changelog](docs/CHANGELOG.md)
 
 ## Development
 
