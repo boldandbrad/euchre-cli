@@ -1,3 +1,7 @@
 # Rules
 
-> da rules
+<small>Last updated: {docsify-updated}</small>
+
+---
+
+> da rules. coming soon.
