@@ -47,5 +47,6 @@ def deal_hand(players: [Player], deck: [Card]) -> None:
     # TODO: implement standard euchre dealing algorithm
     index = 0
     for player in players:
+        player.hand = []
         for _ in range(5):
             player.hand.append(deck.pop(index))
