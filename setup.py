@@ -22,7 +22,10 @@ setup_info = dict(
     include_package_data=True,
     install_requires=[
         'click>=7',
-        'names==0.3.0'
+        'names==0.3.0',
+        'pytest',
+        'pytest-cov',
+        'codecov'
     ],
     python_requires='>=3.7',
     classifiers=[

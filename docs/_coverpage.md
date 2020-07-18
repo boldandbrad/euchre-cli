@@ -1,9 +1,10 @@
 
-# **euchre-cli** :spades: **<small>0.3.1</small>**
+# **euchre-cli** :spades: **<small>0.3.2</small>**
 
 > Play euchre in your terminal.
 
 - Written in python
+- Cross platform
 
 [Github](https://github.com/bradleycwojcik/euchre-cli)
 [Get Started](#euchre-cli)

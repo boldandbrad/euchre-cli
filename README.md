@@ -1,13 +1,15 @@
 # euchre-cli :spades:
 
 [![Build Status](https://travis-ci.org/bradleycwojcik/euchre-cli.svg?branch=main)](https://travis-ci.org/bradleycwojcik/euchre-cli)
+[![codecov](https://codecov.io/gh/bradleycwojcik/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/bradleycwojcik/euchre-cli)
+![PyPi](https://img.shields.io/pypi/v/euchre-cli)
 
 Play euchre in your terminal.
 
 ## Installation
 
 ```zsh
-pip install euchrecli
+pip install euchre-cli
 ```
 
 ## Usage
@@ -41,9 +43,9 @@ euchre play --watch
 * [x] Output euchre-cli version
 * [x] Regulated game output pace
 * [ ] Game debug logs
-* [ ] Github pages hosted docs
-* [ ] Unit tests
-* [ ] Travis CI integration
+* [x] Github pages hosted docs
+* [x] Unit tests
+* [x] Travis CI integration
 * [ ] Published to pypi
 
 ### Release 2.x
@@ -78,7 +80,7 @@ euchre play --watch
 
 ## Changelog
 
-[Changelog](./docs/CHANGELOG.md)
+[Changelog](docs/changelog.md)
 
 ## Development
 
@@ -109,6 +111,12 @@ Then, serve the docs on `localhost:3000`.
 
 ```zsh
 docsify serve docs
+```
+
+## Tests
+
+```zsh
+pytest
 ```
 
 ## License

@@ -2,16 +2,16 @@
 import time
 
 
-def _wait(delay: float = 1.25):
+def _wait(delay: float):
     """Pause thread execution for a duration in seconds.
 
     Args:
-        delay (int, optional): Seconds to pause. Defaults to 1.25.
+        delay (int, optional): Seconds to pause.
     """
     time.sleep(delay)
 
 
-def output(message: str, delay: float = 1.2):
+def output(message: str, delay: float = 1.25):
     """Print out a message to the user after pausing for a duration in seconds.
 
     Args:
