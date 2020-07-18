@@ -1,32 +1,32 @@
 # Changelog
 
+<small>Last updated: {docsify-updated}</small>
+
+---
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.2] - 2020-07-13
+## [0.3.2] - 2020-07-18
 
 ### Added
 
-- [tech] - Package is now partially unit tested.
-- [tech] - Travis CI integration with automated deployments.
+- `technical debt` - Package is now partially unit tested.
+- `technical debt` - Travis CI integration with automated deployments.
 
-## Changed
+### Fixed
 
-- `euchre play` - Show proper integer choice range when only one option
-    available (0).
-
-## Fixed
-
-- `euchre play` - Players no longer keep their hands from the previous deal when
-    the hand is re-dealt.
+- `euchre play`
+  - Players no longer keep their hands from the previous deal when the hand is re-dealt.
+  - Show proper integer choice range when only one option is available (0).
 
 ## [0.3.1] - 2020-07-11
 
 ### Added
 
-- Automated deployment of docsify documentation with travis ci.
+- `technical debt` - Automated deployment of docsify documentation with travis ci.
 
 ### Fixed
 
