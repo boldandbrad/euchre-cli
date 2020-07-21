@@ -1,5 +1,6 @@
 
 from random import shuffle
+
 from euchrecli.abstract import Player, Suit, Face, Card
 
 

@@ -17,7 +17,11 @@ setup_info = dict(
     description='Play euchre in your terminal.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/bradleycwojcik/euchre-cli',
+    url='https://bradleycwojcik.github.io/euchre-cli/',
+    project_urls={
+        'Source': 'https://github.com/bradleycwojcik/euchre-cli/',
+        'Bug Tracker': 'https://github.com/bradleycwojcik/euchre-cli/issues'
+    },
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -29,7 +33,7 @@ setup_info = dict(
     ],
     python_requires='>=3.7',
     classifiers=[
-        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
         'License :: OSI Approved :: MIT License'
     ],
     entry_points='''

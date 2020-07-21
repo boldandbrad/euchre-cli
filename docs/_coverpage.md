@@ -7,6 +7,6 @@
 - Cross platform
 
 [Github](https://github.com/bradleycwojcik/euchre-cli)
-[Get Started](#euchre-cli)
+[Learn More](#euchre-cli-spades)
 
 ![color](#B3C69F)

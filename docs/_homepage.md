@@ -1,38 +1,16 @@
-# euchre-cli
+# euchre-cli :spades:
 
-<small>Last updated: {docsify-updated}</small>
+> Play euchre in your terminal.
 
----
+## About
 
-Play euchre in your terminal.
+Euchre is a trick taking game with a trump, played by four people in teams of two.
+Each hand, one of the teams calls the trump suit and then attempts to take the
+majority of tricks in that hand. Each player plays a single card, the highest played
+card of the lead suit takes the trick, or the highest played card of the trump
+suit, if one has been played. Play continues for several hands until a team has
+been awarded a total of 10 points.
 
-## Install
+See the [Get started](get-started.md) guide for installation instructions.
 
-python 3.7+ is required.
-
-```zsh
-pip install euchre-cli
-```
-
-### Upgrade
-
-Upgrade to a newer version of euchre-cli.
-
-```zsh
-pip uninstall euchre-cli
-pip install euchre-cli
-```
-
-## Usage
-
-Play a new game of euchre.
-
-```zsh
-euchre play
-```
-
-Or watch one.
-
-```zsh
-euchre play --watch
-```
+<div style="text-align: right">Last updated: {docsify-updated}</div>
