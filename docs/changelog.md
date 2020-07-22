@@ -1,13 +1,21 @@
 # Changelog
 
-<small>Last updated: {docsify-updated}</small>
-
----
-
-All notable changes to this project will be documented in this file.
+All notable changes to euchre-cli will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.4.0] - 2020-07-21
+
+### Added
+
+- `euchre rules` - Open euchre-cli rules page in a web browser.
+- Added short forms of cli options throughout app (`-v`, `-h`, etc.)
+- `docs` - Added uninstall instructions.
+
+### Changed
+
+- Restructured documentation site and added pagination.
 
 ## [0.3.2] - 2020-07-18
 
@@ -76,3 +84,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     together, making random decisions (within the rules).
 - `euchre --version` - Check current installed version.
 - `euchre --help` - Print out cli usage.
+
+<div style="text-align: right">Last updated: {docsify-updated}</div>

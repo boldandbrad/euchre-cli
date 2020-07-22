@@ -10,13 +10,16 @@ from euchrecli.util import create_deck, deal_hand, output, rotate_dealer, \
 @click.command(
     help='Start a new euchre game.'
 )
+@click.help_option(
+    '-h', '--help'
+)
 @click.option(
-    '--watch',
+    '-w', '--watch',
     default=False,
     is_flag=True,
     help='Watch computers play a game of euchre amongst themselves.'
 )
-def play(watch):
+def play(watch: bool):
     setup(watch)
 
 
