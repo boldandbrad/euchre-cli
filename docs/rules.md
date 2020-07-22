@@ -16,7 +16,7 @@ of the remaining deck is turned face up.
 
 ## Calling Trump
 
-After a hand is dealt, players must choose what the trump suit will be for the hand.
+After a hand is dealt, players must choose what the trump suit will be for that hand.
 The suit of the face up card is the candidate trump suit.
 
 Starting with the player to the dealer's left, and proceeding clockwise, each player
@@ -28,9 +28,9 @@ the deck. Trick play may begin.
 In the event that all players "passed" on the candidate suit, there is another calling
 round. The face up card is turned over and added back to the deck. Then, starting
 with the player to the dealer's left, each player may again elect to "pass", meaning
-they do not want to call the trump suit, or they may call any suit to be trump
-(except the suit passed on in the previous round) and the calling round ends. Trick
-play may begin.
+they do not want to call the trump suit. Or they may call any suit they have in their
+hand to be trump (except the suit passed on in the previous round) and the calling
+round ends. Trick play may begin.
 
 > If all players once again have "passed" in the second calling round, the dealer
 redeals the hand and the first calling round starts over.
