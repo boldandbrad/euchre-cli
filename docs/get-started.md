@@ -31,3 +31,11 @@ pip install --upgrade euchre-cli
 ```
 
 <div style="text-align: right">Last updated: {docsify-updated}</div>
+
+## Uninstall
+
+Remove euchre-cli from your device.
+
+```zsh
+pip uninstall euchre-cli
+```

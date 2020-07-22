@@ -5,11 +5,13 @@ All notable changes to euchre-cli will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.3] - 2020-07-21
+## [0.4.0] - 2020-07-21
 
 ### Added
 
-- `euchre rules` - Open euchre rules docs in a web browser.
+- `euchre rules` - Open euchre-cli rules page in a web browser.
+- Added short forms of cli options throughout app (`-v`, `-h`, etc.)
+- `docs` - Added uninstall instructions.
 
 ### Changed
 
