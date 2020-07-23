@@ -27,6 +27,7 @@ setup_info = dict(
     install_requires=[
         'click>=7',
         'names==0.3.0',
+        'loguru>=0.5.0',
         'pytest',
         'pytest-cov',
         'codecov'
