@@ -12,6 +12,7 @@ def get_logger() -> logger:
         logger: loguru logger
     """
     logger.remove()  # remove std.out/std.err since this is a CLI
+    logger.disable('tests')
 
     username = getpass.getuser()
 
