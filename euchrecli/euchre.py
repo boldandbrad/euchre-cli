@@ -3,10 +3,10 @@ import click
 
 from euchrecli.command.play import play
 from euchrecli.command.rules import rules
-from euchrecli.util.log_util import get_logger
+from euchrecli.util.log_util import logger_init
 
 
-logger = get_logger()
+logger_init()
 
 
 @click.group(

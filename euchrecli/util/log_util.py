@@ -6,28 +6,26 @@ import platform
 from loguru import logger
 
 
-def get_logger() -> logger:
-    """Configure and return loguru logger.
-
-    Returns:
-        logger: loguru logger
+def logger_init() -> None:
+    """Configure loguru logger.
     """
-    logger.remove()  # remove std.out/std.err since this is a CLI
+    logger.remove()  # remove stdout/stderr logging since this is a CLI
 
-    if 'TRAVIS' not in os.environ:
-        usrname = getpass.getuser()
+    is_travis = 'TRAVIS' in os.environ  # running in travis ci
+    usrname = getpass.getuser()
 
-        if platform.system() == 'Linux':
-            log_path = '/var/log/euchre-cli/euchre.log'
-        elif platform.system() == 'Darwin':
-            log_path = f'/Users/{usrname}/Library/Logs/euchre-cli/euchre.log'
-        elif platform.system() == 'Windows':
-            log_path = \
-                f'C:\\Users\\{usrname}\\AppData\\local\\euchre-cli\\euchre.log'
+    if platform.system() == 'Linux' and not is_travis:
+        log_path = '/var/log/euchre-cli/euchre.log'
+    elif platform.system() == 'Darwin' and not is_travis:
+        log_path = f'/Users/{usrname}/Library/Logs/euchre-cli/euchre.log'
+    elif platform.system() == 'Windows' and not is_travis:
+        log_path = \
+            f'C:\\Users\\{usrname}\\AppData\\local\\euchre-cli\\euchre.log'
+    else:
+        log_path = 'euchre.log'
 
-        log_format = '{time:YYYY-MM-DD at HH:mm:ss} | {level} | {message}'
+    log_format = '{time:YYYY-MM-DD at HH:mm:ss} | {level} | {message}'
 
-        logger.add(
-            log_path, format=log_format, compression='zip', retention='1 day'
-        )
-    return logger
+    logger.add(
+        log_path, format=log_format, compression='zip', retention='1 day'
+    )
