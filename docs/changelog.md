@@ -5,7 +5,7 @@ All notable changes to euchre-cli will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.4.0] - 2020-07-22
+## [0.4.0] - 2020-07-25
 
 ### Added
 
@@ -15,7 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `euchre play`: `-w` alias for `--watch`.
 - Docs: Added uninstall instructions.
 - Debug logging: Log files are now written and managed for debugging and support
-  purposes.
+  purposes. Log locations are:
+  - Linux: `/var/log/euchre-cli/`
+  - macOS: `~/Library/Log/euchre-cli/`
+  - Windows: `%userprofile%\AppData\local\euchre-cli\`
 
 ### Changed
 
