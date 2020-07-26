@@ -1,6 +1,7 @@
 
 import click
 import names
+from loguru import logger
 
 from euchrecli.abstract import Suit, Card, Team, Player, Computer, Human
 from euchrecli.util import create_deck, deal_hand, output, rotate_dealer, \
@@ -43,7 +44,8 @@ def setup(watch_mode: bool):
         Computer(names.get_first_name(), teams[1])
     ]
 
-    output(f'\nPlayers:', 0.75)
+    output()
+    output(f'Players:', 0.75)
     for player in players:
         output(f'\t{player.name}, {player.team.name}', 0.75)
 
@@ -61,7 +63,8 @@ def set_dealer(players: [Player], deck: [Card]) -> None:
         players ([Player]): active game player list
         deck ([Card]): active deck of cards
     """
-    output('\nFirst black jack deals!')
+    output()
+    output('First black jack deals!')
     dealer_set = False
     while not dealer_set:
         for player in players:
@@ -79,7 +82,8 @@ def set_dealer(players: [Player], deck: [Card]) -> None:
             for _ in range(idx + 1):
                 players.append(players.pop(0))
 
-    output('\nPlayer Order:')
+    output()
+    output('Player Order:')
     for player in players:
         output(f'\t{str(player)}, {player.team.name}', 0.75)
 
@@ -96,7 +100,8 @@ def game(players: [Player], teams: [Team]):
         # determine hand winner
         winning_team = hand_winner(teams)
 
-        output('\nGame Score:')
+        output()
+        output('Game Score:')
         for team in teams:
             output(f'\t{team.name}: {team.game_score}', 0.75)
 
@@ -117,7 +122,9 @@ def game(players: [Player], teams: [Team]):
 
 def hand(number: int, players: [Player]) -> None:
     """Deal and play a hand."""
-    output(f'\nPlay Hand {number}\n')
+    output()
+    output(f'Play Hand {number}')
+    output()
     trump_suit = None
 
     # set trump suit
@@ -132,11 +139,12 @@ def hand(number: int, players: [Player]) -> None:
         if not trump_suit:
             output(f'Everyone has passed. The hand will now be re-dealt.')
 
-        # TODO: remove next three lines
-        # for player in players:
-        #     print(f'[DEBUG] ' +
-        #           f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
-        # print(f'[DEBUG] Deck: {deck}')
+        # log player hands and deck
+        for player in players:
+            logger.debug(
+                f'{player.name}\'s hand: {[str(c) for c in player.hand]}'
+            )
+        logger.debug(f'Deck: {deck}')
 
     # play 5 tricks
     for _ in range(5):
@@ -145,10 +153,11 @@ def hand(number: int, players: [Player]) -> None:
         winning_player = trick_winner(players, played_cards, trump_suit)
         output(f'Trick winner: {winning_player.name}, {winning_player.team}')
 
-        # TODO: remove next two lines
-        # for player in players:
-        #     print(f'[DEBUG] ' +
-        #           f'{player.name}\'s hand: {[str(c) for c in player.hand]}')
+        # log player hands
+        for player in players:
+            logger.debug(
+                f'{player.name}\'s hand: {[str(c) for c in player.hand]}'
+            )
 
         # adjust play order based on winner of previous trick
         rotate_trick_order(players)
@@ -159,7 +168,8 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
     # dealer flips card from top of deck
     face_up_card = deck.pop(0)
     face_up_suit = face_up_card.suit
-    output(f'Face up card is the {face_up_card}.\n')
+    output(f'Face up card is the {face_up_card}.')
+    output()
 
     trump_suit = None
 
@@ -186,7 +196,9 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
         # add face up card back to the deck
         deck.append(face_up_card)
         face_up_card = None
-        output(f'\nTrump suit cannot be {face_up_suit}s.\n')
+        output()
+        output(f'Trump suit cannot be {face_up_suit}s.')
+        output()
         for player in players:
             if not trump_suit:
                 candidate_suit = player.call_trump_suit(face_up_suit)
@@ -202,7 +214,9 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
 
 def trick(players: [Player], trump_suit: Suit) -> [Card]:
     """Players take turns playing cards in a trick."""
-    output('\nPlay Trick\n')
+    output()
+    output('Play Trick')
+    output()
     output(f'Trump suit is {trump_suit}s.')
 
     played_cards = []
@@ -218,7 +232,8 @@ def trick(players: [Player], trump_suit: Suit) -> [Card]:
                        f'({played_cards[0].adjusted_suit(trump_suit)}s).', 0.5)
 
         # play proposed card from player hand
-        output(f'{player.name} plays the\n\t{card_to_play}', 0.75)
+        output(f'{player.name} plays the')
+        output(f'\t{card_to_play}', 0.75)
         played_cards.append(player.hand.pop(player.hand.index(card_to_play)))
 
     return(played_cards)
