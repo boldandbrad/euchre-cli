@@ -13,4 +13,13 @@ been awarded a total of 10 points.
 
 See the [Get started](get-started.md) guide for installation instructions.
 
+## Features
+
+- Play euchre with three computer players.
+- Watch euchre games between four computer players.
+- Learn euchre with [rules](rules.md) provided on this site.
+- Game logs for troubleshooting.
+
+## Report an Issue
+
 <div style="text-align: right">Last updated: {docsify-updated}</div>

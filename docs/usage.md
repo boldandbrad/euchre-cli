@@ -1,6 +1,6 @@
 # Usage
 
-Discover available sub commands and options with `euchre --help`.
+Discover all available **euchre-cli** sub commands and options with `euchre --help`.
 
 ## Play
 

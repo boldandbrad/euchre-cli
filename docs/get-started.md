@@ -1,8 +1,11 @@
 # Get started
 
-> python 3.7+ is required.
+Start playing euchre in your terminal.
 
 ## Install
+
+> **euchre-cli** is compatible with macOS, Windows, and Linux and has been tested
+with python 3.7+
 
 Install with pip.
 
@@ -24,7 +27,7 @@ euchre play
 
 ## Upgrade
 
-Upgrade to a newer version of euchre-cli.
+Upgrade to a newer version of **euchre-cli**.
 
 ```zsh
 pip install --upgrade euchre-cli
@@ -34,8 +37,14 @@ pip install --upgrade euchre-cli
 
 ## Uninstall
 
-Remove euchre-cli from your device.
+Remove **euchre-cli** from your device.
 
 ```zsh
 pip uninstall euchre-cli
 ```
+
+Remove **euchre-cli** game logs (optional).
+
+- Linux: `rm -rf /var/log/euchre-cli`
+- macOS: `rm -rf ~/Library/Logs/euchre-cli`
+- Windows: `rmdir /s /q C:\Users\<USERNAME>\AppData\local\euchre-cli`
