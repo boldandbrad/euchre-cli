@@ -1,20 +1,35 @@
 # Changelog
 
-<small>Last updated: {docsify-updated}</small>
-
----
-
-All notable changes to this project will be documented in this file.
+All notable changes to **euchre-cli** will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.4.0] - 2020-07-27
+
+### Added
+
+- `euchre rules` Open euchre-cli rules page in a web browser.
+- CLI option short forms throughout app. ex: `-h` alias for `--help`.
+- `docs`
+  - Added uninstall instructions.
+  - Added troubleshooting page.
+- `logging` Log files are now written and managed for debugging and support
+    purposes. Log locations are:
+  - Linux: `/var/log/euchre-cli/`
+  - macOS: `~/Library/Log/euchre-cli/`
+  - Windows: `%userprofile%\AppData\local\euchre-cli\`
+
+### Changed
+
+- `docs` Restructured documentation site and added pagination.
 
 ## [0.3.2] - 2020-07-18
 
 ### Added
 
-- `technical debt` - Package is now partially unit tested.
-- `technical debt` - Travis CI integration with automated deployments.
+- `technical` Package is now partially unit tested.
+- `technical` Travis CI integration with automated deployments.
 
 ### Fixed
 
@@ -26,18 +41,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `technical debt` - Automated deployment of docsify documentation with travis ci.
+- `technical` Automated deployment of docsify documentation with travis ci.
 
 ### Fixed
 
-- `euchre play` - Properly rotate dealer one spot to the left after each hand
+- `euchre play` Properly rotate dealer one spot to the left after each hand
     instead of to the right.
 
 ## [0.3.0] - 2020-07-10
 
 ### Added
 
-- `euchre play --watch` - Watch computers play a game of euchre amongst themselves.
+- `euchre play --watch` Watch computers play a game of euchre amongst themselves.
 
 ### Changed
 
@@ -48,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- `euchre play` - No longer print that a user has proposed a trump suit when
+- `euchre play` No longer print that a user has proposed a trump suit when
     they have in fact passed.
 
 ## [0.2.0] - 2020-07-09
@@ -65,14 +80,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- `euchre play` - Discarded card is now added back to the deck after a player
+- `euchre play` Discarded card is now added back to the deck after a player
     picks up.
 
 ## [0.1.0] - 2020-07-06
 
 ### Added
 
-- `euchre play` - Four CPU players can successfully play a full game of euchre
+- `euchre play` Four CPU players can successfully play a full game of euchre
     together, making random decisions (within the rules).
-- `euchre --version` - Check current installed version.
-- `euchre --help` - Print out cli usage.
+- `euchre --version` Check current installed version.
+- `euchre --help` Print out cli usage.
+
+<div style="text-align: right">Last updated: {docsify-updated}</div>

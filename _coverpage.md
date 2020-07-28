@@ -1,5 +1,5 @@
 
-# **euchre-cli** :spades: **<small>0.3.2</small>**
+# **euchre-cli** :spades: **<small>0.4.0</small>**
 
 > Play euchre in your terminal.
 
@@ -7,6 +7,6 @@
 - Cross platform
 
 [Github](https://github.com/bradleycwojcik/euchre-cli)
-[Get Started](#euchre-cli)
+[Learn More](#euchre-cli-spades)
 
 ![color](#B3C69F)
