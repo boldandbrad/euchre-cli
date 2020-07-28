@@ -27,7 +27,7 @@ euchre play
 
 ## Planned Features
 
-### Release 1.x
+### Release 0.x
 
 * [x] Ability to enter user's name
 * [x] Ability to play through a complete game of euchre with 3 cpus
@@ -41,13 +41,13 @@ euchre play
 * [x] Euchre rules overview
 * [x] Output euchre-cli version
 * [x] Regulated game output pace
-* [ ] Game debug logs
+* [x] Game debug logs
 * [x] Github pages hosted docs
 * [x] Unit tests
 * [x] Travis CI integration
 * [x] Published to pypi
 
-### Release 2.x
+### Release 1.x
 
 * Play again prompt at end of game
 * Auto play again mode
