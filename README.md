@@ -2,9 +2,14 @@
 
 [![Build Status](https://travis-ci.org/bradleycwojcik/euchre-cli.svg?branch=main)](https://travis-ci.org/bradleycwojcik/euchre-cli)
 [![codecov](https://codecov.io/gh/bradleycwojcik/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/bradleycwojcik/euchre-cli)
-![PyPi](https://img.shields.io/pypi/v/euchre-cli)
+[![Docs](https://img.shields.io/website?down_message=down&label=docs&up_message=online&url=https%3A%2F%2Fbradleycwojcik.github.io%2Feuchre-cli%2F)](https://bradleycwojcik.github.io/euchre-cli/)
+[![PyPI](https://img.shields.io/pypi/v/euchre-cli)](https://pypi.org/project/euchre-cli/)
 
 Play euchre in your terminal.
+
+* [Changelog](docs/changelog.md)
+* [Contribute](./CONTRIBUTING.md)
+* [License](./LICENSE)
 
 ## Installation
 
@@ -20,15 +25,9 @@ Play a game of euchre.
 euchre play
 ```
 
-Or watch one.
-
-```zsh
-euchre play --watch
-```
-
 ## Planned Features
 
-### Release 1.x
+### Release 0.x
 
 * [x] Ability to enter user's name
 * [x] Ability to play through a complete game of euchre with 3 cpus
@@ -39,16 +38,16 @@ euchre play --watch
 * [x] Validate card plays, reprompt if player attempts to not follow suit
 * [x] Trick winner leads next trick
 * [x] Watch CPU mode
-* [ ] Euchre rules overview
+* [x] Euchre rules overview
 * [x] Output euchre-cli version
 * [x] Regulated game output pace
-* [ ] Game debug logs
+* [x] Game debug logs
 * [x] Github pages hosted docs
 * [x] Unit tests
 * [x] Travis CI integration
-* [ ] Published to pypi
+* [x] Published to pypi
 
-### Release 2.x
+### Release 1.x
 
 * Play again prompt at end of game
 * Auto play again mode
@@ -77,48 +76,3 @@ euchre play --watch
 * Three handed euchre mode
 * Install with homebrew on mac and linux ?
 * Install with Chocolatey on windows ?
-
-## Changelog
-
-[Changelog](docs/changelog.md)
-
-## Development
-
-[Contributing](./CONTRIBUTING.md)
-
-```zsh
-git clone https://github.com/bradleycwojcik/euchre-cli
-```
-
-```zsh
-pip install -e .
-```
-
-```zsh
-euchre --help
-```
-
-### Docs
-
-euchre-cli uses [docsify](https://docsify.js.org/) for documentation. First,
-install the docsify cli.
-
-```zsh
-npm install docsify-cli -g
-```
-
-Then, serve the docs on `localhost:3000`.
-
-```zsh
-docsify serve docs
-```
-
-## Tests
-
-```zsh
-pytest
-```
-
-## License
-
-[MIT License](./LICENSE)

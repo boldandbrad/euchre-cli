@@ -17,49 +17,6 @@ class Player():
         # reset every trick
         self.trick_winner = False
 
-    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
-            -> bool:
-        """Decide whether to call pick up of face up card or to pass.
-
-        Returns:
-            bool: whether or not to call pick up
-        """
-        pass
-
-    def call_trump_suit(self, unsuitable: Suit) -> Suit:
-        """Decide whether to call desired trump suit or to pass.
-
-        Args:
-            unsuitable (Suit): Trump suit cannot be this suit
-
-        Returns:
-            Suit: Called trump suit or unsuitable to pass
-        """
-        pass
-
-    def pick_up_card(self, pick_up: Card) -> Card:
-        """Choose whether or not to replace card in hand with picked up one.
-
-        Args:
-            pick_up (Card): Card to pick up.
-
-        Returns:
-            Card: Card to be discarded.
-        """
-        pass
-
-    def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
-        """Choose which card to play from hand.
-
-        Args:
-            played_cards ([type]): List of already played cards.
-            trump_suit (Suit): Active trump suit.
-
-        Returns:
-            Card: Card to play.
-        """
-        pass
-
     def won_trick(self) -> None:
         """Set trick_winner and team won trick.
         """
