@@ -9,6 +9,7 @@ class Human(Player):
     """
 
     def __init__(self, team: Team):
+        output(delay=0.75)
         name = str_input('What is your name?')
         super().__init__(name, team)
 
@@ -19,7 +20,7 @@ class Human(Player):
         Returns:
             bool: whether or not to call pick up
         """
-        self._print_hand()
+        self.print_hand()
         choice = False
         if self.is_dealer:
             choice = bool_input(f'Would you like to pick up the ' +
@@ -38,7 +39,7 @@ class Human(Player):
         Returns:
             Suit: Called trump suit or unsuitable to pass
         """
-        self._print_hand()
+        self.print_hand()
         suits_in_hand = set()
         for c in self.hand:
             if c.suit != unsuitable:
@@ -70,8 +71,8 @@ class Human(Player):
         # add picked up card to hand
         self.hand.insert(0, pick_up)
 
-        self._print_hand(indicies=True)
         output(f'Trump suit will be {pick_up.suit}s.')
+        self.print_hand(indicies=True)
         choice = int_input(f'Which card would you like to discard?',
                            len(self.hand))
         discard = self.hand.pop(choice)
@@ -88,19 +89,19 @@ class Human(Player):
         Returns:
             Card: Card to play.
         """
-        self._print_hand(indicies=True)
+        self.print_hand(indicies=True)
         choice = int_input(f'Which card would you like to play?',
                            len(self.hand))
         return self.hand[choice]
 
-    def _print_hand(self, indicies: bool = False):
+    def print_hand(self, indicies: bool = False):
         """Print out the player's hand.
 
         Args:
             indicies (bool, optional): Whether or not to include indicies.
                 Defaults to False.
         """
-        output('Your hand:')
+        output(f'{self.name}, this is your hand:')
         for idx, card in enumerate(self.hand):
             if indicies:
                 output(f'\t{idx} - {str(card)}', 0.75)
