@@ -5,6 +5,29 @@ All notable changes to **euchre-cli** will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - TBD
+
+### Added
+
+- `euchre play`
+  - Added slight delay before prompting for user's name.
+  - Added horizontal divider at the beginning of each hand for better navigation.
+  - Added dealer has dealt hand message.
+  - Print user's hand after hand has been dealt.
+
+### Changed
+
+- `euchre play`
+  - Welcome message now welcomes players to 'euchre-cli'.
+  - Updated lead message when displaying user's hand.
+  - Updated format of dealer when printing play order.
+  - Changed '!' to a ':' in black jack dealer choice message.
+  - Updated new dealer messages.
+  - Print play order at the beginning of each hand.
+  - Print hand and trick numbers before each trick.
+  - Updated face up card message.
+  - Print dealer picked up card message before they discard.
+
 ## [0.4.0] - 2020-07-27
 
 ### Added
