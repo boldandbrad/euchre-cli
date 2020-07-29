@@ -14,4 +14,4 @@ def test_player():
     assert player.__str__() == 'Name'
 
     player.is_dealer = True
-    assert player.__str__() == 'Name - dealer'
+    assert player.__str__() == 'Name (Dealer)'
