@@ -30,6 +30,7 @@ setup_info = dict(
         'loguru>=0.5.0',
         'pytest',
         'pytest-cov',
+        'pytest-mock',
         'codecov'
     ],
     python_requires='>=3.7',

@@ -1,5 +1,5 @@
 
-# **euchre-cli** :spades: **<small>0.5.0.dev1</small>**
+# **euchre-cli** :spades: **<small>0.5.0.dev2</small>**
 
 > Play euchre in your terminal.
 
