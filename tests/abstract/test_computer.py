@@ -2,7 +2,7 @@
 from euchrecli.abstract import Computer, Team
 
 
-def test_player():
+def test_computer():
     team = Team('Team')
     player = Computer('Name', team)
     assert player.name == 'Name'
