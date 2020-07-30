@@ -33,9 +33,9 @@ setup_info = dict(
         'pytest-mock',
         'codecov'
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.5',
     classifiers=[
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.5',
         'License :: OSI Approved :: MIT License'
     ],
     entry_points='''
