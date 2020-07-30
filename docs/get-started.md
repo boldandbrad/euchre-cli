@@ -5,7 +5,7 @@ Start playing euchre in your terminal.
 ## Install
 
 > **euchre-cli** is compatible with macOS, Windows, and Linux and has been tested
-with python 3.7+
+with python 3.6+
 
 Install with pip.
 
