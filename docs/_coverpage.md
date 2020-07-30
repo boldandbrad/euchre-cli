@@ -5,8 +5,9 @@
 
 - Written in python
 - Cross platform
+- Free and open source
 
-[Github](https://github.com/bradleycwojcik/euchre-cli)
-[Learn More](#euchre-cli-spades)
+[Github](https://github.com/bradleycwojcik/euchre-cli "Github")
+[Learn More](#euchre-cli-spades "Learn More")
 
 ![color](#B3C69F)

@@ -1,6 +1,6 @@
 
-- [Get started](get-started.md "Get Started - euchre-cli")
-- [Usage](usage.md "Usage - euchre-cli")
-- [Rules](rules.md "Rules - euchre-cli")
-- [Troubleshooting](troubleshooting.md "Troubleshooting - euchre-cli")
+- [Install](install.md "Install - euchre-cli")
+- [Usage Guide](usage.md "Usage Guide - euchre-cli")
+- [Euchre Rules](rules.md "Euchre Rules - euchre-cli")
+- [Report Issues](issues.md "Report Issues - euchre-cli")
 - [Changelog](changelog.md "Changelog - euchre-cli")
