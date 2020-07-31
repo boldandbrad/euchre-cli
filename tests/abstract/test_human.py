@@ -69,9 +69,32 @@ def test_pick_up_card(mocker, human):
     assert discard not in human.hand
 
 
-def test_call_trump_suit():
-    assert True
+def test_call_trump_suit(mocker, human):
+    mocker.patch('builtins.input', side_effect=[0])
+
+    # append card to hand
+    spades = Suit('Spade', 'Black')
+    face_9 = Face('Nine', 9)
+    card = Card(spades, face_9)
+    human.hand.append(card)
+
+    clubs = Suit('Club', 'Black')
+
+    suit = human.call_trump_suit(clubs)
+    assert isinstance(suit, Suit)
+    assert suit in [spades, clubs]
 
 
-def test_play_card():
-    assert True
+def test_play_card(mocker, human):
+    mocker.patch('builtins.input', side_effect=[0])
+
+    # append card to hand
+    spades = Suit('Spade', 'Black')
+    face_9 = Face('Nine', 9)
+    card = Card(spades, face_9)
+    human.hand.append(card)
+
+    played_cards = []
+    card = human.play_card(played_cards, spades)
+    assert isinstance(card, Card)
+    assert card in human.hand

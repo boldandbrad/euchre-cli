@@ -1,4 +1,5 @@
 
+import sys
 import time
 
 from loguru import logger
@@ -11,6 +12,7 @@ def output(message: str = '', delay: float = 1.25):
         message (str): Message to be printed out
         delay (float, optional): Seconds to pause. Defaults to 1.25.
     """
-    time.sleep(delay)
+    if 'pytest' not in sys.modules:
+        time.sleep(delay)
     print(message)
     logger.debug(message)
