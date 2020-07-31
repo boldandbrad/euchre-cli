@@ -1,5 +1,6 @@
 
 from click.testing import CliRunner
+
 from euchrecli.euchre import cli
 
 
