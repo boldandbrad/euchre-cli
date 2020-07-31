@@ -30,11 +30,12 @@ setup_info = dict(
         'loguru>=0.5.0',
         'pytest',
         'pytest-cov',
+        'pytest-mock',
         'codecov'
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.6',
     classifiers=[
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.6',
         'License :: OSI Approved :: MIT License'
     ],
     entry_points='''

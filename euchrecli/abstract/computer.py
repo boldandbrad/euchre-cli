@@ -36,6 +36,32 @@ class Computer(Player):
             # only occasionally call on 'accident'
             return choices([True, False], weights=[1, 10])[0]
 
+    def pick_up_card(self, pick_up: Card) -> Card:
+        """Choose whether or not to replace card in hand with picked up one.
+
+        Args:
+            pick_up (Card): Card to pick up.
+
+        Returns:
+            Card: Card to be discarded.
+        """
+        # add picked up card to hand
+        self.hand.insert(0, pick_up)
+
+        trump = lead = pick_up.suit
+
+        # find lowest valued card in hand
+        low_index = 0
+        for idx, card in enumerate(self.hand):
+            # TODO: consider if player is 2, 3, or 4 suited
+            card_val = card.weighted_value(trump, lead)
+            low_val = self.hand[low_index].weighted_value(trump, lead)
+            if card_val < low_val:
+                low_index = idx
+
+        # return lowest valued card from hand
+        return self.hand.pop(low_index)
+
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
         """Decide whether to call desired trump suit or to pass.
 
@@ -72,32 +98,6 @@ class Computer(Player):
             return suit_counts[0]['suit']
         else:
             return unsuitable
-
-    def pick_up_card(self, pick_up: Card) -> Card:
-        """Choose whether or not to replace card in hand with picked up one.
-
-        Args:
-            pick_up (Card): Card to pick up.
-
-        Returns:
-            Card: Card to be discarded.
-        """
-        # add picked up card to hand
-        self.hand.insert(0, pick_up)
-
-        trump = lead = pick_up.suit
-
-        # find lowest valued card in hand
-        low_index = 0
-        for idx, card in enumerate(self.hand):
-            # TODO: consider if player is 2, 3, or 4 suited
-            card_val = card.weighted_value(trump, lead)
-            low_val = self.hand[low_index].weighted_value(trump, lead)
-            if card_val < low_val:
-                low_index = idx
-
-        # return lowest valued card from hand
-        return self.hand.pop(low_index)
 
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
         """Choose which card to play from hand.

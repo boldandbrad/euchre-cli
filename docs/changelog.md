@@ -2,8 +2,10 @@
 
 All notable changes to **euchre-cli** will be documented here.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.0.0/ "Keep a Changelog"),
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
 ## [0.5.0] - TBD
 
@@ -11,22 +13,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `euchre play`
   - Added slight delay before prompting for user's name.
-  - Added horizontal divider at the beginning of each hand for better navigation.
+  - Added horizontal line at the beginning of each hand for better readability.
   - Added dealer has dealt hand message.
   - Print user's hand after hand has been dealt.
+  - Print play order at the beginning of each hand.
+  - Print hand and trick numbers before each trick.
 
 ### Changed
 
 - `euchre play`
-  - Welcome message now welcomes players to 'euchre-cli'.
-  - Updated lead message when displaying user's hand.
-  - Updated format of dealer when printing play order.
-  - Changed '!' to a ':' in black jack dealer choice message.
-  - Updated new dealer messages.
-  - Print play order at the beginning of each hand.
-  - Print hand and trick numbers before each trick.
-  - Updated face up card message.
-  - Print dealer picked up card message before they discard.
+  - Print dealer picked up card message before they discard instead of after.
+  - Game messages are now cleaner and more consistent.
+- `docs`
+  - Updated page titles.
+  - Doc structure is now more consistent.
+  - Added titles to links.
+- `technical` Code base is now 95%+ unit tested.
 
 ## [0.4.0] - 2020-07-27
 
@@ -62,6 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.1] - 2020-07-11
 
+> This release is not on PyPI.
+
 ### Added
 
 - `technical` Automated deployment of docsify documentation with travis ci.
@@ -72,6 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     instead of to the right.
 
 ## [0.3.0] - 2020-07-10
+
+> This release is not on PyPI.
 
 ### Added
 
@@ -91,6 +97,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2020-07-09
 
+> This release is not on PyPI.
+
 ### Changed
 
 - `euchre play`
@@ -107,6 +115,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     picks up.
 
 ## [0.1.0] - 2020-07-06
+
+> This release is not on PyPI.
 
 ### Added
 
