@@ -239,6 +239,7 @@ def trick(hand_num: int, trick_num: int, players: [Player], trump_suit: Suit) \
             card_to_play = player.play_card(played_cards, trump_suit)
             if valid_play(card_to_play, player.hand, played_cards, trump_suit):
                 break
+            logger.debug(f'\tInvalid play ({str(card_to_play)}).')
             if isinstance(player, Human):
                 output(f'\tInvalid play ({str(card_to_play)}). You must ' +
                        f'follow the lead suit ' +

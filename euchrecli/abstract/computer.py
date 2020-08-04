@@ -120,7 +120,7 @@ class Computer(Player):
             return self.hand[high_hand_idx]
 
         # get lead suit
-        lead_suit = played_cards[0].suit
+        lead_suit = played_cards[0].adjusted_suit(trump_suit)
 
         # find highest card played
         high_played_idx = played_cards.index(max(
