@@ -13,15 +13,16 @@ and this project adheres to
 
 - `euchre play`
   - Added slight delay before prompting for user's name.
-  - Added horizontal line at the beginning of each hand for better readability.
-  - Added dealer has dealt hand message.
-  - Print user's hand after hand has been dealt.
+  - Print horizontal line at the beginning of each hand for better readability.
+  - Print message that dealer has dealt hand.
+  - Print human user's hand after hand has been dealt.
   - Print play order at the beginning of each hand.
   - Print hand and trick numbers before each trick.
 
 ### Changed
 
 - `euchre play`
+  - CPU players are now a little smarter at choosing which card to play.
   - Print dealer picked up card message before they discard instead of after.
   - Game messages are now cleaner and more consistent.
 - `docs`
