@@ -239,15 +239,16 @@ def trick(hand_num: int, trick_num: int, players: [Player], trump_suit: Suit) \
             card_to_play = player.play_card(played_cards, trump_suit)
             if valid_play(card_to_play, player.hand, played_cards, trump_suit):
                 break
-            logger.debug(f'\tInvalid play ({str(card_to_play)}).')
             if isinstance(player, Human):
                 output(f'\tInvalid play ({str(card_to_play)}). You must ' +
                        f'follow the lead suit ' +
                        f'({played_cards[0].adjusted_suit(trump_suit)}s).', 0.5)
+            else:
+                logger.debug(f'\tInvalid play ({str(card_to_play)}).')
 
         # play proposed card from player hand
         output(f'{player.name} plays the')
         output(f'\t{card_to_play}', 0.75)
         played_cards.append(player.hand.pop(player.hand.index(card_to_play)))
 
-    return(played_cards)
+    return played_cards
