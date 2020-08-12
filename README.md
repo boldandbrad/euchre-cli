@@ -1,5 +1,7 @@
 
-<div style="text-align:center"><img src="docs/_media/logo_light.png" alt="logo" width="200"/></div>
+<p align="center">
+  <img src="docs/_media/logo_light.png" alt="logo" width="200" />
+</p>
 
 # euchre-cli
 
