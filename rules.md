@@ -85,4 +85,4 @@ and is awarded points. The number of points awarded is as follows:
 
 The first team to 10 points has won the game!
 
-<div style="text-align: right">Last updated: {docsify-updated}</div>
+<div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

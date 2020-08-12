@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>euchre-cli</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="description" content="Play euchre in your terminal.">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" type="image/png" href="_media/logo_light.png">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <div id="app"></div>
   <script>
+    var year = new Date().getFullYear()
     window.$docsify = {
-      name: '<strong>euchre-cli</strong>',
+      name: '<img src="_media/logo_light.png" alt="logo" title="euchre-cli" width="100"/>',
       repo: 'bradleycwojcik/euchre-cli',
       coverpage: true,
       homepage: '_homepage.md',
@@ -23,11 +26,17 @@
       auto2top: true,
       formatUpdated: '{YYYY}-{MM}-{DD}',
       search: 'auto',
+      footer: {
+        copy: `<span>&copy; ${year}</span>`,
+        auth: 'Bradley C. Wojcik (<a href="https://github.com/bradleycwojcik" target="_blank">@bradleycwojcik</a>) | <a href="https://github.com/bradleycwojcik/euchre-cli/blob/main/LICENSE" target="_blank">MIT License</a>',
+        class: 'footer',
+      },
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
 </body>
 </html>
