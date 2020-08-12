@@ -13,6 +13,7 @@
 <body>
   <div id="app"></div>
   <script>
+    var year = new Date().getFullYear()
     window.$docsify = {
       name: '<img src="_media/logo_light.png" alt="logo" title="euchre-cli" width="100"/>',
       repo: 'bradleycwojcik/euchre-cli',
@@ -26,7 +27,7 @@
       formatUpdated: '{YYYY}-{MM}-{DD}',
       search: 'auto',
       footer: {
-        copy: '<span>&copy; 2020</span>',
+        copy: `<span>&copy; ${year}</span>`,
         auth: 'Bradley C. Wojcik (<a href="https://github.com/bradleycwojcik" target="_blank">@bradleycwojcik</a>) | <a href="https://github.com/bradleycwojcik/euchre-cli/blob/main/LICENSE" target="_blank">MIT License</a>',
         class: 'footer',
       },
