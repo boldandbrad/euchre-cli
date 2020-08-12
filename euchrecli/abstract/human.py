@@ -9,6 +9,7 @@ class Human(Player):
     """
 
     def __init__(self, team: Team):
+        output(delay=0.75)
         name = str_input('What is your name?')
         super().__init__(name, team)
 
@@ -19,7 +20,7 @@ class Human(Player):
         Returns:
             bool: whether or not to call pick up
         """
-        self._print_hand()
+        self.print_hand()
         choice = False
         if self.is_dealer:
             choice = bool_input(f'Would you like to pick up the ' +
@@ -28,6 +29,26 @@ class Human(Player):
             choice = bool_input(f'Would you like the dealer to pick up the ' +
                                 f'{str(face_up_card)}?')
         return choice
+
+    def pick_up_card(self, pick_up: Card) -> Card:
+        """Choose whether or not to replace card in hand with picked up one.
+
+        Args:
+            pick_up (Card): Card to pick up.
+
+        Returns:
+            Card: Card to be discarded.
+        """
+        # add picked up card to hand
+        self.hand.insert(0, pick_up)
+
+        output(f'Trump suit will be {pick_up.suit}s.')
+        self.print_hand(indicies=True)
+        choice = int_input(f'Which card would you like to discard?',
+                           len(self.hand))
+        discard = self.hand.pop(choice)
+        output(f'You discarded the {str(discard)} to the deck.', 0.75)
+        return discard
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
         """Decide whether to call desired trump suit or to pass.
@@ -38,7 +59,7 @@ class Human(Player):
         Returns:
             Suit: Called trump suit or unsuitable to pass
         """
-        self._print_hand()
+        self.print_hand()
         suits_in_hand = set()
         for c in self.hand:
             if c.suit != unsuitable:
@@ -58,26 +79,6 @@ class Human(Player):
 
         return suits_in_hand[choice]
 
-    def pick_up_card(self, pick_up: Card) -> Card:
-        """Choose whether or not to replace card in hand with picked up one.
-
-        Args:
-            pick_up (Card): Card to pick up.
-
-        Returns:
-            Card: Card to be discarded.
-        """
-        # add picked up card to hand
-        self.hand.insert(0, pick_up)
-
-        self._print_hand(indicies=True)
-        output(f'Trump suit will be {pick_up.suit}s.')
-        choice = int_input(f'Which card would you like to discard?',
-                           len(self.hand))
-        discard = self.hand.pop(choice)
-        output(f'You discarded the {str(discard)} to the deck.', 0.75)
-        return discard
-
     def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
         """Choose which card to play from hand.
 
@@ -88,19 +89,19 @@ class Human(Player):
         Returns:
             Card: Card to play.
         """
-        self._print_hand(indicies=True)
+        self.print_hand(indicies=True)
         choice = int_input(f'Which card would you like to play?',
                            len(self.hand))
         return self.hand[choice]
 
-    def _print_hand(self, indicies: bool = False):
+    def print_hand(self, indicies: bool = False):
         """Print out the player's hand.
 
         Args:
             indicies (bool, optional): Whether or not to include indicies.
                 Defaults to False.
         """
-        output('Your hand:')
+        output(f'{self.name}, this is your hand:')
         for idx, card in enumerate(self.hand):
             if indicies:
                 output(f'\t{idx} - {str(card)}', 0.75)

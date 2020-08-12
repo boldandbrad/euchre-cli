@@ -28,6 +28,6 @@ class Player():
 
     def __str__(self) -> str:
         if self.is_dealer:
-            return f"{self.name} - dealer"
+            return f"{self.name} (Dealer)"
         else:
             return f"{self.name}"

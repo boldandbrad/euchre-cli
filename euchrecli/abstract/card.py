@@ -38,7 +38,7 @@ class Card():
         else:
             return self.suit
 
-    def weighted_value(self, trump_suit: Suit, lead_suit: Suit) -> int:
+    def weighted_value(self, trump_suit: Suit, lead_suit: Suit = None) -> int:
         """Calculate card weighted value relative to trump and/or lead suits.
 
         When lead == trump:
@@ -68,7 +68,7 @@ class Card():
                 weighted_val += 11  # 23, 24, 25
             elif self.face.name == 'Jack':
                 weighted_val += 16  # 27 (right_bower)
-        elif trump_suit.name != lead_suit.name and \
+        elif lead_suit and trump_suit.name != lead_suit.name and \
                 self.suit.name == lead_suit.name:
             weighted_val += 6  # 15, 16, 17, 18, 19, 20
 
