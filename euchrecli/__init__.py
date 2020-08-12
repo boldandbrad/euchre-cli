@@ -1,2 +1,2 @@
 # release version
-version = '0.5.0.dev5'
+version = '0.5.0.dev6'

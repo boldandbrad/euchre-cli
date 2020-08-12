@@ -1,0 +1,23 @@
+
+/* override default text color */
+body,
+.anchor span,
+.sidebar > h1 a,
+.sidebar ul li > a {
+    color: #232323;
+}
+
+/* make sidebar active item marker thicker */
+.sidebar ul li.active > a {
+    border-right: 4px solid;
+}
+
+/* code blocks inside block quotes should not be bolded */
+.markdown-section blockquote p code {
+    font-weight: normal;
+}
+
+/* custom footer styling */
+.footer {
+    text-align: center;
+}

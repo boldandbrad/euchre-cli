@@ -1,5 +1,7 @@
 
-# **euchre-cli** :spades: **<small>0.5.0.dev5</small>**
+<img src="_media/logo_light.png" alt="logo" width="200"/>
+
+# **euchre-cli** **<small>0.5.0.dev6</small>**
 
 > Play euchre in your terminal.
 
@@ -8,6 +10,6 @@
 - Free and open source
 
 [Github](https://github.com/bradleycwojcik/euchre-cli "Github")
-[Learn More](#euchre-cli-spades "Learn More")
+[Learn More](#euchre-cli "Learn More")
 
 ![color](#B3C69F)
