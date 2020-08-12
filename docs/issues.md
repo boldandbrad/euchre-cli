@@ -1,10 +1,8 @@
-# Issues
+# Report Issues
 
 Oops, sometimes we renege. If you've discovered an issue, please report it.
 
-## Report an issue
-
-### Extract logs
+## Extract logs
 
 **euchre-cli** saves detailed game logs on your device for troubleshooting purposes.
 
@@ -18,9 +16,9 @@ places depending on your operating system:
 
 Archives will need to unzipped to be read.
 
-### Report
+## Report
 
 Please report issues with included log screenshots or excerpts to the **euchre-cli**
 [issue tracker](https://github.com/bradleycwojcik/euchre-cli/issues "Github - Issues").
 
-<div style="text-align: right">Last updated: {docsify-updated}</div>
+<div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

@@ -11,6 +11,8 @@ and this project adheres to
 
 ### Added
 
+- `logo` **euchre-cli** now has a logo featured in the readme and docs! Thanks James
+    Barbret.
 - `euchre play`
   - Added slight delay before prompting for user's name.
   - Print horizontal line at the beginning of each hand for better readability.
@@ -18,6 +20,9 @@ and this project adheres to
   - Print human user's hand after hand has been dealt.
   - Print play order at the beginning of each hand.
   - Print hand and trick numbers before each trick.
+- `docs`
+  - Added footer that includes copyright and license statement.
+  - Added headers to the sidebar.
 
 ### Changed
 
@@ -29,6 +34,8 @@ and this project adheres to
   - Updated page titles.
   - Doc structure is now more consistent.
   - Added titles to links.
+  - Italicized updated dates.
+  - Updated default font color and text formatting.
 - `technical` Code base is now 95%+ unit tested.
 
 ## [0.4.0] - 2020-07-27
@@ -125,5 +132,3 @@ and this project adheres to
     together, making random decisions (within the rules).
 - `euchre --version` Check current installed version.
 - `euchre --help` Print out cli usage.
-
-<div style="text-align: right">Last updated: {docsify-updated}</div>

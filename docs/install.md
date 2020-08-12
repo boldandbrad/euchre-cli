@@ -1,10 +1,8 @@
-# Get euchre-cli
+# Install
 
 Start playing euchre in your terminal.
 
-## Install
-
-> **euchre-cli** is compatible with `python 3.6+` on macOS, Windows, and Linux.
+> Note: **euchre-cli** is compatible with `python 3.6+` on macOS, Windows, and Linux.
 
 Install with pip.
 
@@ -25,7 +23,7 @@ Now, play euchre! Check the [Usage Guide](usage.md "Usage Guide") or use
 
 ## Upgrade
 
-Upgrade to a newer version of **euchre-cli**.
+Upgrade to the latest version of **euchre-cli**.
 
 ```zsh
 pip install --upgrade euchre-cli
@@ -45,4 +43,4 @@ Remove **euchre-cli** logs (optional).
 - macOS: `rm -rf ~/Library/Logs/euchre-cli`
 - Windows: `rmdir /s /q C:\Users\<USERNAME>\AppData\local\euchre-cli`
 
-<div style="text-align: right">Last updated: {docsify-updated}</div>
+<div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

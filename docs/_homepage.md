@@ -1,4 +1,4 @@
-# euchre-cli :spades:
+# euchre-cli
 
 > Play euchre in your terminal.
 
@@ -21,4 +21,8 @@ been awarded a total of 10 points.
 - Learn euchre with [rules](rules.md "Euchre Rules") provided on this site.
 - Game logs for troubleshooting and [issue reporting](issues.md "Report Issues").
 
-<div style="text-align: right">Last updated: {docsify-updated}</div>
+## Special Thanks :clap:
+
+- James Barbret: logo design
+
+<div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

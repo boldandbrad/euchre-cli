@@ -10,6 +10,8 @@ Play a new game of euchre.
 euchre play
 ```
 
+> **euchre-cli** will prompt you for input when needed.
+
 Or watch one.
 
 ```zsh
@@ -27,4 +29,4 @@ Open this site's [Euchre Rules](rules.md "Euchre Rules") page in a web browser. 
 euchre rules
 ```
 
-<div style="text-align: right">Last updated: {docsify-updated}</div>
+<div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>
