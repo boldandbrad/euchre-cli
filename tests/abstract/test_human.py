@@ -1,4 +1,5 @@
 
+from click import unstyle
 import pytest
 from pytest_mock import mocker
 
@@ -16,16 +17,16 @@ def human(mocker):
 
 
 def test_human(human):
-    assert human.name == 'Name'
+    assert unstyle(human.name) == 'Name'
     assert human.team.name == 'Team'
     assert human.is_dealer is False
     assert len(human.hand) == 0
     assert human.trick_winner is False
-    assert human.__repr__() == 'Player(Name, Team, False)'
-    assert human.__str__() == 'Name'
+    assert unstyle(human.__repr__()) == 'Player(Name, Team, False)'
+    assert unstyle(human.__str__()) == 'Name'
 
     human.is_dealer = True
-    assert human.__str__() == 'Name (Dealer)'
+    assert unstyle(human.__str__()) == 'Name (Dealer)'
 
 
 def test_call_pick_up(mocker, human):

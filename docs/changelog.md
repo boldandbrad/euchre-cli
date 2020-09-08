@@ -9,9 +9,17 @@ and this project adheres to
 
 ## [0.5.1] - TBD
 
+### Added
+
+- `euchre play` Print trick score after each trick.
+
+### Changed
+
+- `euchre play` User's name is now styled blue for better readability.
+
 ### Fixed
 
-- `euchre play` all players are now guaranteed to have unique names.
+- `euchre play` All players are now guaranteed to have unique names.
 
 ## [0.5.0] - 2020-08-11
 
