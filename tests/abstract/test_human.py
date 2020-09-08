@@ -1,4 +1,5 @@
 
+from click import unstyle
 import pytest
 from pytest_mock import mocker
 
@@ -16,7 +17,7 @@ def human(mocker):
 
 
 def test_human(human):
-    assert human.name == 'Name'
+    assert unstyle(human.name) == 'Name'
     assert human.team.name == 'Team'
     assert human.is_dealer is False
     assert len(human.hand) == 0
