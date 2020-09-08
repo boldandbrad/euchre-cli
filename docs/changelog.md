@@ -7,6 +7,12 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
+## [0.5.1] - TBD
+
+### Fixed
+
+- `euchre play` all players are now guaranteed to have unique names.
+
 ## [0.5.0] - 2020-08-11
 
 ### Added
