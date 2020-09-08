@@ -19,5 +19,21 @@ body,
 
 /* custom footer styling */
 .footer {
-    text-align: center;
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    opacity: 75%;
+    line-height: 0.5rem;
+    border-radius: 6px;
+}
+
+.footer p {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.footer a {
+    color: #336600;
 }
