@@ -1,7 +1,7 @@
 
 [<img src="_media/logo_light.png" alt="logo" width="200"/>](/)
 
-# [**euchre-cli** **<small>0.5.1.dev1</small>**](/)
+# [**euchre-cli** **<small>0.5.1.dev2</small>**](/)
 
 > Play euchre in your terminal.
 

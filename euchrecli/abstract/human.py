@@ -1,4 +1,6 @@
 
+from click import style
+
 from . import Team, Player, Card, Suit
 from euchrecli.util import output
 from euchrecli.util.input_util import bool_input, int_input, str_input
@@ -11,7 +13,7 @@ class Human(Player):
     def __init__(self, team: Team):
         output(delay=0.75)
         name = str_input('What is your name?')
-        super().__init__(name, team)
+        super().__init__(style(name, fg='blue'), team)
 
     def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
             -> bool:

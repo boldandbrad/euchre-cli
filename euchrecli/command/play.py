@@ -25,7 +25,7 @@ def play(watch: bool):
 
 def setup(watch_mode: bool):
     """Setup players and teams."""
-    output(f'Welcome to euchre-cli!', 0)
+    output(click.style(f'Welcome to euchre-cli!', fg='green'), 0)
 
     teams = [
         Team('Team 1'),
@@ -90,7 +90,7 @@ def game(players: [Player], teams: [Team]):
     hand_number = 1
     while not game_won:
         # deal and play hand
-        hand(hand_number, players)
+        hand(hand_number, players, teams)
 
         # determine hand winner
         winning_team = hand_winner(teams)
@@ -115,7 +115,7 @@ def game(players: [Player], teams: [Team]):
     # TODO: implement play again logic
 
 
-def hand(hand_num: int, players: [Player]) -> None:
+def hand(hand_num: int, players: [Player], teams: [Team]) -> None:
     """Deal and play a hand."""
     output()
     output(f'Play Hand {hand_num}')
@@ -151,6 +151,11 @@ def hand(hand_num: int, players: [Player]) -> None:
         played_cards = trick(hand_num, trick_num, players, trump_suit)
         winning_player = trick_winner(players, played_cards, trump_suit)
         output(f'Trick winner: {winning_player.name}, {winning_player.team}')
+
+        output()
+        output("Tricks:")
+        for team in teams:
+            output(f'\t{team.name}: {team.trick_score}', 0.75)
 
         # log player hands
         for player in players:
@@ -227,7 +232,7 @@ def trick(hand_num: int, trick_num: int, players: [Player], trump_suit: Suit) \
         -> [Card]:
     """Players take turns playing cards in a trick."""
     output()
-    output(f'Hand {hand_num}, Trick {trick_num}')
+    output(f'Trick {trick_num} (Hand {hand_num})')
     output()
     output(f'Trump suit is {trump_suit}s.')
 
