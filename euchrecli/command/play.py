@@ -1,11 +1,10 @@
 
 import click
-import names
 from loguru import logger
 
 from euchrecli.abstract import Suit, Card, Team, Player, Computer, Human
-from euchrecli.util import create_deck, deal_hand, output, rotate_dealer, \
-    rotate_trick_order, valid_play, trick_winner, hand_winner
+from euchrecli.util import create_deck, deal_hand, output, unique_cpu_name, \
+    rotate_dealer, rotate_trick_order, valid_play, trick_winner, hand_winner
 
 
 @click.command(
@@ -33,17 +32,17 @@ def setup(watch_mode: bool):
         Team('Team 2')
     ]
 
+    players = []
+
     if watch_mode:
-        player = Computer(names.get_first_name(), teams[0])
+        player = Computer(unique_cpu_name(players), teams[0])
     else:
         player = Human(teams[0])
 
-    players = [
-        player,
-        Computer(names.get_first_name(), teams[1]),
-        Computer(names.get_first_name(), teams[0]),
-        Computer(names.get_first_name(), teams[1])
-    ]
+    players.append(player)
+    players.append(Computer(unique_cpu_name(players), teams[1]))
+    players.append(Computer(unique_cpu_name(players), teams[0]))
+    players.append(Computer(unique_cpu_name(players), teams[1]))
 
     output()
     output(f'Players:', 0.75)

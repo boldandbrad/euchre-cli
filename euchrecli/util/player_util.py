@@ -1,7 +1,28 @@
 
+import names
+
 from random import choice, choices
 
 from euchrecli.abstract import Player
+
+
+def unique_cpu_name(players: [Player]) -> str:
+    """Create a unique player name.
+
+    Args:
+        players ([type]): existing players
+
+    Returns:
+        str: unique player name
+    """
+    taken_names = list(p.name.lower() for p in players)
+
+    while True:
+        name = names.get_first_name()
+        if name not in taken_names:
+            break
+
+    return name
 
 
 def rotate_dealer(players: [Player]) -> None:
