@@ -9,6 +9,7 @@
 [![codecov](https://codecov.io/gh/bradleycwojcik/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/bradleycwojcik/euchre-cli)
 [![Docs](https://img.shields.io/website?down_message=down&label=docs&up_message=online&url=https%3A%2F%2Fbradleycwojcik.github.io%2Feuchre-cli%2F)](https://bradleycwojcik.github.io/euchre-cli/)
 [![PyPI](https://img.shields.io/pypi/v/euchre-cli)](https://pypi.org/project/euchre-cli/)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/euchre-cli)
 
 > Play euchre in your terminal.
 
