@@ -7,6 +7,20 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
+## [0.5.1] - 2020-09-08
+
+### Added
+
+- `euchre play` Print trick score after each trick.
+
+### Changed
+
+- `euchre play` User's name is now styled blue for better readability.
+
+### Fixed
+
+- `euchre play` All players are now guaranteed to have unique names.
+
 ## [0.5.0] - 2020-08-11
 
 ### Added

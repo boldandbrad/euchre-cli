@@ -1,11 +1,10 @@
 
 import click
-import names
 from loguru import logger
 
 from euchrecli.abstract import Suit, Card, Team, Player, Computer, Human
-from euchrecli.util import create_deck, deal_hand, output, rotate_dealer, \
-    rotate_trick_order, valid_play, trick_winner, hand_winner
+from euchrecli.util import create_deck, deal_hand, output, unique_cpu_name, \
+    rotate_dealer, rotate_trick_order, valid_play, trick_winner, hand_winner
 
 
 @click.command(
@@ -26,24 +25,24 @@ def play(watch: bool):
 
 def setup(watch_mode: bool):
     """Setup players and teams."""
-    output(f'Welcome to euchre-cli!', 0)
+    output(click.style(f'Welcome to euchre-cli!', fg='green'), 0)
 
     teams = [
         Team('Team 1'),
         Team('Team 2')
     ]
 
+    players = []
+
     if watch_mode:
-        player = Computer(names.get_first_name(), teams[0])
+        player = Computer(unique_cpu_name(players), teams[0])
     else:
         player = Human(teams[0])
 
-    players = [
-        player,
-        Computer(names.get_first_name(), teams[1]),
-        Computer(names.get_first_name(), teams[0]),
-        Computer(names.get_first_name(), teams[1])
-    ]
+    players.append(player)
+    players.append(Computer(unique_cpu_name(players), teams[1]))
+    players.append(Computer(unique_cpu_name(players), teams[0]))
+    players.append(Computer(unique_cpu_name(players), teams[1]))
 
     output()
     output(f'Players:', 0.75)
@@ -91,7 +90,7 @@ def game(players: [Player], teams: [Team]):
     hand_number = 1
     while not game_won:
         # deal and play hand
-        hand(hand_number, players)
+        hand(hand_number, players, teams)
 
         # determine hand winner
         winning_team = hand_winner(teams)
@@ -116,7 +115,7 @@ def game(players: [Player], teams: [Team]):
     # TODO: implement play again logic
 
 
-def hand(hand_num: int, players: [Player]) -> None:
+def hand(hand_num: int, players: [Player], teams: [Team]) -> None:
     """Deal and play a hand."""
     output()
     output(f'Play Hand {hand_num}')
@@ -152,6 +151,11 @@ def hand(hand_num: int, players: [Player]) -> None:
         played_cards = trick(hand_num, trick_num, players, trump_suit)
         winning_player = trick_winner(players, played_cards, trump_suit)
         output(f'Trick winner: {winning_player.name}, {winning_player.team}')
+
+        output()
+        output("Tricks:")
+        for team in teams:
+            output(f'\t{team.name}: {team.trick_score}', 0.75)
 
         # log player hands
         for player in players:
@@ -228,7 +232,7 @@ def trick(hand_num: int, trick_num: int, players: [Player], trump_suit: Suit) \
         -> [Card]:
     """Players take turns playing cards in a trick."""
     output()
-    output(f'Hand {hand_num}, Trick {trick_num}')
+    output(f'Trick {trick_num} (Hand {hand_num})')
     output()
     output(f'Trump suit is {trump_suit}s.')
 
