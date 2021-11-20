@@ -18,7 +18,7 @@ logger_init()
 @click.version_option(
     None,  # use version auto discovery via setuptools
     '-v', '--version',
-    package_name='euchre',
+    package_name='euchre-cli',
     message='%(prog)s-cli, v%(version)s'
 )
 def cli():

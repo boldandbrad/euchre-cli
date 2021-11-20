@@ -41,7 +41,6 @@ setup_info = dict(
     entry_points='''
         [console_scripts]
         euchre=euchre.euchre:cli
-        euchre-cli=euchre.euchre:cli
     '''
 )
 

@@ -6,7 +6,6 @@ from euchre.euchre import cli
 
 def test_version():
     runner = CliRunner()
-    print(cli)
     result = runner.invoke(cli, ['--version'])
     assert result.exit_code == 0
 
