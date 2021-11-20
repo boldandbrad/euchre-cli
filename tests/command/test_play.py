@@ -1,10 +1,9 @@
-
 from click.testing import CliRunner
 
-from euchrecli.euchre import cli
+from euchre.euchre import cli
 
 
 def test_play():
     runner = CliRunner()
-    result = runner.invoke(cli, ['play', '-w'])
+    result = runner.invoke(cli, ["play", "-w"])
     assert result.exit_code == 0
