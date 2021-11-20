@@ -1,5 +1,5 @@
 
-from euchrecli.abstract import Face
+from euchre.abstract import Face
 
 
 def test_face():

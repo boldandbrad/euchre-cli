@@ -1,10 +1,11 @@
 
 from random import shuffle
+from typing import List
 
-from euchrecli.abstract import Player, Suit, Face, Card
+from euchre.abstract import Player, Suit, Face, Card
 
 
-def create_deck() -> [Card]:
+def create_deck() -> List[Card]:
     """Return a shuffled standard euchre deck.
 
     Creates a deck containing 9, 10, J, Q, K, A of each suit.
@@ -38,7 +39,7 @@ def create_deck() -> [Card]:
     return deck
 
 
-def deal_hand(players: [Player], deck: [Card]) -> None:
+def deal_hand(players: List[Player], deck: List[Card]) -> None:
     """Deal five cards from the deck to each player.
 
     Args:

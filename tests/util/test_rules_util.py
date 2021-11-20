@@ -1,6 +1,6 @@
 
-from euchrecli.abstract import Face, Suit, Card, Team, Computer
-from euchrecli.util.rule_util import valid_play, hand_winner, trick_winner
+from euchre.abstract import Face, Suit, Card, Team, Computer
+from euchre.util.rule_util import valid_play, hand_winner, trick_winner
 
 
 def test_valid_play():

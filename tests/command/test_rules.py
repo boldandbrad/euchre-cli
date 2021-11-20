@@ -2,7 +2,7 @@
 from click.testing import CliRunner
 from pytest_mock import mocker
 
-from euchrecli.euchre import cli
+from euchre.euchre import cli
 
 
 def test_rules(mocker):

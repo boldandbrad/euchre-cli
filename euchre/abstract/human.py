@@ -1,9 +1,11 @@
 
+from typing import List
+
 from click import style
 
 from . import Team, Player, Card, Suit
-from euchrecli.util import output
-from euchrecli.util.input_util import bool_input, int_input, str_input
+from euchre.util import output
+from euchre.util.input_util import bool_input, int_input, str_input
 
 
 class Human(Player):
@@ -81,7 +83,7 @@ class Human(Player):
 
         return suits_in_hand[choice]
 
-    def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
+    def play_card(self, played_cards: List[Card], trump_suit: Suit) -> Card:
         """Choose which card to play from hand.
 
         Args:

@@ -1,6 +1,6 @@
 
-from euchrecli.abstract import Computer
-from euchrecli.util.player_util import rotate_dealer, rotate_trick_order
+from euchre.abstract import Computer
+from euchre.util.player_util import rotate_dealer, rotate_trick_order
 
 
 def test_rotate_dealer():

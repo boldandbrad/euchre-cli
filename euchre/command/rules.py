@@ -3,7 +3,7 @@ import webbrowser
 
 import click
 
-from euchrecli.util.input_util import bool_input
+from euchre.util.input_util import bool_input
 
 
 @click.command(

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-# parse version number from euchrecli/__init__.py:
-with open('euchrecli/__init__.py') as f:
+# parse version number from euchre/__init__.py:
+with open('euchre/__init__.py') as f:
     info = {}
     for line in f.readlines():
         if line.startswith('version'):
@@ -25,7 +25,7 @@ setup_info = dict(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'click>=7',
+        'click>=8',
         'names==0.3.0',
         'loguru>=0.5.0',
         'pytest',
@@ -33,14 +33,15 @@ setup_info = dict(
         'pytest-mock',
         'codecov'
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     classifiers=[
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.8',
         'License :: OSI Approved :: MIT License'
     ],
     entry_points='''
         [console_scripts]
-        euchre=euchrecli.euchre:cli
+        euchre=euchre.euchre:cli
+        euchre-cli=euchre.euchre:cli
     '''
 )
 

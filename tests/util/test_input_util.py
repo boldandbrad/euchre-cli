@@ -2,7 +2,7 @@
 import pytest
 from pytest_mock import mocker
 
-from euchrecli.util.input_util import int_input
+from euchre.util.input_util import int_input
 
 
 def test_int_input_exception(mocker):

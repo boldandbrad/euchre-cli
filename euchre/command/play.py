@@ -1,9 +1,11 @@
 
+from typing import List
+
 import click
 from loguru import logger
 
-from euchrecli.abstract import Suit, Card, Team, Player, Computer, Human
-from euchrecli.util import create_deck, deal_hand, output, unique_cpu_name, \
+from euchre.abstract import Suit, Card, Team, Player, Computer, Human
+from euchre.util import create_deck, deal_hand, output, unique_cpu_name, \
     rotate_dealer, rotate_trick_order, valid_play, trick_winner, hand_winner
 
 
@@ -56,7 +58,7 @@ def setup(watch_mode: bool):
     game(players, teams)
 
 
-def set_dealer(players: [Player], deck: [Card]) -> None:
+def set_dealer(players: List[Player], deck: List[Card]) -> None:
     """Set dealer by first dealt Black Jack.
 
     Args:
@@ -83,7 +85,7 @@ def set_dealer(players: [Player], deck: [Card]) -> None:
                 players.append(players.pop(0))
 
 
-def game(players: [Player], teams: [Team]):
+def game(players: List[Player], teams: List[Team]):
     """Start game and manage team scores."""
     # play hands until the game is won
     game_won = False
@@ -115,7 +117,7 @@ def game(players: [Player], teams: [Team]):
     # TODO: implement play again logic
 
 
-def hand(hand_num: int, players: [Player], teams: [Team]) -> None:
+def hand(hand_num: int, players: List[Player], teams: List[Team]) -> None:
     """Deal and play a hand."""
     output()
     output(f'Play Hand {hand_num}')
@@ -167,7 +169,7 @@ def hand(hand_num: int, players: [Player], teams: [Team]) -> None:
         rotate_trick_order(players)
 
 
-def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
+def set_trump_suit(players: List[Player], deck: List[Card]) -> Suit:
     """Set trump suit for the current hand."""
     # dealer flips card from top of deck
     face_up_card = deck.pop(0)
@@ -228,8 +230,8 @@ def set_trump_suit(players: [Player], deck: [Card]) -> Suit:
     return trump_suit
 
 
-def trick(hand_num: int, trick_num: int, players: [Player], trump_suit: Suit) \
-        -> [Card]:
+def trick(hand_num: int, trick_num: int, players: List[Player], trump_suit: Suit) \
+        -> List[Card]:
     """Players take turns playing cards in a trick."""
     output()
     output(f'Trick {trick_num} (Hand {hand_num})')

@@ -1,9 +1,9 @@
 
 import click
 
-from euchrecli.command.play import play
-from euchrecli.command.rules import rules
-from euchrecli.util.log_util import logger_init
+from euchre.command.play import play
+from euchre.command.rules import rules
+from euchre.util.log_util import logger_init
 
 
 logger_init()
@@ -18,6 +18,7 @@ logger_init()
 @click.version_option(
     None,  # use version auto discovery via setuptools
     '-v', '--version',
+    package_name='euchre',
     message='%(prog)s-cli, v%(version)s'
 )
 def cli():

@@ -3,7 +3,7 @@ from click import unstyle
 import pytest
 from pytest_mock import mocker
 
-from euchrecli.abstract import Human, Team, Face, Suit, Card
+from euchre.abstract import Human, Team, Face, Suit, Card
 
 
 @pytest.fixture()

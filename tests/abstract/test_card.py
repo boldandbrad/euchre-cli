@@ -1,5 +1,5 @@
 
-from euchrecli.abstract import Face, Suit, Card
+from euchre.abstract import Face, Suit, Card
 
 
 def test_card():

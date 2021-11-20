@@ -1,8 +1,10 @@
 
-from euchrecli.abstract import Player, Team, Card, Suit
+from typing import List
+
+from euchre.abstract import Player, Team, Card, Suit
 
 
-def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
+def valid_play(card_to_play: Card, player_hand: List[Card], played_cards: List[Card],
                trump_suit: Suit) -> bool:
     """Return whether a card is a valid play.
 
@@ -39,7 +41,7 @@ def valid_play(card_to_play: Card, player_hand: [Card], played_cards: [Card],
     return valid
 
 
-def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
+def trick_winner(players: List[Player], played_cards: List[Card], trump_suit: Suit) \
         -> Player:
     """Determine and award winning player and team of trick.
 
@@ -66,7 +68,7 @@ def trick_winner(players: [Player], played_cards: [Card], trump_suit: Suit) \
     return winning_player
 
 
-def hand_winner(teams: [Team]) -> Team:
+def hand_winner(teams: List[Team]) -> Team:
     """Return winning team of the last hand. Increment team game_score.
 
     Args:

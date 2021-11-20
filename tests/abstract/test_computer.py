@@ -1,7 +1,7 @@
 
 import pytest
 
-from euchrecli.abstract import Computer, Team, Face, Suit, Card
+from euchre.abstract import Computer, Team, Face, Suit, Card
 
 
 @pytest.fixture()

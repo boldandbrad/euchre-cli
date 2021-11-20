@@ -1,6 +1,6 @@
 
-from euchrecli.abstract import Computer
-from euchrecli.util import create_deck, deal_hand
+from euchre.abstract import Computer
+from euchre.util import create_deck, deal_hand
 
 
 def test_create_deck():

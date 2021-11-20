@@ -1,12 +1,14 @@
 
+from typing import List
+
 import names
 
 from random import choice, choices
 
-from euchrecli.abstract import Player
+from euchre.abstract import Player
 
 
-def unique_cpu_name(players: [Player]) -> str:
+def unique_cpu_name(players: List[Player]) -> str:
     """Create a unique player name.
 
     Args:
@@ -25,7 +27,7 @@ def unique_cpu_name(players: [Player]) -> str:
     return name
 
 
-def rotate_dealer(players: [Player]) -> None:
+def rotate_dealer(players: List[Player]) -> None:
     """Rotate the dealer to the left and update play order.
 
     Args:
@@ -42,7 +44,7 @@ def rotate_dealer(players: [Player]) -> None:
     players[-1].is_dealer = True
 
 
-def rotate_trick_order(players: [Player]) -> None:
+def rotate_trick_order(players: List[Player]) -> None:
     """Rotate play order based on trick winner.
 
     Args:

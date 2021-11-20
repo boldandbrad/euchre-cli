@@ -1,5 +1,5 @@
 
-from euchrecli.abstract import Player, Team
+from euchre.abstract import Player, Team
 
 
 def test_player():

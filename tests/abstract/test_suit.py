@@ -1,5 +1,5 @@
 
-from euchrecli.abstract import Suit
+from euchre.abstract import Suit
 
 
 def test_suit():
