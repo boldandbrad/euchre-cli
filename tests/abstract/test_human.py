@@ -1,4 +1,3 @@
-
 from click import unstyle
 import pytest
 from pytest_mock import mocker
@@ -8,38 +7,38 @@ from euchre.abstract import Human, Team, Face, Suit, Card
 
 @pytest.fixture()
 def human(mocker):
-    mocker.patch('builtins.input', side_effect=['Name'])
+    mocker.patch("builtins.input", side_effect=["Name"])
 
-    team = Team('Team')
+    team = Team("Team")
     human = Human(team)
 
     return human
 
 
 def test_human(human):
-    assert unstyle(human.name) == 'Name'
-    assert human.team.name == 'Team'
+    assert unstyle(human.name) == "Name"
+    assert human.team.name == "Team"
     assert human.is_dealer is False
     assert len(human.hand) == 0
     assert human.trick_winner is False
-    assert unstyle(human.__repr__()) == 'Player(Name, Team, False)'
-    assert unstyle(human.__str__()) == 'Name'
+    assert unstyle(human.__repr__()) == "Player(Name, Team, False)"
+    assert unstyle(human.__str__()) == "Name"
 
     human.is_dealer = True
-    assert unstyle(human.__str__()) == 'Name (Dealer)'
+    assert unstyle(human.__str__()) == "Name (Dealer)"
 
 
 def test_call_pick_up(mocker, human):
-    mocker.patch('builtins.input', side_effect=['y', 'n'])
+    mocker.patch("builtins.input", side_effect=["y", "n"])
 
     # append card to hand
-    suit = Suit('Spade', 'Black')
-    face_9 = Face('Nine', 9)
+    suit = Suit("Spade", "Black")
+    face_9 = Face("Nine", 9)
     card = Card(suit, face_9)
     human.hand.append(card)
 
     # create face up card
-    face_10 = Face('Ten', 10)
+    face_10 = Face("Ten", 10)
     face_up_card = Card(suit, face_10)
 
     # input is 'y'
@@ -53,16 +52,16 @@ def test_call_pick_up(mocker, human):
 
 
 def test_pick_up_card(mocker, human):
-    mocker.patch('builtins.input', side_effect=[0])
+    mocker.patch("builtins.input", side_effect=[0])
 
     # append card to hand
-    suit = Suit('Spade', 'Black')
-    face_9 = Face('Nine', 9)
+    suit = Suit("Spade", "Black")
+    face_9 = Face("Nine", 9)
     card = Card(suit, face_9)
     human.hand.append(card)
 
     # create face up card
-    face_10 = Face('Ten', 10)
+    face_10 = Face("Ten", 10)
     face_up_card = Card(suit, face_10)
 
     discard = human.pick_up_card(face_up_card)
@@ -71,15 +70,15 @@ def test_pick_up_card(mocker, human):
 
 
 def test_call_trump_suit(mocker, human):
-    mocker.patch('builtins.input', side_effect=[0])
+    mocker.patch("builtins.input", side_effect=[0])
 
     # append card to hand
-    spades = Suit('Spade', 'Black')
-    face_9 = Face('Nine', 9)
+    spades = Suit("Spade", "Black")
+    face_9 = Face("Nine", 9)
     card = Card(spades, face_9)
     human.hand.append(card)
 
-    clubs = Suit('Club', 'Black')
+    clubs = Suit("Club", "Black")
 
     suit = human.call_trump_suit(clubs)
     assert isinstance(suit, Suit)
@@ -87,11 +86,11 @@ def test_call_trump_suit(mocker, human):
 
 
 def test_play_card(mocker, human):
-    mocker.patch('builtins.input', side_effect=[0])
+    mocker.patch("builtins.input", side_effect=[0])
 
     # append card to hand
-    spades = Suit('Spade', 'Black')
-    face_9 = Face('Nine', 9)
+    spades = Suit("Spade", "Black")
+    face_9 = Face("Nine", 9)
     card = Card(spades, face_9)
     human.hand.append(card)
 

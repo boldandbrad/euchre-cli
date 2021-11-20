@@ -1,4 +1,3 @@
-
 from typing import List
 
 from click import style
@@ -9,16 +8,14 @@ from euchre.util.input_util import bool_input, int_input, str_input
 
 
 class Human(Player):
-    """Representation of a human player. Extends Player class.
-    """
+    """Representation of a human player. Extends Player class."""
 
     def __init__(self, team: Team):
         output(delay=0.75)
-        name = str_input('What is your name?')
-        super().__init__(style(name, fg='blue'), team)
+        name = str_input("What is your name?")
+        super().__init__(style(name, fg="blue"), team)
 
-    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
-            -> bool:
+    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) -> bool:
         """Decide whether to call pick up of face up card or to pass.
 
         Returns:
@@ -27,11 +24,13 @@ class Human(Player):
         self.print_hand()
         choice = False
         if self.is_dealer:
-            choice = bool_input(f'Would you like to pick up the ' +
-                                f'{str(face_up_card)}?')
+            choice = bool_input(
+                f"Would you like to pick up the " + f"{str(face_up_card)}?"
+            )
         else:
-            choice = bool_input(f'Would you like the dealer to pick up the ' +
-                                f'{str(face_up_card)}?')
+            choice = bool_input(
+                f"Would you like the dealer to pick up the " + f"{str(face_up_card)}?"
+            )
         return choice
 
     def pick_up_card(self, pick_up: Card) -> Card:
@@ -46,12 +45,11 @@ class Human(Player):
         # add picked up card to hand
         self.hand.insert(0, pick_up)
 
-        output(f'Trump suit will be {pick_up.suit}s.')
+        output(f"Trump suit will be {pick_up.suit}s.")
         self.print_hand(indicies=True)
-        choice = int_input(f'Which card would you like to discard?',
-                           len(self.hand))
+        choice = int_input(f"Which card would you like to discard?", len(self.hand))
         discard = self.hand.pop(choice)
-        output(f'You discarded the {str(discard)} to the deck.', 0.75)
+        output(f"You discarded the {str(discard)} to the deck.", 0.75)
         return discard
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
@@ -71,15 +69,14 @@ class Human(Player):
         suits_in_hand = list(suits_in_hand)
         suits_in_hand.append(unsuitable)
 
-        output(f'Possible options:')
+        output(f"Possible options:")
         for idx, suit in enumerate(suits_in_hand):
             if suit != unsuitable:
-                output(f'\t{idx} - {str(suit)}', 0.75)
+                output(f"\t{idx} - {str(suit)}", 0.75)
             else:
-                output(f'\t{idx} - Pass', 0.75)
+                output(f"\t{idx} - Pass", 0.75)
 
-        choice = int_input(f'Would you like to call a trump suit?',
-                           len(suits_in_hand))
+        choice = int_input(f"Would you like to call a trump suit?", len(suits_in_hand))
 
         return suits_in_hand[choice]
 
@@ -94,8 +91,7 @@ class Human(Player):
             Card: Card to play.
         """
         self.print_hand(indicies=True)
-        choice = int_input(f'Which card would you like to play?',
-                           len(self.hand))
+        choice = int_input(f"Which card would you like to play?", len(self.hand))
         return self.hand[choice]
 
     def print_hand(self, indicies: bool = False):
@@ -105,9 +101,9 @@ class Human(Player):
             indicies (bool, optional): Whether or not to include indicies.
                 Defaults to False.
         """
-        output(f'{self.name}, this is your hand:')
+        output(f"{self.name}, this is your hand:")
         for idx, card in enumerate(self.hand):
             if indicies:
-                output(f'\t{idx} - {str(card)}', 0.75)
+                output(f"\t{idx} - {str(card)}", 0.75)
             else:
-                output(f'\t{str(card)}', 0.75)
+                output(f"\t{str(card)}", 0.75)

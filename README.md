@@ -23,7 +23,7 @@
 
 ## Special Thanks :clap:
 
-* James Barbret: logo design
+* James Barbret - logo design
 
 ## Planned Features
 

@@ -1,4 +1,3 @@
-
 from random import shuffle
 from typing import List
 
@@ -15,18 +14,18 @@ def create_deck() -> List[Card]:
     """
 
     suits = [
-        Suit('Spade', 'Black'),
-        Suit('Club', 'Black'),
-        Suit('Diamond', 'Red'),
-        Suit('Heart', 'Red')
+        Suit("Spade", "Black"),
+        Suit("Club", "Black"),
+        Suit("Diamond", "Red"),
+        Suit("Heart", "Red"),
     ]
     faces = [
-        Face('Nine', 9),
-        Face('Ten', 10),
-        Face('Jack', 11),
-        Face('Queen', 12),
-        Face('King', 13),
-        Face('Ace', 14)
+        Face("Nine", 9),
+        Face("Ten", 10),
+        Face("Jack", 11),
+        Face("Queen", 12),
+        Face("King", 13),
+        Face("Ace", 14),
     ]
 
     deck = []

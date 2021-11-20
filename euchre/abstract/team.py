@@ -1,7 +1,5 @@
-
-class Team():
-    """Representation of a team of players.
-    """
+class Team:
+    """Representation of a team of players."""
 
     def __init__(self, name: str) -> None:
         self.name = name
@@ -20,8 +18,7 @@ class Team():
         self.game_score += points
 
     def won_trick(self) -> None:
-        """Increment trick_score for winning trick.
-        """
+        """Increment trick_score for winning trick."""
         self.trick_score += 1
 
     def __repr__(self) -> str:

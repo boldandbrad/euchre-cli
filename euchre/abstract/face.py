@@ -1,7 +1,5 @@
-
-class Face():
-    """Representation of a standard playing card face.
-    """
+class Face:
+    """Representation of a standard playing card face."""
 
     def __init__(self, name: str, value: int) -> None:
         self.name = name

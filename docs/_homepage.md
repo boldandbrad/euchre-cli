@@ -23,6 +23,6 @@ been awarded a total of 10 points.
 
 ## Special Thanks :clap:
 
-- James Barbret: logo design
+- James Barbret - logo design
 
 <div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

@@ -1,3 +1,4 @@
+from typing import List, Tuple
 
 from random import choice, choices
 
@@ -5,14 +6,12 @@ from . import Team, Player, Card, Suit
 
 
 class Computer(Player):
-    """Representation of a cpu player. Extends Player class.
-    """
+    """Representation of a cpu player. Extends Player class."""
 
     def __init__(self, name: str, team: Team):
         super().__init__(name, team)
 
-    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) \
-            -> bool:
+    def call_pick_up(self, face_up_card: Card, partner_is_dealer: bool) -> bool:
         """Decide whether to call pick up of face up card or to pass.
 
         Returns:
@@ -20,9 +19,7 @@ class Computer(Player):
         """
         # determine which cards in hand match face up card suit
         suit = face_up_card.suit
-        cards_of_suit = [
-            card for card in self.hand if card.adjusted_suit(suit) == suit
-        ]
+        cards_of_suit = [card for card in self.hand if card.adjusted_suit(suit) == suit]
 
         # TODO: consider if player is 2, 3, or 4 suited
 
@@ -30,7 +27,7 @@ class Computer(Player):
             return True
         elif self.is_dealer and len(cards_of_suit) >= 3:
             return True
-        elif len(cards_of_suit) >= 3 and face_up_card.face.name != 'Jack':
+        elif len(cards_of_suit) >= 3 and face_up_card.face.name != "Jack":
             return True
         else:
             # only occasionally call on 'accident'
@@ -81,25 +78,24 @@ class Computer(Player):
         # find how many of each potential trump suit in hand
         suit_counts = []
         for suit in suits_in_hand:
-            count = len(list(filter(
-                lambda card: card.adjusted_suit(suit) == suit, self.hand
-            )))
-            suit_counts.append({'suit': suit, 'count': count})
+            count = len(
+                list(filter(lambda card: card.adjusted_suit(suit) == suit, self.hand))
+            )
+            suit_counts.append({"suit": suit, "count": count})
 
         # sort suits by highest count
-        suit_counts = sorted(suit_counts, key=lambda k: k['count'],
-                             reverse=True)
+        suit_counts = sorted(suit_counts, key=lambda k: k["count"], reverse=True)
 
         # call trump suit if player would have 3 or more trump cards
         # TODO: take into account card weights
         # TODO: take into account the passed on face_up_card
         # TODO: consider if player is 2, 3, or 4 suited
-        if suit_counts[0]['count'] >= 3:
-            return suit_counts[0]['suit']
+        if suit_counts[0]["count"] >= 3:
+            return suit_counts[0]["suit"]
         else:
             return unsuitable
 
-    def play_card(self, played_cards: [Card], trump_suit: Suit) -> Card:
+    def play_card(self, played_cards: List[Card], trump_suit: Suit) -> Card:
         """Choose which card to play from hand.
 
         Args:
@@ -113,22 +109,21 @@ class Computer(Player):
         # no cards have been played
         if not played_cards:
             # play highest card in hand
-            high_hand_idx = self.hand.index(max(
-                self.hand,
-                key=lambda c: c.weighted_value(trump_suit)
-            ))
+            high_hand_idx = self.hand.index(
+                max(self.hand, key=lambda c: c.weighted_value(trump_suit))
+            )
             return self.hand[high_hand_idx]
 
         # get lead suit
         lead_suit = played_cards[0].adjusted_suit(trump_suit)
 
         # find highest card played
-        high_played_idx = played_cards.index(max(
-            played_cards,
-            key=lambda c: c.weighted_value(trump_suit, lead_suit)
-        ))
+        high_played_idx = played_cards.index(
+            max(played_cards, key=lambda c: c.weighted_value(trump_suit, lead_suit))
+        )
         high_played_value = played_cards[high_played_idx].weighted_value(
-            trump_suit, lead_suit)
+            trump_suit, lead_suit
+        )
 
         # find lead and trump cards in hand
         lead_indicies = []
@@ -137,8 +132,7 @@ class Computer(Player):
             if card.adjusted_suit(trump_suit) == lead_suit:
                 lead_indicies.append(idx)
             # find trump cards if trump suit was not led
-            if trump_suit != lead_suit and \
-                    card.adjusted_suit(trump_suit) == trump_suit:
+            if trump_suit != lead_suit and card.adjusted_suit(trump_suit) == trump_suit:
                 trump_indicies.append(idx)
 
         # if player has lead cards
@@ -149,12 +143,10 @@ class Computer(Player):
 
             # determine highest and lowest lead card indicies in hand
             high_lead_idx, low_lead_idx = self._hand_high_and_low_idxs(
-                lead_indicies,
-                trump_suit
+                lead_indicies, trump_suit
             )
             high_lead_value = self.hand[high_lead_idx].weighted_value(
-                trump_suit,
-                lead_suit
+                trump_suit, lead_suit
             )
             # play highest lead card if it beats all played cards
             if high_lead_value > high_played_value:
@@ -164,21 +156,16 @@ class Computer(Player):
                 return self.hand[low_lead_idx]
 
         # find lowest card in hand
-        low_hand_idx = self.hand.index(min(
-            self.hand,
-            key=lambda c: c.weighted_value(trump_suit, lead_suit)
-        ))
+        low_hand_idx = self.hand.index(
+            min(self.hand, key=lambda c: c.weighted_value(trump_suit, lead_suit))
+        )
 
         # if player has trump cards
         if trump_indicies:
             # determine highest trump card in hand
-            high_trump_idx, _ = self._hand_high_and_low_idxs(
-                trump_indicies,
-                trump_suit
-            )
+            high_trump_idx, _ = self._hand_high_and_low_idxs(trump_indicies, trump_suit)
             high_trump_value = self.hand[high_trump_idx].weighted_value(
-                trump_suit,
-                lead_suit
+                trump_suit, lead_suit
             )
             # play highest trump card if it beats all played cards
             if high_trump_value > high_played_value:  # Fix to compare values
@@ -187,8 +174,9 @@ class Computer(Player):
         # play lowest card in hand
         return self.hand[low_hand_idx]
 
-    def _hand_high_and_low_idxs(self, indicies: [int], trump_suit: Suit) -> \
-            (int, int):
+    def _hand_high_and_low_idxs(
+        self, indicies: List[int], trump_suit: Suit
+    ) -> Tuple[int, int]:
         high_index = indicies[0]
         low_index = indicies[0]
         for idx in indicies:

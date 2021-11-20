@@ -1,11 +1,14 @@
-
 from typing import List
 
 from euchre.abstract import Player, Team, Card, Suit
 
 
-def valid_play(card_to_play: Card, player_hand: List[Card], played_cards: List[Card],
-               trump_suit: Suit) -> bool:
+def valid_play(
+    card_to_play: Card,
+    player_hand: List[Card],
+    played_cards: List[Card],
+    trump_suit: Suit,
+) -> bool:
     """Return whether a card is a valid play.
 
     Args:
@@ -30,8 +33,7 @@ def valid_play(card_to_play: Card, player_hand: List[Card], played_cards: List[C
         else:
             lead_matches = 0
             for card in player_hand:
-                if card != card_to_play and card.adjusted_suit(trump_suit) == \
-                        lead_suit:
+                if card != card_to_play and card.adjusted_suit(trump_suit) == lead_suit:
                     lead_matches += 1
 
             valid = lead_matches == 0
@@ -41,8 +43,9 @@ def valid_play(card_to_play: Card, player_hand: List[Card], played_cards: List[C
     return valid
 
 
-def trick_winner(players: List[Player], played_cards: List[Card], trump_suit: Suit) \
-        -> Player:
+def trick_winner(
+    players: List[Player], played_cards: List[Card], trump_suit: Suit
+) -> Player:
     """Determine and award winning player and team of trick.
 
     Args:

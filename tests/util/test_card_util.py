@@ -1,36 +1,29 @@
-
 from euchre.abstract import Computer
 from euchre.util import create_deck, deal_hand
 
 
 def test_create_deck():
-    """Test card_util.create_deck()
-    """
+    """Test card_util.create_deck()"""
     deck = create_deck()
 
     # check that deck is a standard euchre deck
     for card in deck:
-        assert card.face.name in [
-                'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'
-            ]
+        assert card.face.name in ["Nine", "Ten", "Jack", "Queen", "King", "Ace"]
         assert card.face.value >= 9 and card.face.value <= 14
-        assert card.suit.name in [
-                'Spade', 'Club', 'Diamond', 'Heart'
-            ]
-        assert card.suit.color in ['Black', 'Red']
+        assert card.suit.name in ["Spade", "Club", "Diamond", "Heart"]
+        assert card.suit.color in ["Black", "Red"]
 
     # check that there are no duplicate cards
     assert len(deck) == len(set(deck))
 
 
 def test_deal_hand():
-    """Test card_util.deal_hand()
-    """
+    """Test card_util.deal_hand()"""
     players = [
-        Computer('p1', 't1'),
-        Computer('p2', 't2'),
-        Computer('p3', 't1'),
-        Computer('p4', 't2')
+        Computer("p1", "t1"),
+        Computer("p2", "t2"),
+        Computer("p3", "t1"),
+        Computer("p4", "t2"),
     ]
     deck = create_deck()
 

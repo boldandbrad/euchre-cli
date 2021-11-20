@@ -1,10 +1,8 @@
-
 from . import Team, Card, Suit
 
 
-class Player():
-    """Representation of a player. Parent class of Computer and Human.
-    """
+class Player:
+    """Representation of a player. Parent class of Computer and Human."""
 
     def __init__(self, name: str, team: Team) -> None:
         self.name = name
@@ -18,8 +16,7 @@ class Player():
         self.trick_winner = False
 
     def won_trick(self) -> None:
-        """Set trick_winner and team won trick.
-        """
+        """Set trick_winner and team won trick."""
         self.trick_winner = True
         self.team.won_trick()
 
