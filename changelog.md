@@ -7,6 +7,23 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
+## [0.6.0] - 2021-11-24
+
+### Updated
+
+- Dependency Click from v7.x to v8.x
+- Code formatting and structure
+
+### Fixed
+
+- `euchre --version` Correctly works again with latest dependencies.
+
+### Removed
+
+- `euchre rules` No longer works on older versions of euchre-cli due to
+[relocated documentation](https://boldandbrad.github.io/euchre-cli/).
+- Support for python versions 3.6 and 3.7
+
 ## [0.5.1] - 2020-09-08
 
 ### Added
