@@ -1,7 +1,5 @@
-
-class Suit():
-    """Representation of a standard playing card suit.
-    """
+class Suit:
+    """Representation of a standard playing card suit."""
 
     def __init__(self, name: str, color: str) -> None:
         self.name = name

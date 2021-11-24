@@ -9,13 +9,16 @@ Please do contribute! Issues and pull requests are welcome.
 Clone euchre-cli repo.
 
 ```zsh
-git clone https://github.com/bradleycwojcik/euchre-cli
+git clone https://github.com/boldandbrad/euchre-cli
 ```
 
-Install local package in development mode..
+Install local package in development mode.
 
-```zsh
-pip install -e .
+> Note: The `pip` line does not work in zsh for some reason. Run it in another shell.
+
+```bash
+cd euchre-cli
+pip install -e .[dev]
 ```
 
 Run the cli.

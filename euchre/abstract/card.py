@@ -1,10 +1,8 @@
-
 from . import Suit, Face
 
 
-class Card():
-    """Representation of a standard playing card.
-    """
+class Card:
+    """Representation of a standard playing card."""
 
     def __init__(self, suit: Suit, face: Face) -> None:
         self.suit = suit
@@ -20,9 +18,11 @@ class Card():
             bool: Whether the card is the left bower.
         """
         # if jack of same color as trump suit
-        return self.face.name == 'Jack' and \
-            self.suit.color == trump_suit.color and \
-            self.suit.name != trump_suit.name
+        return (
+            self.face.name == "Jack"
+            and self.suit.color == trump_suit.color
+            and self.suit.name != trump_suit.name
+        )
 
     def adjusted_suit(self, trump_suit: Suit) -> Suit:
         """Return trump suit if card is left bower.
@@ -62,14 +62,17 @@ class Card():
         if self.is_left_bower(trump_suit):
             weighted_val += 15  # 26
         elif self.suit.name == trump_suit.name:
-            if self.face.name in ['Nine', 'Ten']:
+            if self.face.name in ["Nine", "Ten"]:
                 weighted_val += 12  # 21, 22
-            elif self.face.name in ['Queen', 'King', 'Ace']:
+            elif self.face.name in ["Queen", "King", "Ace"]:
                 weighted_val += 11  # 23, 24, 25
-            elif self.face.name == 'Jack':
+            elif self.face.name == "Jack":
                 weighted_val += 16  # 27 (right_bower)
-        elif lead_suit and trump_suit.name != lead_suit.name and \
-                self.suit.name == lead_suit.name:
+        elif (
+            lead_suit
+            and trump_suit.name != lead_suit.name
+            and self.suit.name == lead_suit.name
+        ):
             weighted_val += 6  # 15, 16, 17, 18, 19, 20
 
         return weighted_val

@@ -5,9 +5,9 @@
 
 # euchre-cli
 
-[![Build Status](https://travis-ci.org/bradleycwojcik/euchre-cli.svg?branch=main)](https://travis-ci.org/bradleycwojcik/euchre-cli)
-[![codecov](https://codecov.io/gh/bradleycwojcik/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/bradleycwojcik/euchre-cli)
-[![Docs](https://img.shields.io/website?down_message=down&label=docs&up_message=online&url=https%3A%2F%2Fbradleycwojcik.github.io%2Feuchre-cli%2F)](https://bradleycwojcik.github.io/euchre-cli/)
+[![Build Status](https://api.travis-ci.com/boldandbrad/euchre-cli.svg?branch=main)](https://travis-ci.com/github/boldandbrad/euchre-cli)
+[![codecov](https://codecov.io/gh/boldandbrad/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/boldandbrad/euchre-cli)
+[![Docs](https://img.shields.io/website?down_message=down&label=docs&up_message=online&url=https%3A%2F%2Fboldandbrad.github.io%2Feuchre-cli%2F)](https://boldandbrad.github.io/euchre-cli/)
 [![PyPI](https://img.shields.io/pypi/v/euchre-cli)](https://pypi.org/project/euchre-cli/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/euchre-cli)
 
@@ -23,7 +23,7 @@
 
 ## Special Thanks :clap:
 
-* James Barbret: logo design
+* James Barbret - logo design
 
 ## Planned Features
 

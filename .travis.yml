@@ -1,19 +1,19 @@
 language: python
 python:
-  - "3.6"
-  - "3.7"
   - "3.8"
+  - "3.9"
+  # - "3.10"
   - "nightly"
 
 install:
   - pip install --upgrade pip
   - pip install pip-tools
-  - pip-compile
+  - pip-compile --extra dev
   - pip install -r requirements.txt
   - pip install .
 
 script:
-  - pytest --cov-report=xml --cov=./euchrecli/
+  - pytest --cov-report=xml --cov=./euchre/
 
 after_success:
   - codecov
