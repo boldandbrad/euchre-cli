@@ -15,7 +15,7 @@ from euchre.util.input_util import bool_input
     help="Auto confirm to open rules in a browser.",
 )
 def rules(yes: bool):
-    rules_url = "https://bradleycwojcik.github.io/euchre-cli/#/rules"
+    rules_url = "https://boldandbrad.github.io/euchre-cli/#/rules"
     prog_str = click.style("euchre-cli", fg="green")
 
     if yes or bool_input(f"Open {prog_str} rules page in a browser?"):

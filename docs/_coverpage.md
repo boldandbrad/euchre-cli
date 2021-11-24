@@ -9,7 +9,7 @@
 - Cross platform
 - Free and open source
 
-[Github](https://github.com/bradleycwojcik/euchre-cli "Github")
+[Github](https://github.com/boldandbrad/euchre-cli "Github")
 [Learn More](#euchre-cli "Learn More")
 
 ![color](#B3C69F)

@@ -17,10 +17,10 @@ setup_info = dict(
     description="Play euchre in your terminal.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://bradleycwojcik.github.io/euchre-cli/",
+    url="https://boldandbrad.github.io/euchre-cli/",
     project_urls={
-        "Source": "https://github.com/bradleycwojcik/euchre-cli/",
-        "Bug Tracker": "https://github.com/bradleycwojcik/euchre-cli/issues",
+        "Source": "https://github.com/boldandbrad/euchre-cli/",
+        "Bug Tracker": "https://github.com/boldandbrad/euchre-cli/issues",
     },
     packages=find_packages(),
     include_package_data=True,
