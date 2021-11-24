@@ -9,7 +9,7 @@ Please do contribute! Issues and pull requests are welcome.
 Clone euchre-cli repo.
 
 ```zsh
-git clone https://github.com/bradleycwojcik/euchre-cli
+git clone https://github.com/boldandbrad/euchre-cli
 ```
 
 Install local package in development mode.
