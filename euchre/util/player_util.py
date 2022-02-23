@@ -2,8 +2,6 @@ from typing import List
 
 import names
 
-from random import choice, choices
-
 from euchre.abstract import Player
 
 
@@ -20,7 +18,7 @@ def unique_cpu_name(players: List[Player]) -> str:
 
     while True:
         name = names.get_first_name()
-        if name not in taken_names:
+        if name.lower() not in taken_names:
             break
 
     return name
