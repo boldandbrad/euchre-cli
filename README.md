@@ -24,35 +24,3 @@
 ## Special Thanks :clap:
 
 * James Barbret - logo design
-
-## Planned Features
-
-### Release 1.x
-
-* Play again prompt at end of game
-* Auto play again mode
-* --quick mode
-* Ability to save user configs
-* Ability to revert to default configs
-* Adjust cpu play level
-* Refer to Left and Right bowers as such
-* Auto play last card in hand
-* Option to auto-sort hand
-* 'Throw them in' mode
-* 'Stick the dealer' mode
-* Ability to adjust speed of cpu decision making
-* Shell output coloring and emojis
-
-### Future
-
-* Play multiple cards at once if they are the highest remaining cards
-* Ability to go alone
-* Go alone with help mode
-* Ability to pause and resume games
-* Ability to save/view/delete user play stats
-* Ability to renege and call other players out for it
-* 'Nines and tens' mode
-* 'Ace no face' mode
-* Three handed euchre mode
-* Install with homebrew on mac and linux ?
-* Install with Chocolatey on windows ?
