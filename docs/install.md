@@ -1,42 +1,78 @@
-# Install
+# Install Guide
 
 Start playing euchre in your terminal.
 
-> Note: The latest version of **euchre-cli** is compatible with `python 3.8+`
-> on macOS, Windows, and Linux.
+> **euchre-cli** is compatible with `python 3.8+` on macOS, Windows, and Linux.
 
-Install with pip.
+## Install
 
-```zsh
-pip install euchre-cli
-```
+Install the latest version of **euchre-cli**.
 
-Or install a specific version. Check
-[PyPI](https://pypi.org/project/euchre-cli/#history "PyPI - euchre-cli")
-for a complete list of installable versions.
+- [Homebrew](https://brew.sh) - global isolated
 
-```zsh
-pip install euchre-cli==0.3.2
-```
+    ```zsh
+    brew tap boldandbrad/homebrew-tap
+    brew install euchre-cli
+    ```
 
-Now, play euchre! Check the [Usage Guide](usage.md "Usage Guide") or use
-`euchre --help` to get going.
+- [pipx](https://pipxproject.github.io/pipx/) - global isolated
+
+    ```zsh
+    pipx install euchre-cli
+    ```
+
+- pip - active python environment
+
+    ```zsh
+    pip install euchre-cli
+    ```
+
+Now you're ready to play euchre! Check the [Usage Guide](usage-guide.md "Usage Guide")
+or use `euchre --help` to get going.
 
 ## Upgrade
 
 Upgrade to the latest version of **euchre-cli**.
 
-```zsh
-pip install --upgrade euchre-cli
-```
+- Homebrew
+
+    ```zsh
+    brew update && upgrade euchre-cli
+    ```
+
+- pipx
+
+    ```zsh
+    pipx upgrade euchre-cli
+    ```
+
+- pip
+
+    ```zsh
+    pip install --upgrade euchre-cli
+    ```
 
 ## Uninstall
 
 Remove **euchre-cli** from your environment.
 
-```zsh
-pip uninstall euchre-cli
-```
+- Homebrew
+
+    ```zsh
+    brew uninstall euchre-cli
+    ```
+
+- pipx
+
+    ```zsh
+    pipx uninstall euchre-cli
+    ```
+
+- pip
+
+    ```zsh
+    pip uninstall euchre-cli
+    ```
 
 Remove **euchre-cli** logs (optional).
 

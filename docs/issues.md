@@ -18,6 +18,7 @@ Archives will need to be unzipped to be read.
 ## Report
 
 Please report issues with included log screenshots, excerpts, or files to the **euchre-cli**
-[issue tracker](https://github.com/boldandbrad/euchre-cli/issues "Github - Issues"). We appreciate your help!
+[issue tracker](https://github.com/boldandbrad/euchre-cli/issues "Github - Issues").
+We appreciate your help!
 
 <div style="text-align: right"><i>Last updated: {docsify-updated}</i></div>

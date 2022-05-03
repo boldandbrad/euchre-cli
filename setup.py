@@ -25,7 +25,16 @@ setup_info = dict(
     packages=find_packages(),
     include_package_data=True,
     install_requires=["click>=8", "names==0.3.0", "loguru>=0.5.0"],
-    extras_require={"dev": ["black", "pytest", "pytest-cov", "pytest-mock", "codecov"]},
+    extras_require={
+        "dev": [
+            "black",
+            "pytest",
+            "pytest-cov",
+            "pytest-mock",
+            "codecov",
+            "homebrew-pypi-poet",
+        ]
+    },
     python_requires=">=3.8",
     classifiers=[
         "Programming Language :: Python :: 3.8",

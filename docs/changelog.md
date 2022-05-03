@@ -9,6 +9,11 @@ and this project adheres to
 
 ## [0.6.2] - TBD
 
+### Added
+
+- Ability to install makey-cli with Homebrew! See [Install Guide](install.md
+  "Install Guide").
+
 ## [0.6.1] - 2022-02-23
 
 ### Fixed
