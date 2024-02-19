@@ -8,10 +8,10 @@ def test_create_deck():
 
     # check that deck is a standard euchre deck
     for card in deck:
-        assert card.face.name in ["Nine", "Ten", "Jack", "Queen", "King", "Ace"]
+        assert card.face.name in ("Nine", "Ten", "Jack", "Queen", "King", "Ace")
         assert card.face.value >= 9 and card.face.value <= 14
-        assert card.suit.name in ["Spade", "Club", "Diamond", "Heart"]
-        assert card.suit.color in ["Black", "Red"]
+        assert card.suit.name in ("Spade", "Club", "Diamond", "Heart")
+        assert card.suit.color in ("Black", "Red")
 
     # check that there are no duplicate cards
     assert len(deck) == len(set(deck))
