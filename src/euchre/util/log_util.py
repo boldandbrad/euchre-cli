@@ -9,7 +9,7 @@ def logger_init() -> None:
     """Configure loguru logger."""
     logger.remove()  # remove stdout/stderr logging since this is a CLI
 
-    is_ci = "CI" in os.environ  # running in travis ci
+    is_ci = "CI" in os.environ  # running in ci
     usrname = getpass.getuser()
 
     if platform.system() == "Linux" and not is_ci:
