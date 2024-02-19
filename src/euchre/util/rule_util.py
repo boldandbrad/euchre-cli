@@ -1,6 +1,6 @@
 from typing import List
 
-from euchre.abstract import Player, Team, Card, Suit
+from euchre.abstract import Card, Player, Suit, Team
 
 
 def valid_play(
@@ -22,7 +22,7 @@ def valid_play(
     """
     valid = False
     # reason = 0
-    if len(played_cards) == 0 or len(player_hand) == 1:
+    if not played_cards or len(player_hand) == 1:
         valid = True
         # reason = 1
     else:
@@ -85,7 +85,7 @@ def hand_winner(teams: List[Team]) -> Team:
         if team.trick_score >= 3:
             winning_team = team
             # called trump and took 3 or 4 tricks
-            if team.called_trump and team.trick_score in [3, 4]:
+            if team.called_trump and team.trick_score in (3, 4):
                 team.won_hand(1)
             # called trump and took all 5 tricks
             elif team.called_trump and team.trick_score == 5:

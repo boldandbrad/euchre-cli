@@ -1,4 +1,4 @@
-from . import Suit, Face
+from . import Face, Suit
 
 
 class Card:
@@ -35,8 +35,7 @@ class Card:
         """
         if self.is_left_bower(trump_suit):
             return trump_suit
-        else:
-            return self.suit
+        return self.suit
 
     def weighted_value(self, trump_suit: Suit, lead_suit: Suit = None) -> int:
         """Calculate card weighted value relative to trump and/or lead suits.
@@ -62,9 +61,9 @@ class Card:
         if self.is_left_bower(trump_suit):
             weighted_val += 15  # 26
         elif self.suit.name == trump_suit.name:
-            if self.face.name in ["Nine", "Ten"]:
+            if self.face.name in ("Nine", "Ten"):
                 weighted_val += 12  # 21, 22
-            elif self.face.name in ["Queen", "King", "Ace"]:
+            elif self.face.name in ("Queen", "King", "Ace"):
                 weighted_val += 11  # 23, 24, 25
             elif self.face.name == "Jack":
                 weighted_val += 16  # 27 (right_bower)

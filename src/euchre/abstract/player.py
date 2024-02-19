@@ -1,4 +1,4 @@
-from . import Team, Card, Suit
+from . import Team
 
 
 class Player:
@@ -26,5 +26,4 @@ class Player:
     def __str__(self) -> str:
         if self.is_dealer:
             return f"{self.name} (Dealer)"
-        else:
-            return f"{self.name}"
+        return f"{self.name}"

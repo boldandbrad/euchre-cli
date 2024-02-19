@@ -7,6 +7,27 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
+## Unreleased
+
+## [0.7.0] - 2024-02-19
+
+### Added
+
+- Add pre-commit hooks
+- Support for python versions 3.11 and 3.12
+
+### Updated
+
+- Replace Travis CI build system with GitHub Actions
+- Replace Setup.py with pyproject.toml built with flit
+- Move `euchre` dir into `src`
+- Rename `src/euchre.py` to `src/root.py`
+- Cleanup code formatting
+
+### Removed
+
+- Remove support for python versions 3.8 and 3.9
+
 ## [0.6.1] - 2022-02-23
 
 ### Fixed

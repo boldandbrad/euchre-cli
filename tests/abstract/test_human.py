@@ -1,8 +1,7 @@
-from click import unstyle
 import pytest
-from pytest_mock import mocker
+from click import unstyle
 
-from euchre.abstract import Human, Team, Face, Suit, Card
+from euchre.abstract import Card, Face, Human, Suit, Team
 
 
 @pytest.fixture()
@@ -82,7 +81,7 @@ def test_call_trump_suit(mocker, human):
 
     suit = human.call_trump_suit(clubs)
     assert isinstance(suit, Suit)
-    assert suit in [spades, clubs]
+    assert suit in (spades, clubs)
 
 
 def test_play_card(mocker, human):

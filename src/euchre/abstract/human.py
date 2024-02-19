@@ -2,9 +2,10 @@ from typing import List
 
 from click import style
 
-from . import Team, Player, Card, Suit
 from euchre.util import output
 from euchre.util.input_util import bool_input, int_input, str_input
+
+from . import Card, Player, Suit, Team
 
 
 class Human(Player):
@@ -24,12 +25,10 @@ class Human(Player):
         self.print_hand()
         choice = False
         if self.is_dealer:
-            choice = bool_input(
-                f"Would you like to pick up the " + f"{str(face_up_card)}?"
-            )
+            choice = bool_input("Would you like to pick up the " + f"{face_up_card}?")
         else:
             choice = bool_input(
-                f"Would you like the dealer to pick up the " + f"{str(face_up_card)}?"
+                "Would you like the dealer to pick up the " + f"{face_up_card}?"
             )
         return choice
 
@@ -47,9 +46,9 @@ class Human(Player):
 
         output(f"Trump suit will be {pick_up.suit}s.")
         self.print_hand(indicies=True)
-        choice = int_input(f"Which card would you like to discard?", len(self.hand))
+        choice = int_input("Which card would you like to discard?", len(self.hand))
         discard = self.hand.pop(choice)
-        output(f"You discarded the {str(discard)} to the deck.", 0.75)
+        output(f"You discarded the {discard} to the deck.", 0.75)
         return discard
 
     def call_trump_suit(self, unsuitable: Suit) -> Suit:
@@ -69,14 +68,14 @@ class Human(Player):
         suits_in_hand = list(suits_in_hand)
         suits_in_hand.append(unsuitable)
 
-        output(f"Possible options:")
+        output("Possible options:")
         for idx, suit in enumerate(suits_in_hand):
             if suit != unsuitable:
-                output(f"\t{idx} - {str(suit)}", 0.75)
+                output(f"\t{idx} - {suit}", 0.75)
             else:
                 output(f"\t{idx} - Pass", 0.75)
 
-        choice = int_input(f"Would you like to call a trump suit?", len(suits_in_hand))
+        choice = int_input("Would you like to call a trump suit?", len(suits_in_hand))
 
         return suits_in_hand[choice]
 
@@ -91,7 +90,7 @@ class Human(Player):
             Card: Card to play.
         """
         self.print_hand(indicies=True)
-        choice = int_input(f"Which card would you like to play?", len(self.hand))
+        choice = int_input("Which card would you like to play?", len(self.hand))
         return self.hand[choice]
 
     def print_hand(self, indicies: bool = False):
@@ -104,6 +103,6 @@ class Human(Player):
         output(f"{self.name}, this is your hand:")
         for idx, card in enumerate(self.hand):
             if indicies:
-                output(f"\t{idx} - {str(card)}", 0.75)
+                output(f"\t{idx} - {card}", 0.75)
             else:
-                output(f"\t{str(card)}", 0.75)
+                output(f"\t{card}", 0.75)

@@ -3,17 +3,17 @@ from typing import List
 import click
 from loguru import logger
 
-from euchre.abstract import Suit, Card, Team, Player, Computer, Human
+from euchre.abstract import Card, Computer, Human, Player, Suit, Team
 from euchre.util import (
     create_deck,
     deal_hand,
+    hand_winner,
     output,
-    unique_cpu_name,
     rotate_dealer,
     rotate_trick_order,
-    valid_play,
     trick_winner,
-    hand_winner,
+    unique_cpu_name,
+    valid_play,
 )
 
 
@@ -32,7 +32,7 @@ def play(watch: bool):
 
 def setup(watch_mode: bool):
     """Setup players and teams."""
-    output(click.style(f"Welcome to euchre-cli!", fg="green"), 0)
+    output(click.style("Welcome to euchre-cli!", fg="green"), 0)
 
     teams = [Team("Team 1"), Team("Team 2")]
 
@@ -43,13 +43,17 @@ def setup(watch_mode: bool):
     else:
         player = Human(teams[0])
 
-    players.append(player)
-    players.append(Computer(unique_cpu_name(players), teams[1]))
-    players.append(Computer(unique_cpu_name(players), teams[0]))
-    players.append(Computer(unique_cpu_name(players), teams[1]))
+    players.extend(
+        [
+            player,
+            Computer(unique_cpu_name(players), teams[1]),
+            Computer(unique_cpu_name(players), teams[0]),
+            Computer(unique_cpu_name(players), teams[1]),
+        ]
+    )
 
     output()
-    output(f"Players:", 0.75)
+    output("Players:", 0.75)
     for player in players:
         output(f"\t{player.name}, {player.team.name}", 0.75)
 
@@ -184,7 +188,7 @@ def set_trump_suit(players: List[Player], deck: List[Card]) -> Suit:
     # print play order for hand
     output("Play Order:")
     for player in players:
-        output(f"\t{str(player)}, {player.team.name}", 0.75)
+        output(f"\t{player}, {player.team.name}", 0.75)
     output()
 
     # pickup round
@@ -244,13 +248,13 @@ def trick(
                 break
             if isinstance(player, Human):
                 output(
-                    f"\tInvalid play ({str(card_to_play)}). You must "
-                    + f"follow the lead suit "
+                    f"\tInvalid play ({card_to_play}). You must "
+                    + "follow the lead suit "
                     + f"({played_cards[0].adjusted_suit(trump_suit)}s).",
                     0.5,
                 )
             else:
-                logger.debug(f"\tInvalid play ({str(card_to_play)}).")
+                logger.debug(f"\tInvalid play ({card_to_play}).")
 
         # play proposed card from player hand
         output(f"{player.name} plays the")

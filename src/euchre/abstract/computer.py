@@ -1,8 +1,7 @@
+from random import choices
 from typing import List, Tuple
 
-from random import choice, choices
-
-from . import Team, Player, Card, Suit
+from . import Card, Player, Suit, Team
 
 
 class Computer(Player):
@@ -29,9 +28,8 @@ class Computer(Player):
             return True
         elif len(cards_of_suit) >= 3 and face_up_card.face.name != "Jack":
             return True
-        else:
-            # only occasionally call on 'accident'
-            return choices([True, False], weights=[1, 10])[0]
+        # only occasionally call on 'accident'
+        return choices([True, False], weights=[1, 10])[0]
 
     def pick_up_card(self, pick_up: Card) -> Card:
         """Choose whether or not to replace card in hand with picked up one.
@@ -92,8 +90,7 @@ class Computer(Player):
         # TODO: consider if player is 2, 3, or 4 suited
         if suit_counts[0]["count"] >= 3:
             return suit_counts[0]["suit"]
-        else:
-            return unsuitable
+        return unsuitable
 
     def play_card(self, played_cards: List[Card], trump_suit: Suit) -> Card:
         """Choose which card to play from hand.

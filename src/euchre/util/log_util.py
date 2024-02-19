@@ -9,14 +9,14 @@ def logger_init() -> None:
     """Configure loguru logger."""
     logger.remove()  # remove stdout/stderr logging since this is a CLI
 
-    is_travis = "TRAVIS" in os.environ  # running in travis ci
+    is_ci = "CI" in os.environ  # running in ci
     usrname = getpass.getuser()
 
-    if platform.system() == "Linux" and not is_travis:
+    if platform.system() == "Linux" and not is_ci:
         log_path = "/var/log/euchre-cli/euchre.log"
-    elif platform.system() == "Darwin" and not is_travis:
+    elif platform.system() == "Darwin" and not is_ci:
         log_path = f"/Users/{usrname}/Library/Logs/euchre-cli/euchre.log"
-    elif platform.system() == "Windows" and not is_travis:
+    elif platform.system() == "Windows" and not is_ci:
         log_path = f"C:\\Users\\{usrname}\\AppData\\local\\euchre-cli\\euchre.log"
     else:
         log_path = "euchre.log"

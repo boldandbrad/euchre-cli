@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from euchre.euchre import cli
+from euchre.root import cli
 
 
 def test_play():

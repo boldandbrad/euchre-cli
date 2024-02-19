@@ -12,6 +12,7 @@
 .python-version
 .node-version
 .venv
+.envrc
 
 # python artifacts
 __pycache__/

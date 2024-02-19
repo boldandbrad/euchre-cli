@@ -1,4 +1,4 @@
-from euchre.abstract import Face, Suit, Card
+from euchre.abstract import Card, Face, Suit
 
 
 def test_card():

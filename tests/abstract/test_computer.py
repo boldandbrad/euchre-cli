@@ -1,6 +1,6 @@
 import pytest
 
-from euchre.abstract import Computer, Team, Face, Suit, Card
+from euchre.abstract import Card, Computer, Face, Suit, Team
 
 
 @pytest.fixture()
@@ -66,7 +66,7 @@ def test_call_trump_suit(computer):
 
     suit = computer.call_trump_suit(clubs)
     assert isinstance(suit, Suit)
-    assert suit in [spades, clubs]
+    assert suit in (spades, clubs)
 
 
 def test_play_card(computer):

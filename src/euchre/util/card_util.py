@@ -1,7 +1,7 @@
 from random import shuffle
 from typing import List
 
-from euchre.abstract import Player, Suit, Face, Card
+from euchre.abstract import Card, Face, Player, Suit
 
 
 def create_deck() -> List[Card]:
