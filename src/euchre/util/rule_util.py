@@ -22,7 +22,7 @@ def valid_play(
     """
     valid = False
     # reason = 0
-    if not player_hand or len(player_hand) == 1:
+    if not played_cards or len(player_hand) == 1:
         valid = True
         # reason = 1
     else:
