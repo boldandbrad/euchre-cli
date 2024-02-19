@@ -7,6 +7,19 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html "Semantic Versioning").
 
+## Unreleased
+
+### Updated
+
+- Replace Travis CI build system with GitHub Actions
+- Replace Setup.py with pyproject.toml built with flit
+- Rename `euchre` dir to `src`
+- Rename `src/euchre.py` to `src/root.py`
+
+### Removed
+
+- Remove support for python versions 3.8 and 3.9
+
 ## [0.6.1] - 2022-02-23
 
 ### Fixed
