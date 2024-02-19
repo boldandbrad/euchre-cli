@@ -13,7 +13,7 @@ def bool_input(prompt: str) -> bool:
         bool: User boolean response.
     """
     response = input(f"{prompt} (y/N) ")
-    return response.lower() in ["y", "yes"]
+    return response.lower() in ("y", "yes")
 
 
 def int_input(prompt: str, input_range: int) -> int:
@@ -32,7 +32,7 @@ def int_input(prompt: str, input_range: int) -> int:
     response = -1
     valid = False
     while not valid:
-        range_str = f"(0-{input_range - 1})" if input_range > 1 else f"(0)"
+        range_str = f"(0-{input_range - 1})" if input_range > 1 else "(0)"
         try:
             response = int(input(f"{prompt} {range_str}: "))
             if response in range(input_range):

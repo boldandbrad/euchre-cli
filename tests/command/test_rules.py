@@ -1,5 +1,4 @@
 from click.testing import CliRunner
-from pytest_mock import mocker
 
 from euchre.euchre import cli
 

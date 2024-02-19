@@ -1,6 +1,3 @@
-import pytest
-from pytest_mock import mocker
-
 from euchre.util.input_util import int_input
 
 

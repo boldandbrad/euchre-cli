@@ -4,7 +4,6 @@ from euchre.command.play import play
 from euchre.command.rules import rules
 from euchre.util.log_util import logger_init
 
-
 logger_init()
 
 
