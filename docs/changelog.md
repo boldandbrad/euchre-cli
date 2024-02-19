@@ -9,12 +9,20 @@ and this project adheres to
 
 ## Unreleased
 
+## [0.7.0] - 2024-02-19
+
+### Added
+
+- Add pre-commit hooks
+- Support for python versions 3.11 and 3.12
+
 ### Updated
 
 - Replace Travis CI build system with GitHub Actions
 - Replace Setup.py with pyproject.toml built with flit
-- Rename `euchre` dir to `src`
+- Move `euchre` dir into `src`
 - Rename `src/euchre.py` to `src/root.py`
+- Cleanup code formatting
 
 ### Removed
 
