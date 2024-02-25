@@ -9,29 +9,26 @@ repos:
       - id: check-yaml
       - id: check-toml
       - id: check-added-large-files
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.6
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.2
     hooks:
+      # run the linter
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
-  - repo: https://github.com/psf/black
-    rev: 23.11.0
+      # run the formatter
+      - id: ruff-format
+  - repo: https://github.com/dosisod/refurb
+    rev: v1.28.0
     hooks:
-      - id: black
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-      - id: flake8
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
-    hooks:
-      - id: isort
+      - id: refurb
+        # additional_dependencies:
+        #   - mypy<1.7 # SEE: https://github.com/dosisod/refurb/issues/305
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.1
+    rev: 0.28.0
     hooks:
       - id: check-github-workflows
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.18.1
+    rev: v8.18.2
     hooks:
       - id: gitleaks
   # - repo: https://github.com/pre-commit/mirrors-prettier
@@ -43,9 +40,3 @@ repos:
   #   hooks:
   #     - id: semgrep
   #       args: ["--config", "auto", "--error", "--skip-unknown-extensions"]
-  - repo: https://github.com/dosisod/refurb
-    rev: v1.24.0
-    hooks:
-      - id: refurb
-        # additional_dependencies:
-        #   - mypy<1.7 # SEE: https://github.com/dosisod/refurb/issues/305

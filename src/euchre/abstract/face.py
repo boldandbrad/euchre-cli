@@ -9,4 +9,4 @@ class Face:
         return f"Face({self.name}, {self.value})"
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return str(self.name)

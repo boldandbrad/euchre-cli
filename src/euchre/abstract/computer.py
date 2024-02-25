@@ -1,3 +1,4 @@
+from operator import itemgetter
 from random import choices
 from typing import List, Tuple
 
@@ -82,7 +83,7 @@ class Computer(Player):
             suit_counts.append({"suit": suit, "count": count})
 
         # sort suits by highest count
-        suit_counts = sorted(suit_counts, key=lambda k: k["count"], reverse=True)
+        suit_counts.sort(key=itemgetter("count"), reverse=True)
 
         # call trump suit if player would have 3 or more trump cards
         # TODO: take into account card weights

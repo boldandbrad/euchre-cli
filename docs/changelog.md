@@ -9,6 +9,15 @@ and this project adheres to
 
 ## Unreleased
 
+### Added
+
+- Add Readme build-status badge link to github actions
+
+### Updated
+
+- Further consolidate dev tooling with ruff
+- Update Roadmap in Readme
+
 ## [0.7.0] - 2024-02-19
 
 ### Added

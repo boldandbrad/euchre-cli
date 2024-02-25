@@ -9,4 +9,4 @@ class Suit:
         return f"Suit({self.name}, {self.color})"
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return str(self.name)

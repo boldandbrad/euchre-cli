@@ -2,32 +2,39 @@
 venv:
     . .venv/bin/activate
 
-# install euchre-cli from local
-install:
-    pip install -q ."[test]"
+# install dev dependencies
+dev-deps:
+    pip install ."[dev]"
 
-# install euchre-cli via flit
-flit-install:
-    pip install flit
-    flit install
+# install test dependencies
+test-deps:
+    pip install ."[test]"
+
+# install euchre-cli from local
+install: dev-deps
+    pip install .
 
 # install editable
 dev-install:
     pip install -q -e .
+
+# install euchre-cli via flit
+flit-install: dev-deps
+    flit install
 
 # lint and format
 lint:
     pre-commit run --show-diff-on-failure --all-files
 
 # run all tests
-test: install
+test: test-deps
     pytest
 
 # run all tests with coverage
-test-cov: install
+test-cov: test-deps
     pytest -v --cov-report xml --cov euchre
 
-# build dist
+# build distribution
 build:
     flit build
 
