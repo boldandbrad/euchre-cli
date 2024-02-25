@@ -6,6 +6,5 @@ from euchre.root import cli
 def test_rules(mocker):
     mocker.patch("builtins.input", side_effect=["n"])
 
-    runner = CliRunner()
-    result = runner.invoke(cli, ["rules"])
+    result = CliRunner().invoke(cli, ["rules"])
     assert result.exit_code == 0

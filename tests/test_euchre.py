@@ -4,12 +4,10 @@ from euchre.root import cli
 
 
 def test_version():
-    runner = CliRunner()
-    result = runner.invoke(cli, ["--version"])
+    result = CliRunner().invoke(cli, ["--version"])
     assert result.exit_code == 0
 
 
 def test_help():
-    runner = CliRunner()
-    result = runner.invoke(cli, ["--help"])
+    result = CliRunner().invoke(cli, ["--help"])
     assert result.exit_code == 0

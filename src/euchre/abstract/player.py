@@ -26,4 +26,4 @@ class Player:
     def __str__(self) -> str:
         if self.is_dealer:
             return f"{self.name} (Dealer)"
-        return f"{self.name}"
+        return str(self.name)

@@ -25,4 +25,4 @@ class Team:
         return f"Team({self.name})"
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return str(self.name)
