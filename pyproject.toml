@@ -30,26 +30,19 @@ test = [
   "pytest-mock",
 ]
 dev = [
-  "black",
-  "flake8",
-  "flit",
-  "isort",
+  "ruff",
+  "refurb",
   "pre-commit",
   "homebrew-pypi-poet",
-  "refurb",
 ]
 
 [tool.flit.module]
 name = "euchre"
 
-[tool.isort]
-profile = "black"
-skip = ["src/euchre/abstract/__init__.py"]
-
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
 
-[tool.ruff]
+[tool.ruff.lint]
 # Never enforce `E501` (line length violations).
 ignore = ["E501"]

@@ -5,7 +5,7 @@
 
 # euchre-cli
 
-[![build status](https://img.shields.io/github/actions/workflow/status/boldandbrad/euchre-cli/python-test.yml?branch=main&logo=github)]
+[![build status](https://img.shields.io/github/actions/workflow/status/boldandbrad/euchre-cli/python-test.yml?branch=main&logo=github)](https://github.com/boldandbrad/euchre-cli/actions/workflows/python-test.yml?query=branch%3Amain+)
 [![codecov](https://codecov.io/gh/boldandbrad/euchre-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/boldandbrad/euchre-cli)
 [![docs](https://img.shields.io/website?down_message=down&label=docs&up_message=online&url=https%3A%2F%2Fboldandbrad.github.io%2Feuchre-cli%2F)](https://boldandbrad.github.io/euchre-cli/)
 [![PyPI](https://img.shields.io/pypi/v/euchre-cli)](https://pypi.org/project/euchre-cli/)
@@ -25,7 +25,7 @@
 
 * James Barbret - logo design
 
-## Planned Features
+## Roadmap
 
 ### Release 1.x
 
@@ -45,6 +45,7 @@
 
 ### Future
 
+* TUI version
 * Play multiple cards at once if they are the highest remaining cards
 * Ability to go alone
 * Go alone with help mode
@@ -55,4 +56,10 @@
 * 'Ace no face' mode
 * Three handed euchre mode
 * Install with homebrew on mac and linux ?
-* Install with Chocolatey on windows ?
+* Install with Chocolatey/Scoop on windows ?
+
+### Probably never but would be cool, right? 🤷
+
+* Ability to connect to and play with your friends online
+* Integrate this into a larger tool called "cards-cli" or something with other
+  available card games.

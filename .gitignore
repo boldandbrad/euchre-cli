@@ -21,6 +21,14 @@ __pycache__/
 build/
 dist/
 
+# tool cache
+.mypy_cache
+.pytest_cache
+.ruff_cache
+
 # test
 .coverage
 coverage.xml
+
+# homebrew
+formula.rb
